@@ -31,7 +31,6 @@
                                 <label for="username">Imagen</label>
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="card-title d-flex">Subir imagen</h4>
                                         <input type="file" class="dropify" name="image" />
                                     </div>
                                 </div>

@@ -2,33 +2,60 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes Backend
 |--------------------------------------------------------------------------
 */
+Route::get('/register', [RegisterController::class, 'create'])->middleware('guest')->name('register');
+Route::post('/register', [RegisterController::class, 'store'])->middleware('guest')->name('register.perform');
 
-Route::get('/dashboard', function () {
-    return view('backend.index');
-})->name('dashboard');
 
-// ------------ Noticias ----------------
-Route::get('/admin/noticias', function () {
-    return view('backend.pages.news.news');
-})->name('news');
+Route::get('/login', [LoginController::class, 'show'])->middleware('guest')->name('login');
+Route::post('/login', [LoginController::class, 'login'])->middleware('guest')->name('login.perform');
 
-Route::get('/admin/noticias/añadir', function () {
-    return view('backend.pages.news.add');
-})->name('news.add');
 
-// ------------ Principios ----------------
-Route::get('/admin/principios', function () {
-    return view('backend.pages.beginnings.beginning');
-})->name('beginnings');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/dashboard', function () {
+        return view('backend.index');
+    })->name('dashboard');
 
-Route::get('/admin/principios/añadir', function () {
-    return view('backend.pages.beginnings.add');
-})->name('beginnings.add');
+    // ------------ Noticias ----------------
+    Route::get('/admin/noticias', function () {
+        return view('backend.pages.news.index');
+    })->name('news');
+    
+    Route::get('/admin/noticias/añadir', function () {
+        return view('backend.pages.news.add');
+    })->name('news.add');
+    
+    // ------------ Principios ----------------
+    Route::get('/admin/principios', function () {
+        return view('backend.pages.beginnings.index');
+    })->name('beginnings');
+    
+    Route::get('/admin/principios/añadir', function () {
+        return view('backend.pages.beginnings.add');
+    })->name('beginnings.add');
+    
+    // ------------ Reglamentos ----------------
+    Route::get('/admin/reglamentos', function () {
+        return view('backend.pages.regulations.index');
+    })->name('regulations');
+    
+    Route::get('/admin/reglamentos/añadir', function () {
+        return view('backend.pages.regulations.add');
+    })->name('regulations.add');
+    
+    // ------------ Autoridades ----------------
+    Route::get('/admin/autoridades', function () {
+        return view('backend.pages.authorities.index');
+    })->name('authorities');
+});
 
 
 Route::get('/calendar', function () {
@@ -193,10 +220,6 @@ Route::get('/invoice', function () {
 Route::get('/lock-screen', function () {
     return view('backend.pages.samples.lock-screen');
 })->name('lock-screen');
-
-Route::get('/login', function () {
-    return view('backend.pages.samples.login');
-})->name('login');
 
 Route::get('/news-grid', function () {
     return view('backend.pages.samples.news-grid');

@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('beginnings', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
-            $table->string('icon_beginning')->nullable();
             $table->string('description')->nullable();
             $table->foreignID('id_user')->constrained('users');
             $table->timestamps();

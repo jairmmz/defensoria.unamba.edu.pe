@@ -130,6 +130,9 @@
     <script src="{{ asset('assets/js/desktop-notification.js') }}"></script>
     <!-- End custom js for this page-->
 
+    <!-- Custom js profile for this page-->
+    <script src="{{ asset('assets/js/profile-demo.js') }}"></script>
+
     {{-- @if (Route::currentRouteName() == 'admin.dashboard')
         <!-- Custom js dashboard for this page-->
         <script src="{{ asset('assets/js/dashboard.js') }}"></script>

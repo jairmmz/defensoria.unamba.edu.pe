@@ -31,18 +31,18 @@
                 <img src="{{ asset('assets/images/logo.svg') }}" alt="logo">
               </div>
               <h4 class="text-center">!Bienvenido de nuevo!</h4>
-              <form class="pt-3">
+              <form role="form" method="POST" action="{{ route('login.perform') }}" class="pt-3" autocomplete="off">
                 @csrf
                 @method('POST')
                 <div class="form-group">
-                  <label for="exampleInputEmail">Usuario:</label>
+                  <label for="exampleInputEmail">Correo electrónico:</label>
                   <div class="input-group">
                     <div class="input-group-prepend bg-transparent">
                       <span class="input-group-text bg-transparent border-right-0">
                         <i class="fa fa-user text-primary"></i>
                       </span>
                     </div>
-                    <input type="email" name="email" class="form-control form-control-lg border-left-0" placeholder="Usuario">
+                    <input type="email" name="email" class="form-control form-control-lg border-left-0" placeholder="ejemplo@gmail.com" value="{{ old('email') }}">
                   </div>
                 </div>
                 <div class="form-group" role="form" method="POST" action="">
@@ -59,7 +59,7 @@
                 <div class="my-2 d-flex justify-content-between align-items-center">
                   <div class="form-check">
                     <label class="form-check-label text-muted">
-                      <input type="checkbox" class="form-check-input" class="remember">
+                      <input type="checkbox" class="form-check-input" name="remember" class="remember">
                       Recordar contraseña
                     </label>
                   </div>
