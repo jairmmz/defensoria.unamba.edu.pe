@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <!-- Mirrored from www.urbanui.com/melody/template/pages/samples/login-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 15 Sep 2018 06:08:53 GMT -->
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Melody Admin</title>
+  <title>Defensoría Universitaria - Login</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="{{ asset('assets/vendors/iconfonts/font-awesome/css/all.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/vendors/css/vendor.bundle.base.css') }}">
@@ -27,62 +27,59 @@
         <div class="row flex-grow">
           <div class="col-lg-6 d-flex align-items-center justify-content-center">
             <div class="auth-form-transparent text-left p-3">
-              <div class="brand-logo">
+              <div class="brand-logo text-center">
                 <img src="{{ asset('assets/images/logo.svg') }}" alt="logo">
               </div>
-              <h4>Welcome back!</h4>
-              <h6 class="font-weight-light">Happy to see you again!</h6>
+              <h4 class="text-center">!Bienvenido de nuevo!</h4>
               <form class="pt-3">
+                @csrf
+                @method('POST')
                 <div class="form-group">
-                  <label for="exampleInputEmail">Username</label>
+                  <label for="exampleInputEmail">Usuario:</label>
                   <div class="input-group">
                     <div class="input-group-prepend bg-transparent">
                       <span class="input-group-text bg-transparent border-right-0">
                         <i class="fa fa-user text-primary"></i>
                       </span>
                     </div>
-                    <input type="text" class="form-control form-control-lg border-left-0" id="exampleInputEmail" placeholder="Username">
+                    <input type="email" name="email" class="form-control form-control-lg border-left-0" placeholder="Usuario">
                   </div>
                 </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword">Password</label>
+                <div class="form-group" role="form" method="POST" action="">
+                  <label for="exampleInputPassword">Contraseña:</label>
                   <div class="input-group">
                     <div class="input-group-prepend bg-transparent">
                       <span class="input-group-text bg-transparent border-right-0">
                         <i class="fa fa-lock text-primary"></i>
                       </span>
                     </div>
-                    <input type="password" class="form-control form-control-lg border-left-0" id="exampleInputPassword" placeholder="Password">                        
+                    <input type="password" name="password" class="form-control form-control-lg border-left-0" placeholder="Contraseña">                        
                   </div>
                 </div>
                 <div class="my-2 d-flex justify-content-between align-items-center">
                   <div class="form-check">
                     <label class="form-check-label text-muted">
-                      <input type="checkbox" class="form-check-input">
-                      Keep me signed in
+                      <input type="checkbox" class="form-check-input" class="remember">
+                      Recordar contraseña
                     </label>
                   </div>
-                  <a href="#" class="auth-link text-black">Forgot password?</a>
+                  <a href="#" class="auth-link text-black">¿Has olvidado tu contraseña?</a>
                 </div>
                 <div class="my-3">
-                  <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="../../index-2.html">LOGIN</a>
-                </div>
-                <div class="mb-2 d-flex">
-                  <button type="button" class="btn btn-facebook auth-form-btn flex-grow mr-1">
-                    <i class="fab fa-facebook-f mr-2"></i>Facebook
-                  </button>
-                  <button type="button" class="btn btn-google auth-form-btn flex-grow ml-1">
-                    <i class="fab fa-google mr-2"></i>Google
-                  </button>
-                </div>
-                <div class="text-center mt-4 font-weight-light">
-                  Don't have an account? <a href="register-2.html" class="text-primary">Create</a>
+                  <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium">Ingresar</button>
+                  <a href="{{ route('dashboard') }}" class="auth-link text-black">Dashboard</a>
                 </div>
               </form>
             </div>
           </div>
           <div class="col-lg-6 login-half-bg d-flex flex-row">
-            <p class="text-white font-weight-medium text-center flex-grow align-self-end">Copyright &copy; 2018  All rights reserved.</p>
+            <p class="text-white font-weight-medium text-center flex-grow align-self-end">
+              Copyright &copy;
+              <script>
+                  var CurrentYear = new Date().getFullYear()
+                  document.write(CurrentYear + ",");
+              </script>
+              Defensoría Universitaria - UNAMBA</p>
           </div>
         </div>
       </div>

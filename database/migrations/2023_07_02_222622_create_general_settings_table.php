@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('logo_website');
             $table->string('title_website');
             $table->string('background_website');
-            $table->string('nummber_phone');
+            $table->string('number_phone');
             $table->string('link_facebook');
             $table->string('link_twitter');
             $table->string('link_instagram');

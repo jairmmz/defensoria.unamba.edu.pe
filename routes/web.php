@@ -8,13 +8,28 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/dashboard', function () {
     return view('backend.index');
 })->name('dashboard');
+
+// ------------ Noticias ----------------
+Route::get('/admin/noticias', function () {
+    return view('backend.pages.news.news');
+})->name('news');
+
+Route::get('/admin/noticias/añadir', function () {
+    return view('backend.pages.news.add');
+})->name('news.add');
+
+// ------------ Principios ----------------
+Route::get('/admin/principios', function () {
+    return view('backend.pages.beginnings.beginning');
+})->name('beginnings');
+
+Route::get('/admin/principios/añadir', function () {
+    return view('backend.pages.beginnings.add');
+})->name('beginnings.add');
+
 
 Route::get('/calendar', function () {
     return view('backend.pages.apps.calendar');
@@ -330,3 +345,6 @@ Route::get('/documentation', function () {
 | Web Routes Frontend
 |--------------------------------------------------------------------------
 */
+Route::get('/', function () {
+    return view('frontend.pages.index');
+})->name('index');

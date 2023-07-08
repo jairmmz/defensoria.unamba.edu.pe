@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('charge_authority')->nullable();
             $table->string('name')->nullable();
+            $table->string('image_authority');
             $table->foreignID('id_user')->constrained('users');
             $table->timestamps();
         });

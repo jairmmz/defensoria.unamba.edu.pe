@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'profile_photo',
     ];
 
     /**
@@ -42,4 +43,28 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function autorities(){
+        return $this->hasMany(Authoritie::class);
+    }
+
+    public function beginnings(){
+        return $this->hasMany(Beginning::class);
+    }
+
+    public function complaintDocuments(){
+        return $this->hasMany(ComplaintDocument::class);
+    }
+
+    public function generalSettings(){
+        return $this->hasMany(GeneralSetting::class);
+    }
+
+    public function news(){
+        return $this->hasMany(News::class);
+    }
+
+    public function regulations(){
+        return $this->hasMany(Regulation::class);
+    }
 }
