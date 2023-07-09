@@ -6,7 +6,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Defensoría Universitaria - Login</title>
+  <title>Defensoría - Login</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="{{ asset('assets/vendors/iconfonts/font-awesome/css/all.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/vendors/css/vendor.bundle.base.css') }}">
@@ -17,7 +17,7 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
   <!-- endinject -->
-  <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" />
+  <link rel="shortcut icon" href="{{ asset('assets/images/icon-du.png') }}" />
 </head>
 
 <body>
@@ -28,9 +28,9 @@
           <div class="col-lg-6 d-flex align-items-center justify-content-center">
             <div class="auth-form-transparent text-left p-3">
               <div class="brand-logo text-center">
-                <img src="{{ asset('assets/images/logo.svg') }}" alt="logo">
+                <img src="{{ asset('assets/images/logo-defensoria-universitaria.png') }}" alt="logo">
               </div>
-              <h4 class="text-center">!Bienvenido de nuevo!</h4>
+              <h4 class="text-center">!Bienvenido!</h4>
               <form role="form" method="POST" action="{{ route('login.perform') }}" class="pt-3" autocomplete="off">
                 @csrf
                 @method('POST')
@@ -67,19 +67,18 @@
                 </div>
                 <div class="my-3">
                   <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium">Ingresar</button>
-                  <a href="{{ route('dashboard') }}" class="auth-link text-black">Dashboard</a>
                 </div>
               </form>
             </div>
           </div>
           <div class="col-lg-6 login-half-bg d-flex flex-row">
-            <p class="text-white font-weight-medium text-center flex-grow align-self-end">
+            <b class="text-white font-weight-medium text-center flex-grow align-self-end mb-2">
               Copyright &copy;
               <script>
                   var CurrentYear = new Date().getFullYear()
                   document.write(CurrentYear + ",");
               </script>
-              Defensoría Universitaria - UNAMBA</p>
+              Defensoría Universitaria - UNAMBA</b>
           </div>
         </div>
       </div>

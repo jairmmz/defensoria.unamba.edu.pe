@@ -26,35 +26,56 @@ Route::group(['middleware' => 'auth'], function () {
 
     // ------------ Noticias ----------------
     Route::get('/admin/noticias', function () {
-        return view('backend.pages.news.index');
+        return view('backend.pages.news.index-news');
     })->name('news');
     
     Route::get('/admin/noticias/añadir', function () {
-        return view('backend.pages.news.add');
+        return view('backend.pages.news.add-new');
     })->name('news.add');
     
     // ------------ Principios ----------------
     Route::get('/admin/principios', function () {
-        return view('backend.pages.beginnings.index');
+        return view('backend.pages.beginnings.index-beginnings');
     })->name('beginnings');
     
     Route::get('/admin/principios/añadir', function () {
-        return view('backend.pages.beginnings.add');
+        return view('backend.pages.beginnings.add-beginning');
     })->name('beginnings.add');
     
     // ------------ Reglamentos ----------------
     Route::get('/admin/reglamentos', function () {
-        return view('backend.pages.regulations.index');
+        return view('backend.pages.regulations.index-regulations');
     })->name('regulations');
-    
+
     Route::get('/admin/reglamentos/añadir', function () {
-        return view('backend.pages.regulations.add');
+        return view('backend.pages.regulations.add-regulation');
     })->name('regulations.add');
     
     // ------------ Autoridades ----------------
     Route::get('/admin/autoridades', function () {
-        return view('backend.pages.authorities.index');
+        return view('backend.pages.authorities.index-authoritie');
     })->name('authorities');
+
+    // ------------ Usuarios ----------------
+    Route::get('/admin/usuarios', function () {
+        return view('backend.pages.users.index-users');
+    })->name('users');
+
+    Route::get('/admin/usuarios/añadir', function () {
+        return view('backend.pages.users.add-user');
+    })->name('users.add');
+
+    // ------------ Formato de documento ----------------
+    Route::get('/admin/documento-defensoria', function () {
+        return view('backend.pages.format-document.index-format-document');
+    })->name('document-format');
+
+    // ------------ Ajustes generales ----------------
+    Route::get('/admin/ajustes-generales', function () {
+        return view('backend.pages.settings-general.index-settings-general');
+    })->name('general-settings');
+
+    Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 });
 
 

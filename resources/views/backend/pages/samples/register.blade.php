@@ -33,32 +33,34 @@
               </div>
               <h4>New here?</h4>
               <h6 class="font-weight-light">Signing up is easy. It only takes a few steps</h6>
-              <form class="pt-3" method="POST" action="{{ route('register.perform') }}">
+              <form class="pt-3" method="POST" action="{{ route('register.perform') }}" autocomplete="off">
+                @csrf
                 <div class="form-group">
-                  <input type="text" name="username" class="form-control form-control-lg" id="exampleInputUsername1" placeholder="Username">
+                  <input type="text" name="username" class="form-control form-control-lg" id="exampleInputUsername1" placeholder="Usuario" value="{{ old('username') }}">
+                  @error('username') <p class='text-danger text-xs'> {{ $message }} </p> @enderror
                 </div>
                 <div class="form-group">
-                  <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Email">
+                  <input type="email" name="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="ejemplo@gmail.com" value="{{ old('email') }}">
+                  @error('email') <p class='text-danger text-xs'> {{ $message }} </p> @enderror
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
-                </div>
-                <div class="form-group">
-                  <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
+                  <input type="password" name="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Contraseña">
+                  @error('password') <p class='text-danger text-xs'> {{ $message }} </p> @enderror
                 </div>
                 <div class="mb-4">
                   <div class="form-check">
                     <label class="form-check-label text-muted">
-                      <input type="checkbox" class="form-check-input">
-                      I agree to all Terms & Conditions
+                      <input type="checkbox" name="terms" class="form-check-input">
+                      Acepto todos los términos y condiciones
                     </label>
+                    @error('terms') <p class='text-danger text-xs'> {{ $message }} </p> @enderror
                   </div>
                 </div>
                 <div class="mt-3">
-                  <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="index-2.html">SIGN UP</a>
+                  <button type="submit" class="btn btn-block btn-primary font-weight-medium auth-form-btn">Registrarse</button>
                 </div>
                 <div class="text-center mt-4 font-weight-light">
-                  Already have an account? <a href="login.html" class="text-primary">Login</a>
+                  Ya tienes una cuenta? <a href="{{ route('login') }}" class="text-primary">Login</a>
                 </div>
               </form>
             </div>
