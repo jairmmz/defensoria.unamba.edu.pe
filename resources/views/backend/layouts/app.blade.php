@@ -86,8 +86,8 @@
     <!-- End custom js for this page-->
 
     <!-- Custom js validation for this page-->
-    <script src="{{ asset('assets/js/form-validation.js') }}"></script>
-    <script src="{{ asset('assets/js/bt-maxLength.js') }}"></script>
+    {{-- <script src="{{ asset('assets/js/form-validation.js') }}"></script>
+    <script src="{{ asset('assets/js/bt-maxLength.js') }}"></script> --}}
     <!-- End custom js for this page-->
 
     <!-- Custom js wizard for this page-->

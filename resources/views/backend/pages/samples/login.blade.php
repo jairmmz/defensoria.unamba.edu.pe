@@ -44,6 +44,7 @@
                     </div>
                     <input type="email" name="email" class="form-control form-control-lg border-left-0" placeholder="ejemplo@gmail.com" value="{{ old('email') }}">
                   </div>
+                  @error('email') <p class='text-danger text-xs'> {{ $message }} </p> @enderror
                 </div>
                 <div class="form-group" role="form" method="POST" action="">
                   <label for="exampleInputPassword">Contraseña:</label>
@@ -55,6 +56,7 @@
                     </div>
                     <input type="password" name="password" class="form-control form-control-lg border-left-0" placeholder="Contraseña">                        
                   </div>
+                  @error('password') <p class='text-danger text-xs'> {{ $message }} </p> @enderror
                 </div>
                 <div class="my-2 d-flex justify-content-between align-items-center">
                   <div class="form-check">

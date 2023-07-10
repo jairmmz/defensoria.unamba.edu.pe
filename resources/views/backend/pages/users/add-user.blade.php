@@ -2,11 +2,11 @@
 @section('content')
     <div class="page-header">
         <h3 class="page-title">
-            Añadir noticia
+            Añadir usuario
         </h3>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('news') }}">Noticias</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('users') }}">Usuarios</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Añadir</li>
             </ol>
         </nav>
@@ -18,42 +18,47 @@
                     <h4 class="card-title">FORMULARIO DE REGISTRO</h4>
                     <form class="cmxform" id="signupForm" method="get" action="#">
                         <fieldset>
-                            <div class="form-group">
-                                <label for="title">Título</label>
-                                <input id="title" class="form-control" name="title" type="text">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label for="username">Nombre de usuario</label>
+                                        <input id="username" class="form-control" name="username" type="text">
+                                        @error('username') <p class='text-danger text-xs'> {{ $message }} </p> @enderror
+                                    </div>
+                                </div>
+                                <div class="col-lg-8">
+                                    <div class="form-group">
+                                        <label for="email">Correo electrónico</label>
+                                        <input id="email" class="form-control" name="email" type="email">
+                                        @error('email') <p class='text-danger text-xs'> {{ $message }} </p> @enderror
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="description">Descripción</label>
-                                <textarea class="form-control" id="desciption" name="description" rows="4"></textarea>
-                                {{-- <input id="lastname" class="form-control" name="lastname" type="textarea"> --}}
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="password">Contraseña</label>
+                                        <input id="password" class="form-control" name="password" type="password">
+                                        @error('password') <p class='text-danger text-xs'> {{ $message }} </p> @enderror
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="password">Confimar contraseña</label>
+                                        <input id="password" class="form-control" name="confir_password" type="password">
+                                        @error('password') <p class='text-danger text-xs'> {{ $message }} </p> @enderror
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="username">Imagen</label>
                                 <div class="card">
                                     <div class="card-body">
-                                        <input type="file" class="dropify" name="image" />
+                                        <input type="file" class="dropify" name="profile_photo" />
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-lg-9">
-                                    <div class="form-group">
-                                        <label for="link_to_news">Enlace</label>
-                                        <input id="link_to_news" class="form-control" name="link_to_news" type="text">
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-3">
-                                    <div class="form-group">
-                                        <label for="password">Estado</label>
-                                        <select class="form-control" name="is_active" id="">
-                                            <option value="">Activo</option>
-                                            <option value="">Inactivo</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <input class="btn btn-primary" type="submit" value="Submit">
+                            <input type="submit" class="btn btn-primary"  value="Guardar">
                         </fieldset>
                     </form>
                 </div>

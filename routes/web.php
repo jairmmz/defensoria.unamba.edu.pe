@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-
+use App\Http\Controllers\ThemeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -74,8 +74,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin/ajustes-generales', function () {
         return view('backend.pages.settings-general.index-settings-general');
     })->name('general-settings');
-
+    
     Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+    
+    // ------------ Cookies ----------------
+    Route::post('/theme', [ThemeController::class, 'setTheme'])->name('theme.set');
+    
 });
 
 

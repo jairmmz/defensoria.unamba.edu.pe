@@ -2,7 +2,7 @@
 @section('content')
     <div class="page-header">
         <h3 class="page-title">
-            Noticias
+            Usuarios
         </h3>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -14,9 +14,9 @@
     <div class="card">
         <div class="card-body">
             <div class="d-flex justify-content-between mb-3">
-                <h4 class="card-title">LISTA DE NOTICIAS</h4>
+                <h4 class="card-title">LISTA DE USUARIOS</h4>
                 <div>
-                  <a href="{{ route('news.add') }}" class="btn btn-primary btn-icon-text">
+                  <a href="{{ route('users.add') }}" class="btn btn-primary btn-icon-text">
                     Añadir noticia
                     <i class="btn-icon-append fas fa-plus"></i>
                   </a>
@@ -30,10 +30,9 @@
                             <thead>
                                 <tr>
                                     <th>Orden #</th>
-                                    <th>Título</th>
-                                    <th>Descripción</th>
+                                    <th>Usuario</th>
+                                    <th>Email</th>
                                     <th>Imagen</th>
-                                    <th>Enlace</th>
                                     <th>Estado</th>
                                     <th>Acción</th>
                                 </tr>
@@ -44,7 +43,6 @@
                                     <td>2012/08/03</td>
                                     <td>Edinburgh</td>
                                     <td>New York</td>
-                                    <td>$3200</td>
                                     <td>
                                         <label class="badge badge-info">On hold</label>
                                     </td>
@@ -57,7 +55,6 @@
                                     <td>2015/04/01</td>
                                     <td>Doe</td>
                                     <td>Brazil</td>
-                                    <td>$7500</td>
                                     <td>
                                         <label class="badge badge-danger">Pending</label>
                                     </td>
@@ -70,7 +67,6 @@
                                     <td>2010/11/21</td>
                                     <td>Sam</td>
                                     <td>Tokyo</td>
-                                    <td>$6300</td>
                                     <td>
                                         <label class="badge badge-success">Closed</label>
                                     </td>
@@ -83,7 +79,6 @@
                                     <td>2000/10/30</td>
                                     <td>Sam</td>
                                     <td>Tokyo</td>
-                                    <td>$2100</td>
                                     <td>
                                         <label class="badge badge-info">On-hold</label>
                                     </td>
@@ -96,7 +91,6 @@
                                     <td>2016/11/12</td>
                                     <td>John</td>
                                     <td>Tokyo</td>
-                                    <td>$6300</td>
                                     <td>
                                         <label class="badge badge-success">Closed</label>
                                     </td>
@@ -109,7 +103,6 @@
                                     <td>2003/12/26</td>
                                     <td>Tom</td>
                                     <td>Germany</td>
-                                    <td>$2300</td>
                                     <td>
                                         <label class="badge badge-danger">Pending</label>
                                     </td>
