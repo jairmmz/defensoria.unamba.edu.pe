@@ -9,7 +9,7 @@ class RegisterController extends Controller
 {
     public function create()
     {
-        return view('auth.register');
+        return view('backend.pages.samples.register');
     }
 
     public function store()
@@ -18,7 +18,9 @@ class RegisterController extends Controller
             'username' => 'required|max:255|min:2',
             'email' => 'required|email|max:255|unique:users,email',
             'password' => 'required|min:5|max:255',
-            'terms' => 'required'
+            'role' => 'required',
+            'terms' => 'required',
+            'profile_photo' => 'image|mimes:jpeg,png,jpg|max:10240'
         ]);
         $user = User::create($attributes);
         auth()->login($user);

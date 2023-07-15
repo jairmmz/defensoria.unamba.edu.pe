@@ -8,7 +8,6 @@
             </script>
             Defensoría Universitaria - UNAMBA
         </p>
-        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Developed by Jairmmz <i
-                class="far fa-heart text-danger"></i></span>
+        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Developed by Jairmmz <i class="far fa-heart text-danger"></i></span>
     </div>
 </footer>

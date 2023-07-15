@@ -20,6 +20,7 @@
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    
     <!-- endinject -->
     <link rel="shortcut icon" href="{{ asset('assets/images/icon-du.png') }}" />
 </head>
@@ -127,7 +128,7 @@
 
     <!-- Custom js notifications for this page-->
     <script src="{{ asset('assets/js/toastDemo.js') }}"></script>
-    <script src="{{ asset('assets/js/desktop-notification.js') }}"></script>
+    {{-- <script src="{{ asset('assets/js/desktop-notification.js') }}"></script> --}}
     <!-- End custom js for this page-->
 
     <!-- Custom js profile for this page-->

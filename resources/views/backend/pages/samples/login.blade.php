@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<!-- Mirrored from www.urbanui.com/melody/template/pages/samples/login-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 15 Sep 2018 06:08:53 GMT -->
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -88,7 +86,6 @@
     </div>
     <!-- page-body-wrapper ends -->
   </div>
-  <!-- container-scroller -->
   <!-- plugins:js -->
   <script src="{{ asset('assets/vendors/js/vendor.bundle.base.js') }}"></script>
   <script src="{{ asset('assets/vendors/js/vendor.bundle.addons.js') }}"></script>
@@ -101,7 +98,4 @@
   <script src="{{ asset('assets/js/todolist.js') }}"></script>
   <!-- endinject -->
 </body>
-
-
-<!-- Mirrored from www.urbanui.com/melody/template/pages/samples/login-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 15 Sep 2018 06:08:53 GMT -->
 </html>

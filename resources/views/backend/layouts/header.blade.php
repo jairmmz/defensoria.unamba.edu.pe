@@ -24,135 +24,20 @@
             </li>
         </ul>
         <ul class="navbar-nav navbar-nav-right">
-            <li class="nav-item dropdown d-none d-lg-flex">
-                <div class="nav-link">
-                    <span class="dropdown-toggle btn btn-outline-dark" id="languageDropdown"
-                        data-toggle="dropdown">Español</span>
-                    <div class="dropdown-menu navbar-dropdown" aria-labelledby="languageDropdown">
-                        <a class="dropdown-item font-weight-medium" href="#">
-                            Ingles
-                        </a>
-                        <div class="dropdown-divider"></div>
-                    </div>
-                </div>
-            </li>
             <li class="nav-item dropdown">
                 <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
                     data-toggle="dropdown">
                     <i class="fas fa-bell mx-0"></i>
                     <span class="count">16</span>
                 </a>
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
-                    aria-labelledby="notificationDropdown">
-                    <a class="dropdown-item">
-                        <p class="mb-0 font-weight-normal float-left">You have 16 new notifications
-                        </p>
-                        <span class="badge badge-pill badge-warning float-right">View all</span>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item preview-item">
-                        <div class="preview-thumbnail">
-                            <div class="preview-icon bg-danger">
-                                <i class="fas fa-exclamation-circle mx-0"></i>
-                            </div>
-                        </div>
-                        <div class="preview-item-content">
-                            <h6 class="preview-subject font-weight-medium">Application Error</h6>
-                            <p class="font-weight-light small-text">
-                                Just now
-                            </p>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item preview-item">
-                        <div class="preview-thumbnail">
-                            <div class="preview-icon bg-warning">
-                                <i class="fas fa-wrench mx-0"></i>
-                            </div>
-                        </div>
-                        <div class="preview-item-content">
-                            <h6 class="preview-subject font-weight-medium">Settings</h6>
-                            <p class="font-weight-light small-text">
-                                Private message
-                            </p>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item preview-item">
-                        <div class="preview-thumbnail">
-                            <div class="preview-icon bg-info">
-                                <i class="far fa-envelope mx-0"></i>
-                            </div>
-                        </div>
-                        <div class="preview-item-content">
-                            <h6 class="preview-subject font-weight-medium">New user registration</h6>
-                            <p class="font-weight-light small-text">
-                                2 days ago
-                            </p>
-                        </div>
-                    </a>
-                </div>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#"
-                    data-toggle="dropdown" aria-expanded="false">
-                    <i class="fas fa-envelope mx-0"></i>
-                    <span class="count">25</span>
+            <div class="nav-link">
+                <a class="btn btn-outline-dark" href="{{ route('index') }}" target="_blank">Ir a la web <i class="fas fa-globe mx-0"></i>
                 </a>
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
-                    aria-labelledby="messageDropdown">
-                    <div class="dropdown-item">
-                        <p class="mb-0 font-weight-normal float-left">You have 7 unread mails
-                        </p>
-                        <span class="badge badge-info badge-pill float-right">View all</span>
-                    </div>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item preview-item">
-                        <div class="preview-thumbnail">
-                            <img src="{{ asset('assets/images/faces/face4.jpg') }}" alt="image" class="profile-pic">
-                        </div>
-                        <div class="preview-item-content flex-grow">
-                            <h6 class="preview-subject ellipsis font-weight-medium">David Grey
-                                <span class="float-right font-weight-light small-text">1 Minutes ago</span>
-                            </h6>
-                            <p class="font-weight-light small-text">
-                                The meeting is cancelled
-                            </p>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item preview-item">
-                        <div class="preview-thumbnail">
-                            <img src="{{ asset('assets/images/faces/face2.jpg') }}" alt="image" class="profile-pic">
-                        </div>
-                        <div class="preview-item-content flex-grow">
-                            <h6 class="preview-subject ellipsis font-weight-medium">Tim Cook
-                                <span class="float-right font-weight-light small-text">15 Minutes ago</span>
-                            </h6>
-                            <p class="font-weight-light small-text">
-                                New product launch
-                            </p>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item preview-item">
-                        <div class="preview-thumbnail">
-                            <img src="{{ asset('assets/images/faces/face3.jpg') }}" alt="image" class="profile-pic">
-                        </div>
-                        <div class="preview-item-content flex-grow">
-                            <h6 class="preview-subject ellipsis font-weight-medium"> Johnson
-                                <span class="float-right font-weight-light small-text">18 Minutes ago</span>
-                            </h6>
-                            <p class="font-weight-light small-text">
-                                Upcoming board meeting
-                            </p>
-                        </div>
-                    </a>
-                </div>
-            </li>
+            </div>
             <li class="nav-item nav-profile dropdown">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-                    <img src="{{ asset('assets/images/faces/face16.jpg') }}" alt="profile" />
+                    <img src="{{ asset('assets/images/' . (Auth::user()->profile_photo != null ? Auth::user()->profile_photo : 'user-default.png') ) }}" alt="">
                 </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
                     <a class="dropdown-item" href="#">

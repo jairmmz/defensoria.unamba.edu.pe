@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ThemeController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +20,10 @@ Route::post('/register', [RegisterController::class, 'store'])->middleware('gues
 Route::get('/login', [LoginController::class, 'show'])->middleware('guest')->name('login');
 Route::post('/login', [LoginController::class, 'login'])->middleware('guest')->name('login.perform');
 
+Route::redirect('/admin', '/dashboard', 301);
 
 Route::group(['middleware' => 'auth'], function () {
+    // Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/dashboard', function () {
         return view('backend.index');
     })->name('dashboard');
@@ -57,13 +61,18 @@ Route::group(['middleware' => 'auth'], function () {
     })->name('authorities');
 
     // ------------ Usuarios ----------------
-    Route::get('/admin/usuarios', function () {
-        return view('backend.pages.users.index-users');
-    })->name('users');
-
+    Route::get('/admin/usuarios', [UserController::class, 'index'])->name('users');
+    
     Route::get('/admin/usuarios/añadir', function () {
         return view('backend.pages.users.add-user');
     })->name('users.add');
+
+    Route::post('/admin/usuarios/guardar', [UserController::class, 'store'])->name('users.save');
+
+    Route::get('/admin/usuarios/editar/{user}', [UserController::class, 'edit'])->name('users.edit');
+    Route::post('/admin/usuarios/actualizar/{user}', [UserController::class, 'update'])->name('users.update');
+
+    Route::get('/admin/usuarios/eliminar/{user}', [UserController::class, 'destroy'])->name('users.destroy');
 
     // ------------ Formato de documento ----------------
     Route::get('/admin/documento-defensoria', function () {
@@ -76,9 +85,6 @@ Route::group(['middleware' => 'auth'], function () {
     })->name('general-settings');
     
     Route::post('logout', [LoginController::class, 'logout'])->name('logout');
-    
-    // ------------ Cookies ----------------
-    Route::post('/theme', [ThemeController::class, 'setTheme'])->name('theme.set');
     
 });
 
