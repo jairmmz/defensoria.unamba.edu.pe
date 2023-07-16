@@ -3,7 +3,7 @@
         <li class="nav-item nav-profile">
             <div class="nav-link">
                 <div class="profile-image">
-                    <img src="{{ asset('assets/images/' . (Auth::user()->profile_photo != null ? Auth::user()->profile_photo : 'user-default.png') ) }}" alt="">
+                    <img src="{{ asset('assets/images/' . (Auth::user()->profile_photo != null ? Auth::user()->profile_photo : 'users/user-default.png') ) }}" alt="">
                 </div>
                 <div class="profile-name">
                     <p class="name">
@@ -42,20 +42,6 @@
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item"> <a class="nav-link {{ Route::currentRouteName() == 'news' ? 'active' : '' }}" href="{{ route('news') }}">Lista de noticias</a></li>
                     <li class="nav-item"> <a class="nav-link {{ Route::currentRouteName() == 'news.add' ? 'active' : '' }}" href="{{ route('news.add') }}">Agregar noticia</a></li>
-                </ul>
-            </div>
-        </li>
-        <li class="nav-item {{ Route::currentRouteName() == 'beginnings' || Route::currentRouteName() == 'beginnings.add' ? 'active' : '' }}">
-            <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false"
-                aria-controls="form-elements">
-                <i class="fas fa-shield-alt menu-icon"></i>
-                <span class="menu-title">Principios</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse {{ Route::currentRouteName() == 'beginnings' || Route::currentRouteName() == 'beginnings.add' ? 'show' : '' }}" id="form-elements">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link {{ Route::currentRouteName() == 'beginnings' ? 'active' : '' }}" href="{{ route('beginnings') }}">Lista de principios</a></li>
-                    <li class="nav-item"><a class="nav-link {{ Route::currentRouteName() == 'beginnings.add' ? 'active' : '' }}" href="{{ route('beginnings.add') }}">Agregar principio</a></li>
                 </ul>
             </div>
         </li>

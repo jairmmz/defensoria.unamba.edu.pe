@@ -13,6 +13,7 @@ class Regulation extends Model
         'title',
         'description',
         'date_regulation',
+        'is_active',
         'document_regulation',
         'id_user',
     ];

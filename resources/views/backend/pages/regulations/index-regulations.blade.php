@@ -2,7 +2,7 @@
 @section('content')
     <div class="page-header">
         <h3 class="page-title">
-            Noticias
+            Reglamentos y Resoluciones
         </h3>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -32,84 +32,36 @@
                                     <th>Orden #</th>
                                     <th>Título</th>
                                     <th>Descripción</th>
-                                    <th>Fecha de publicación</th>
+                                    <th>Fecha de resolución</th>
                                     <th>Documento</th>
+                                    <th>Estado</th>
                                     <th>Acción</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($regulations as $regulation)
                                 <tr>
-                                    <td>1</td>
-                                    <td>2012/08/03</td>
-                                    <td>Edinburgh</td>
-                                    <td>$3200</td>
+                                    <td>{{ $regulation->id }} </td>
+                                    <td>{{ $regulation->title }}</td>
+                                    <td>{{ $regulation->description }}</td>
+                                    <td>{{ $regulation->date_regulation }}</td>
                                     <td>
-                                        <label class="badge badge-info">On hold</label>
+                                        <a href="{{ asset('assets/documents/' . $regulation->document_regulation) }}" target="_blank" class="btn btn-outline-primary">Ver</a>
                                     </td>
                                     <td>
-                                        <button class="btn btn-outline-primary">Ver</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>2015/04/01</td>
-                                    <td>Doe</td>
-                                    <td>Brazil</td>
-                                    <td>
-                                        <label class="badge badge-danger">Pending</label>
+                                        <label class="badge badge-{{ $regulation->is_active == 1 ? 'info' : 'danger'  }}">
+                                            {{ $regulation->is_active == 1 ? 'Activo' : 'Inactivo' }}
+                                        </label>
                                     </td>
                                     <td>
-                                        <button class="btn btn-outline-primary">Ver</button>
+                                        <a href="{{ route('regulations.edit', ['regulation' => $regulation->id ]) }}" class="btn btn-outline-primary mb-2">Editar</a>
+                                        <form method="POST" action="{{ route('regulations.destroy', ['regulation' => $regulation->id ]) }}" >
+                                            @csrf
+                                            {{ method_field("DELETE") }}
+                                            <a href="{{ route('regulations.destroy', ['regulation' => $regulation->id ]) }}" class="btn btn-outline-danger" onclick="event.preventDefault(); this.closest('form').submit();">Eliminar</a>
+                                        </form>
                                     </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>2010/11/21</td>
-                                    <td>Sam</td>
-                                    <td>$6300</td>
-                                    <td>
-                                        <label class="badge badge-success">Closed</label>
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-outline-primary">Ver</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>6</td>
-                                    <td>2000/10/30</td>
-                                    <td>Sam</td>
-                                    <td>Tokyo</td>
-                                    <td>
-                                        <label class="badge badge-info">On-hold</label>
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-outline-primary">Ver</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>9</td>
-                                    <td>2016/11/12</td>
-                                    <td>John</td>
-                                    <td>Tokyo</td>
-                                    <td>
-                                        <label class="badge badge-success">Closed</label>
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-outline-primary">Ver</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>10</td>
-                                    <td>2003/12/26</td>
-                                    <td>Germany</td>
-                                    <td>$2300</td>
-                                    <td>
-                                        <label class="badge badge-danger">Pending</label>
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-outline-primary">Ver</button>
-                                    </td>
-                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

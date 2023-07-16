@@ -49,7 +49,7 @@
                             
                             <div class="col-lg-3">
                                 <div class="form-group">
-                                    <label for="password">Estado</label>
+                                    <label for="is_active">Estado</label>
                                     <select class="form-control" name="is_active" id="">
                                         <option value="1">Activo</option>
                                         <option value="0">Inactivo</option>

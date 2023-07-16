@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RegulationRequest;
 use App\Models\Regulation;
 use Illuminate\Http\Request;
 
@@ -18,9 +19,24 @@ class RegulationController extends Controller
         //
     }
 
-    public function store(Request $request)
+    public function store(RegulationRequest $request)
     {
-        //
+        try {
+            $regulation = $request->all();
+
+            if ($document = $request->file('document_regulation')) {
+                $routeSaveDocument = 'assets/documents/';
+                $documentRegulation = $document->getClientOriginalName(); // Obtener el nombre original del documento
+                $document->move($routeSaveDocument, $documentRegulation);
+                $regulation['document_regulation'] = $documentRegulation;
+            }
+
+            Regulation::create($regulation);
+
+            return redirect()->route('regulations')->with('success', 'Regulation created successfully');
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     public function show(Regulation $regulation)
@@ -30,16 +46,57 @@ class RegulationController extends Controller
 
     public function edit(Regulation $regulation)
     {
-        //
+        return view('backend.pages.regulations.edit-regulation', compact('regulation'));
     }
 
     public function update(Request $request, Regulation $regulation)
     {
-        //
+        try {
+            $regulationUpdate = $request->all();
+
+            if ($document = $request->file('document_regulation')) {
+                // Eliminar el documento si existe
+                if ($regulation->document_regulation) {
+                    $documentPath = public_path('assets/documents/' . $regulation->document_regulation);
+
+                    if (file_exists($documentPath)) {
+                        unlink($documentPath);
+                    }
+                }
+                // Guardar el nuevo documento
+                $routeSaveDocument = 'assets/documents/';
+                $documentRegulation = $document->getClientOriginalName(); // Obtener el nombre original del documento
+                $document->move($routeSaveDocument, $documentRegulation);
+                $regulationUpdate['document_regulation'] = $documentRegulation;
+            } else {
+                // Mantener el documento anterior
+                $regulationUpdate['document_regulation'] = $regulation->document_regulation;
+            }
+
+            $regulation->update($regulationUpdate);
+
+            return redirect()->route('regulations')->with('success', 'Regulation updated successfully');
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     public function destroy(Regulation $regulation)
     {
-        //
+        try {
+            if ($regulation->document_regulation) {
+                $documentPath = public_path('assets/documents/' . $regulation->document_regulation);
+
+                if (file_exists($documentPath)) {
+                    unlink($documentPath);
+                }
+            }
+
+            $regulation->delete();
+
+            return redirect()->route('regulations')->with('success', 'Regulation deleted successfully');
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 }

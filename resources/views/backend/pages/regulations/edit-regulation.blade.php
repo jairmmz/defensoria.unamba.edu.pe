@@ -16,24 +16,24 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">FORMULARIO DE REGISTRO</h4>
-                    <form method="POST" action="{{ route('regulations.save') }}" enctype="multipart/form-data" autocomplete="off">
+                    <form action="{{ route('regulations.update', ['regulation' => $regulation->id]) }}" enctype="multipart/form-data" autocomplete="off" method="POST">
                         @csrf
-                        {{ method_field("POST") }}
+                        {{ method_field("PATCH") }}
                         <div class="form-group">
                             <label for="title">Título</label>
-                            <input id="title" class="form-control" name="title" type="text">
+                            <input id="title" class="form-control" name="title" type="text" value="{{ $regulation->title }}">
                             @error('title') <p class='text-danger text-xs'> {{ $message }} </p> @enderror
                         </div>
                         <div class="form-group">
                             <label for="description">Descripción</label>
-                            <textarea class="form-control" id="desciption" name="description" rows="4"></textarea>
+                            <textarea class="form-control" id="desciption" name="description" rows="4">{{ $regulation->description }}</textarea>
                             @error('description') <p class='text-danger text-xs'> {{ $message }} </p> @enderror
                         </div>
                         <div class="row">
                             <div class="col-lg-9">
                                 <div class="form-group">
                                     <label for="date_regulation">Fecha de publicación</label>
-                                    <input name="date_regulation" type="date" class="form-control" data-inputmask="'alias': 'date'" />
+                                    <input name="date_regulation" type="date" class="form-control" data-inputmask="'alias': 'date'" value="{{ $regulation->date_regulation }}"/>
                                     @error('date_regulation') <p class='text-danger text-xs'> {{ $message }} </p> @enderror
                                 </div>
                             </div>
@@ -41,8 +41,8 @@
                                 <div class="form-group">
                                     <label for="is_active">Estado</label>
                                     <select class="form-control" name="is_active" id="">
-                                        <option value="1" selected>Activo</option>
-                                        <option value="0">Inactivo</option>
+                                        <option value="1" {{ $regulation->is_active == '1' ? 'selected' : '' }}>Activo</option>
+                                        <option value="0" {{ $regulation->is_active == '0' ? 'selected' : '' }}>Inactivo</option>
                                     </select>
                                 </div>
                             </div>
@@ -58,7 +58,7 @@
                         </div>
                         <input class="form-control" name="id_user" type="hidden" value="{{ Auth::user()->id }}">
 
-                        <input class="btn btn-primary" type="submit" value="Añadir">
+                        <input class="btn btn-primary" type="submit" value="Guardar">
                     </form>
                 </div>
             </div>

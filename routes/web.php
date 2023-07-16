@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\AuthoritieController;
-use App\Http\Controllers\BeginningController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\LoginController;
@@ -37,16 +36,6 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/noticias/editar/{new}', [NewsController::class, 'edit'])->name('news.edit');
         Route::patch('/noticias/actualizar/{new}', [NewsController::class, 'update'])->name('news.update');
         Route::delete('/noticias/eliminar/{new}', [NewsController::class, 'destroy'])->name('news.destroy');
-    });
-    
-    // ------------ Principios ----------------
-    Route::prefix('admin')->group(function () {
-        Route::get('/principios', [BeginningController::class, 'index'])->name('beginnings');
-        Route::view('/principios/añadir', 'backend.pages.beginnings.add-beginning')->name('beginnings.add');
-        Route::post('/principios/guardar', [BeginningController::class, 'store'])->name('beginnings.save');
-        Route::get('/principios/editar/{beginning}', [BeginningController::class, 'edit'])->name('beginnings.edit');
-        Route::patch('/principios/actualizar/{beginning}', [BeginningController::class, 'update'])->name('beginnings.update');
-        Route::delete('/principios/eliminar/{beginning}', [BeginningController::class, 'destroy'])->name('beginnings.destroy');
     });
     
     // ------------ Reglamentos ----------------

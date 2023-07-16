@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title')->nullable();
             $table->string('description')->nullable();
             $table->date('date_regulation')->nullable();
+            $table->boolean('is_active')->default(true);
             $table->string('document_regulation')->nullable();
             $table->foreignID('id_user')->constrained('users');
             $table->timestamps();
