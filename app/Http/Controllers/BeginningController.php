@@ -9,7 +9,8 @@ class BeginningController extends Controller
 {
     public function index()
     {
-        //
+        $beginnings = Beginning::all();
+        return view('backend.pages.beginnings.index-beginnings', compact('beginnings'));
     }
 
     public function create()

@@ -17,8 +17,8 @@
                 <div class="card-body">
                     <h4 class="card-title">FORMULARIO DE REGISTRO</h4>
                     <form action="{{ route('users.update', ['user' => $user->id]) }}" enctype="multipart/form-data" autocomplete="off" method="POST">
-                        {{-- {{ method_field("GET") }} --}}
                         @csrf
+                        {{ method_field("PATCH") }}
                         <div class="row">
                             <div class="col-lg-3">
                                 <div class="form-group">
@@ -38,7 +38,7 @@
                                 <div class="form-group">
                                     <label for="role">Rol</label>
                                     <select class="form-control" name="role">
-                                        <option value="superadmin" {{ $user->role == 'superadmin' ? 'selected' : '' }}  >Super admin</option>
+                                        <option value="superadmin" {{ $user->role == 'superadmin' ? 'selected' : '' }} >Super admin</option>
                                         <option value="admin" {{ $user->role == 'admin' ? 'selected' : '' }} >admin</option>
                                     </select>
                                     @error('role') <p class='text-danger text-xs'> {{ $message }} </p> @enderror

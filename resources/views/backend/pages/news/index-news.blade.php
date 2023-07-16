@@ -14,13 +14,11 @@
     <div class="card">
         <div class="card-body">
             <div class="d-flex justify-content-between mb-3">
-                <h4 class="card-title">LISTA DE NOTICIAS</h4>
-                <div>
+                <h4 class="card-title">LISTA DE NOTICIAS</h4>                
                   <a href="{{ route('news.add') }}" class="btn btn-primary btn-icon-text">
                     Añadir noticia
                     <i class="btn-icon-append fas fa-plus"></i>
                   </a>
-                </div>
             </div>
               
             <div class="row">
@@ -29,7 +27,7 @@
                         <table id="order-listing" class="table">
                             <thead>
                                 <tr>
-                                    <th>Orden #</th>
+                                    <th>#</th>
                                     <th>Título</th>
                                     <th>Descripción</th>
                                     <th>Imagen</th>
@@ -39,84 +37,34 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>2012/08/03</td>
-                                    <td>Edinburgh</td>
-                                    <td>New York</td>
-                                    <td>$3200</td>
-                                    <td>
-                                        <label class="badge badge-info">On hold</label>
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-outline-primary">Ver</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>2015/04/01</td>
-                                    <td>Doe</td>
-                                    <td>Brazil</td>
-                                    <td>$7500</td>
-                                    <td>
-                                        <label class="badge badge-danger">Pending</label>
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-outline-primary">Ver</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>2010/11/21</td>
-                                    <td>Sam</td>
-                                    <td>Tokyo</td>
-                                    <td>$6300</td>
-                                    <td>
-                                        <label class="badge badge-success">Closed</label>
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-outline-primary">Ver</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>6</td>
-                                    <td>2000/10/30</td>
-                                    <td>Sam</td>
-                                    <td>Tokyo</td>
-                                    <td>$2100</td>
-                                    <td>
-                                        <label class="badge badge-info">On-hold</label>
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-outline-primary">Ver</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>9</td>
-                                    <td>2016/11/12</td>
-                                    <td>John</td>
-                                    <td>Tokyo</td>
-                                    <td>$6300</td>
-                                    <td>
-                                        <label class="badge badge-success">Closed</label>
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-outline-primary">Ver</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>10</td>
-                                    <td>2003/12/26</td>
-                                    <td>Tom</td>
-                                    <td>Germany</td>
-                                    <td>$2300</td>
-                                    <td>
-                                        <label class="badge badge-danger">Pending</label>
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-outline-primary">Ver</button>
-                                    </td>
-                                </tr>
+                                @foreach ($news as $new)
+                                    <tr>
+                                        <td>{{ $new->id }}</td>
+                                        <td>{{ $new->title }}</td>
+                                        <td>{{ Str::limit($new->description, 50) }}</td>
+                                        <td>
+                                            @if (!$new->image)
+                                                <img src="{{ asset('assets/images/logo-du-unamba-min.png') }}" alt="">
+                                            @else
+                                            <img src="{{ asset('assets/images/' . $new->image) }}" alt="">
+                                            @endif
+                                        </td>
+                                        <td><a href="{{ $new->link_to_news }}" target="_blank">Ir a la noticia</a></td>
+                                        <td>
+                                            <label class="badge badge-{{ $new->is_active == 1 ? 'info' : 'danger'  }}">
+                                                {{ $new->is_active == 1 ? 'Activo' : 'Inactivo' }}
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <a href="{{ route('news.edit', ['new' => $new->id ]) }}" class="btn btn-outline-primary mb-2">Editar</a>
+                                            <form method="POST" action="{{ route('news.destroy', ['new' => $new->id ]) }}" >
+                                                @csrf
+                                                {{ method_field("DELETE") }}
+                                                <a href="{{ route('news.destroy', ['new' => $new->id ]) }}" class="btn btn-outline-danger" onclick="event.preventDefault(); this.closest('form').submit();">Eliminar</a>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

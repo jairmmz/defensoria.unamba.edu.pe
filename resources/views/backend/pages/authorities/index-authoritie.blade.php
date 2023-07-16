@@ -10,34 +10,32 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">FORMULARIO DE REGISTRO</h4>
-                    <form class="cmxform" id="signupForm" method="get" action="#">
-                        <fieldset>
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <div class="form-group">
-                                        <label for="title">Cargo de la autoridad</label>
-                                        <input id="title" class="form-control" name="title" type="text">
+                    <div class="row">
+                        <div class="col-lg-7">
+                            <form method="get" action="#">
+                                <div class="form-group">
+                                    <label for="title">Cargo de la autoridad</label>
+                                    <input id="title" class="form-control" name="title" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label for="title">Nombre y apellidos</label>
+                                    <input id="title" class="form-control" name="title" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label for="username">Foto</label>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <input type="file" class="dropify" name="image" />
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-8">
-                                    <div class="form-group">
-                                        <label for="title">Nombre y apellidos</label>
-                                        <input id="title" class="form-control" name="title" type="text">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="username">Foto</label>
-                                <div class="card">
-                                    <div class="card-body">
-                                        <input type="file" class="dropify" name="image" />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <input class="btn btn-primary" type="submit" value="Actualizar">
-                        </fieldset>
-                    </form>
+                                <input class="btn btn-primary" type="submit" value="Guardar">
+                            </form>
+                        </div>
+                        <div class="col-lg-5">
+                            Hola mundo
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

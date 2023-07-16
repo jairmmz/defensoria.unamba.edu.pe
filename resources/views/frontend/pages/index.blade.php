@@ -115,7 +115,7 @@
     <!-- /authorities details -->
 
     <!-- success story -->
-    <section class="section bg-cover" id="mission" data-background="{{ asset('assets/images/backgrounds/success-story.jpg') }}">
+    <section class="section bg-cover" id="mission" data-background="{{ asset('assets/images/banner/success-story.jpg') }}">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-sm-12 mb-4">

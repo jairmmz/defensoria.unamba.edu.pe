@@ -9,7 +9,8 @@ class RegulationController extends Controller
 {
     public function index()
     {
-        //
+        $regulations = Regulation::all();
+        return view('backend.pages.regulations.index-regulations', compact('regulations'));
     }
 
     public function create()

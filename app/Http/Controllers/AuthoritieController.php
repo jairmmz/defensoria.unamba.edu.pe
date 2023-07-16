@@ -9,7 +9,8 @@ class AuthoritieController extends Controller
 {
     public function index()
     {
-        //
+        $authorities = Authoritie::all();
+        return view('backend.pages.authorities.index-authoritie', compact('authorities'));
     }
 
     public function create()

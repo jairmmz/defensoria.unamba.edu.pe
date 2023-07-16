@@ -54,8 +54,12 @@
                                             {{ $user->role }}
                                         </td>
                                         <td>
-                                            <a href="{{ route('users.edit', ['user' => $user->id ]) }}" class="btn btn-outline-primary">Editar</a>
-                                            <a href="{{ route('users.destroy', ['user' => $user->id ]) }}" class="btn btn-outline-danger">Eliminar</a>
+                                            <a href="{{ route('users.edit', ['user' => $user->id ]) }}" class="btn btn-outline-primary mb-2">Editar</a>
+                                            <form method="POST" action="{{ route('users.destroy', ['user' => $user->id ]) }}" >
+                                                @csrf
+                                                {{ method_field("DELETE") }}
+                                                <a href="{{ route('users.destroy', ['user' => $user->id ]) }}" class="btn btn-outline-danger" onclick="event.preventDefault(); this.closest('form').submit();">Eliminar</a>
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach

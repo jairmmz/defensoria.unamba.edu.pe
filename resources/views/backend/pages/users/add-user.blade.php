@@ -18,6 +18,7 @@
                     <h4 class="card-title">FORMULARIO DE REGISTRO</h4>
                     <form method="POST" action="{{ route('users.save') }}" enctype="multipart/form-data" autocomplete="off">
                         @csrf
+                        {{ method_field("POST") }}
                         <div class="row">
                             <div class="col-lg-3">
                                 <div class="form-group">

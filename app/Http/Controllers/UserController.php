@@ -10,9 +10,13 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::all();
+        try {
+            $users = User::all();
 
-        return view('backend.pages.users.index-users', compact('users'));
+            return view('backend.pages.users.index-users', compact('users'));
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     public function create()
@@ -23,10 +27,9 @@ class UserController extends Controller
     public function store(UserRequest $request)
     {
         try {
-
             $user = $request->all();
 
-            if($image = $request->file('profile_photo')){
+            if ($image = $request->file('profile_photo')) {
                 $routeSaveImage = 'assets/images/';
                 $imageUser = date('YmdHis') . "." . $image->getClientOriginalExtension();
                 $image->move($routeSaveImage, $imageUser);
@@ -36,7 +39,6 @@ class UserController extends Controller
             User::create($user);
 
             return to_route('users')->with(['status' => 'success', 'message' => 'Usuario registrado correctamente.']);
-            
         } catch (\Exception $th) {
             throw $th;
         }
@@ -48,57 +50,63 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
-        return view('backend.pages.users.edit', compact('user'));
+        return view('backend.pages.users.edit-user', compact('user'));
     }
 
     public function update(Request $request, User $user)
     {
-        $userUpdate = $request->all();
-        
-        if ($image = $request->file('profile_photo')) {
-            // Eliminar la imagen de perfil anterior si existe
+        try {
+            $userUpdate = $request->all();
+
+            if ($image = $request->file('profile_photo')) {
+                // Eliminar la imagen de perfil anterior si existe
+                if ($user->profile_photo) {
+                    $imagePath = public_path('assets/images/') . $user->profile_photo;
+
+                    if (file_exists($imagePath)) {
+                        unlink($imagePath);
+                    }
+                }
+
+                // Guardar la nueva imagen de perfil
+                $routeSaveImage = 'assets/images/';
+                $imageUser = date('YmdHis') . "." . $image->getClientOriginalExtension();
+                $image->move($routeSaveImage, $imageUser);
+                $userUpdate['profile_photo'] = $imageUser;
+            } else {
+                // Mantener la imagen de perfil anterior si no se seleccionó una nueva imagen
+                unset($userUpdate['profile_photo']);
+            }
+
+            // Verificar si se proporcionó una nueva contraseña
+            if (empty($userUpdate['password'])) {
+                unset($userUpdate['password']); // Eliminar el campo password del arreglo
+            }
+
+            $user->update($userUpdate);
+
+            return redirect()->route('users')->with('success', 'Usuario actualizado correctamente.');
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+
+    public function destroy(User $user)
+    {
+        try {
             if ($user->profile_photo) {
                 $imagePath = public_path('assets/images/') . $user->profile_photo;
-    
+
                 if (file_exists($imagePath)) {
                     unlink($imagePath);
                 }
             }
-    
-            // Guardar la nueva imagen de perfil
-            $routeSaveImage = 'assets/images/';
-            $imageUser = date('YmdHis') . "." . $image->getClientOriginalExtension();
-            $image->move($routeSaveImage, $imageUser);
-            $userUpdate['profile_photo'] = $imageUser;
-        } else {
-            // Mantener la imagen de perfil anterior si no se seleccionó una nueva imagen
-            unset($userUpdate['profile_photo']);
+
+            $user->delete();
+
+            return to_route('users');
+        } catch (\Throwable $th) {
+            throw $th;
         }
-    
-        // Verificar si se proporcionó una nueva contraseña
-        if (empty($userUpdate['password'])) {
-            unset($userUpdate['password']); // Eliminar el campo password del arreglo
-        }
-    
-        $user->update($userUpdate);
-    
-        return redirect()->route('users')->with('success', 'Usuario actualizado correctamente.');
-    }
-    
-    
-
-    public function destroy(User $user)
-    {
-        if ($user->profile_photo) {
-            $imagePath = public_path('assets/images/') . $user->profile_photo;
-
-            if (file_exists($imagePath)) {
-                unlink($imagePath);
-            }
-        }
-
-        $user->delete();
-
-        return to_route('users');
     }
 }
