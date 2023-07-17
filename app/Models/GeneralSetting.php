@@ -10,14 +10,11 @@ class GeneralSetting extends Model
     use HasFactory;
 
     protected $fillable = [
-        'logo_website',
         'title_website',
+        'logo_website',
         'background_website',
         'number_phone',
         'link_facebook',
-        'link_twitter',
-        'link_instagram',
-        'link_youtube',
         'id_user',
     ];
 

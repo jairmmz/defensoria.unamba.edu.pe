@@ -31,7 +31,7 @@ class AuthoritieController extends Controller
             
             if (!$authoritie) {
                 // Si no existe un registro, puedes mostrar un mensaje de error o redireccionar a otra página
-                return redirect()->route('authorities.index')->with('error', 'No se encontró la autoridad');
+                return redirect()->route('authorities')->with('error', 'No se encontró la autoridad');
             }
     
             $authoritieUpdate = $request->all();
