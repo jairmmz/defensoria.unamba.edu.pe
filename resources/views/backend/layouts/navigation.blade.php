@@ -67,12 +67,6 @@
                 <span class="menu-title">Autoridad</span>
             </a>
         </li>
-        <li class="nav-item {{ Route::currentRouteName() == 'document-format' ? 'active' : '' }}">
-            <a class="nav-link" href="{{ route('document-format') }}">
-                <i class="fas fa-file-archive menu-icon"></i>
-                <span class="menu-title">Formato documento</span>
-            </a>
-        </li>
         <li class="nav-item {{ Route::currentRouteName() == 'general-settings' ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('general-settings') }}">
                 <i class="fas fa-cog menu-icon"></i>

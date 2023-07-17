@@ -2,7 +2,7 @@
 @section('content')
     <div class="page-header">
         <h3 class="page-title">
-            Añadir noticia
+            Ajustes Generales
         </h3>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -15,46 +15,47 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">FORMULARIO DE REGISTRO</h4>
                     <form class="cmxform" id="signupForm" method="get" action="#">
-                        <fieldset>
-                            <div class="form-group">
-                                <label for="title">Título</label>
-                                <input id="title" class="form-control" name="title" type="text">
-                            </div>
-                            <div class="form-group">
-                                <label for="description">Descripción</label>
-                                <textarea class="form-control" id="desciption" name="description" rows="4"></textarea>
-                                {{-- <input id="lastname" class="form-control" name="lastname" type="textarea"> --}}
-                            </div>
-                            <div class="form-group">
-                                <label for="username">Imagen</label>
-                                <div class="card">
-                                    <div class="card-body">
-                                        <input type="file" class="dropify" name="image" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-9">
-                                    <div class="form-group">
-                                        <label for="link_to_news">Enlace</label>
-                                        <input id="link_to_news" class="form-control" name="link_to_news" type="text">
-                                    </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="title_website">Título de la página web</label>
+                                    <input id="title_website" class="form-control" name="title_website" type="text">
+                                    @error('title_website') <p class='text-danger text-xs'> {{ $message }} </p> @enderror
                                 </div>
 
-                                <div class="col-lg-3">
-                                    <div class="form-group">
-                                        <label for="password">Estado</label>
-                                        <select class="form-control" name="is_active" id="">
-                                            <option value="">Activo</option>
-                                            <option value="">Inactivo</option>
-                                        </select>
+                                <div class="form-group">
+                                    <label for="logo_website">Logo de la página web</label>
+                                    <input id="logo_website" class="form-control" name="logo_website" type="file">
+                                    @error('logo_website') <p class='text-danger text-xs'> {{ $message }} </p> @enderror
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="background_website">Imagen de fondo</label>
+                                    <div class="card">
+                                        <input id="background_website" class="form-control" name="background_website" type="file">
+                                        @error('background_website') <p class='text-danger text-xs'> {{ $message }} </p> @enderror
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label for="number_phone">Número de teléfono/celular</label>
+                                    <input id="number_phone" class="form-control" name="number_phone" type="text">
+                                    @error('number_phone') <p class='text-danger text-xs'> {{ $message }} </p> @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="link_facebook">Facebook</label>
+                                    <input id="link_facebook" class="form-control" name="link_facebook" type="text">
+                                    @error('link_facebook') <p class='text-danger text-xs'> {{ $message }} </p> @enderror
+                                </div>
+
+                                <input class="form-control" name="id_user" type="hidden" value="{{ Auth::user()->id }}">
+
+                                <input class="btn btn-primary" type="submit" value="Guardar">
                             </div>
-                            <input class="btn btn-primary" type="submit" value="Submit">
-                        </fieldset>
+                            <div class="col-lg-6">
+
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>

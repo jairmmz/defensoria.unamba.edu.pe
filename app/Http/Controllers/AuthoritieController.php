@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AuthoritieRequest;
 use App\Models\Authoritie;
 use Illuminate\Http\Request;
 
@@ -9,68 +10,57 @@ class AuthoritieController extends Controller
 {
     public function index()
     {
-        $authorities = Authoritie::all();
-        return view('backend.pages.authorities.index-authoritie', compact('authorities'));
+        $authoritie = Authoritie::first();
+
+        if (!$authoritie) {
+            $authoritie = new Authoritie();
+            $authoritie->charge_authority = 'Defensor Universitario';
+            $authoritie->name = 'Nombre por defecto';
+            $authoritie->image_authority = 'default.png';
+            $authoritie->id_user = 1;
+            $authoritie->save();
+        }
+
+        return view('backend.pages.authorities.index-authoritie', compact('authoritie'));
     }
 
-    public function create()
+    public function update(AuthoritieRequest $request)
     {
-        //
+        try {
+            $authoritie = Authoritie::first();
+            
+            if (!$authoritie) {
+                // Si no existe un registro, puedes mostrar un mensaje de error o redireccionar a otra página
+                return redirect()->route('authorities.index')->with('error', 'No se encontró la autoridad');
+            }
+    
+            $authoritieUpdate = $request->all();
+    
+            if ($image = $request->file('image_authority')) {
+                if ($authoritie->image_authority) {
+                    $imagePath = public_path('assets/images/' . $authoritie->image_authority);
+    
+                    if (file_exists($imagePath)) {
+                        unlink($imagePath);
+                    }
+                }
+    
+                $routeSaveImage = 'assets/images/';
+                $imageUser = date('YmdHis') . "." . $image->getClientOriginalExtension();
+                $image->move($routeSaveImage, $imageUser);
+                $authoritieUpdate['image_authority'] = $imageUser;
+            } else {
+                $authoritieUpdate['image_authority'] = $authoritie->image_authority;
+            }
+    
+            $authoritie->update($authoritieUpdate);
+    
+            return redirect()->route('authorities')->with(['status' => 'success', 'message' => 'Autoridad actualizada correctamente.']);
+        } catch (\Throwable $th) {
+            // Puedes manejar el error de alguna forma específica o simplemente dejarlo sin manejar
+            // throw $th;
+            return redirect()->route('authorities')->with('error', 'Ocurrió un error al actualizar la autoridad');
+        }
     }
-
-    public function store(Request $request, Authoritie $authoritie)
-    {
-        // $authoritie = Authoritie::create($request->validated());
-
-        $authoritie = new Authoritie();
-        $authoritie->charge_authority = $request->charge_authority;
-        $authoritie->name = $request->name;
-        
-        // Save image
-        $path = public_path() . '/images/authorities';
-        !is_dir($path) && mkdir($path, 0777, true);
-
-        $imageName = time() . '.' . $request->image_authority->extension();
-        $request->image_authority->move($path, $imageName);
-
-        $authoritie->image_authority = $imageName;
-
-        $authoritie->id_user = $request->id_user;
-
-        $authoritie->save();
-
-        $data = [
-            'status' => 200,
-            'message' => 'Success',
-            'data' => $authoritie
-        ];
-
-        return response()->json($data, 200);
-    }
-
-    public function show(Authoritie $authoritie)
-    {
-        $data = [
-            'status' => 200,
-            'message' => 'Success',
-            'data' => $authoritie
-        ];
-
-        return response()->json($data, 200);
-    }
-
-    public function edit(Authoritie $authoritie)
-    {
-        //
-    }
-
-    public function update(Request $request, Authoritie $authoritie)
-    {
-        //
-    }
-
-    public function destroy(Authoritie $authoritie)
-    {
-        //
-    }
+    
 }

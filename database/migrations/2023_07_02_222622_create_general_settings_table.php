@@ -18,9 +18,6 @@ return new class extends Migration
             $table->string('background_website');
             $table->string('number_phone');
             $table->string('link_facebook');
-            $table->string('link_twitter');
-            $table->string('link_instagram');
-            $table->string('link_youtube');
             $table->foreignID('id_user')->constrained('users');
             $table->timestamps();
         });

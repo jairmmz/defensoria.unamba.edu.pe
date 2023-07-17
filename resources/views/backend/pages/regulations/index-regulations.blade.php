@@ -42,8 +42,8 @@
                                 @foreach ($regulations as $regulation)
                                 <tr>
                                     <td>{{ $regulation->id }} </td>
-                                    <td>{{ $regulation->title }}</td>
-                                    <td>{{ $regulation->description }}</td>
+                                    <td>{{ Str::limit($regulation->title, 30) }}</td>
+                                    <td>{{ Str::limit($regulation->description, 40) }}</td>
                                     <td>{{ $regulation->date_regulation }}</td>
                                     <td>
                                         <a href="{{ asset('assets/documents/' . $regulation->document_regulation) }}" target="_blank" class="btn btn-outline-primary">Ver</a>

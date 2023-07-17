@@ -51,7 +51,7 @@ Route::group(['middleware' => 'auth'], function () {
     // ------------ Autoridades ----------------
     Route::prefix('admin')->group(function () {
         Route::get('/autoridad', [AuthoritieController::class, 'index'])->name('authorities');
-        Route::patch('/autoridad/actualizar/{authoritie}', [AuthoritieController::class, 'update'])->name('authorities.update');
+        Route::patch('/autoridad/actualizar', [AuthoritieController::class, 'update'])->name('authorities.update');
     });
 
     // ------------ Usuarios ----------------
@@ -63,10 +63,6 @@ Route::group(['middleware' => 'auth'], function () {
         Route::patch('/usuarios/actualizar/{user}', [UserController::class, 'update'])->name('users.update');
         Route::delete('/usuarios/eliminar/{user}', [UserController::class, 'destroy'])->name('users.destroy');
     });
-    // ------------ Formato de documento ----------------
-    Route::get('/admin/documento-defensoria', function () {
-        return view('backend.pages.format-document.index-format-document');
-    })->name('document-format');
 
     // ------------ Ajustes generales ----------------
     Route::get('/admin/ajustes-generales', function () {
