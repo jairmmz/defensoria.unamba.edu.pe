@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\GeneralSetting;
 use App\Models\Survey;
 use Illuminate\Http\Request;
 
@@ -13,8 +14,9 @@ class SurveyController extends Controller
     public function index()
     {
         $surveys = Survey::all();
+        $setting = GeneralSetting::first();
 
-        return view('backend.pages.surveys.index-surveys', compact('surveys'));
+        return view('backend.pages.surveys.index-surveys', compact('surveys', 'setting'));
     }
 
     /**
@@ -22,7 +24,9 @@ class SurveyController extends Controller
      */
     public function create()
     {
-        //
+        $setting = GeneralSetting::first();
+
+        return view('backend.pages.surveys.add-survey', compact('setting'));
     }
 
     /**

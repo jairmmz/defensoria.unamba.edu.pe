@@ -15,7 +15,9 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <form class="cmxform" id="signupForm" method="get" action="#">
+                    <form action="{{ route('settings.update') }}" enctype="multipart/form-data" autocomplete="off" method="POST">
+                        @csrf
+                        {{ method_field("PATCH") }}
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
@@ -87,15 +89,15 @@
                                     @if (!$setting->logo_website)
                                     <img style="width: 150px" src="{{ asset('assets/images/users/user-default.png') }}" alt="">
                                     @else
-                                    <img style="width: 150px" src="{{ asset('assets/images/' . $authoritie->image_authority) }}" alt="">
+                                    <img style="width: 150px" src="{{ asset('assets/images/' . $setting->logo_website) }}" alt="">
                                     @endif
                                 </div>
                                 <div class="text-center">
                                     <b>Fondo de pantalla de la página web</b><br>
-                                    @if (!$setting->logo_website)
-                                    <img style="width: 150px" src="{{ asset('assets/images/users/user-default.png') }}" alt="">
+                                    @if (!$setting->background_website)
+                                    <img style="width: 450px" src="{{ asset('assets/images/users/user-default.png') }}" alt="">
                                     @else
-                                    <img style="width: 150px" src="{{ asset('assets/images/' . $authoritie->image_authority) }}" alt="">
+                                    <img style="width: 450px" src="{{ asset('assets/images/' . $setting->background_website) }}" alt="">
                                     @endif
                                 </div>
                             </div>

@@ -1,6 +1,6 @@
 <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row default-layout-navbar">
     <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo" href="{{ route('dashboard') }}"><img src="{{ asset('assets/images/logo-du-unamba.png') }}"
+        <a class="navbar-brand brand-logo" href="{{ route('dashboard') }}"><img src="{{ asset('assets/images/' . $setting->logo_website) }}"
                 alt="logo" /></a>
         <a class="navbar-brand brand-logo-mini" href="{{ route('dashboard') }}"><img src="{{ asset('assets/images/logo-du-unamba-min.png') }}"
                 alt="logo" /></a>

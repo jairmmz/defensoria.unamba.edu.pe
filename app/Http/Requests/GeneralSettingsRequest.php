@@ -23,8 +23,8 @@ class GeneralSettingsRequest extends FormRequest
     {
         return [
             'title_website' => 'required|string',
-            'logo_website' => 'required|mimes:jpeg,png,jpg,gif,svg|max:10240',
-            'background_website' => 'required|mimes:jpeg,png,jpg,gif,svg|max:10240',
+            'logo_website' => 'mimes:jpeg,png,jpg,gif,svg|max:10240',
+            'background_website' => 'mimes:jpeg,png,jpg,gif,svg|max:10240',
             'number_phone' => 'required',
             'link_facebook' => '',
             'id_user' => 'integer'

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
+use App\Http\Resources\UserResource;
+use App\Models\GeneralSetting;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -11,9 +13,10 @@ class UserController extends Controller
     public function index()
     {
         try {
-            $users = User::all();
+            $users =  UserResource::collection(User::all());
+            $setting = GeneralSetting::first();
 
-            return view('backend.pages.users.index-users', compact('users'));
+            return view('backend.pages.users.index-users', compact('users', 'setting'));
         } catch (\Throwable $th) {
             throw $th;
         }
@@ -21,7 +24,9 @@ class UserController extends Controller
 
     public function create()
     {
-        return view('backend.pages.samples.register');
+        $setting = GeneralSetting::first();
+        
+        return view('backend.pages.users.add-user', compact('setting'));
     }
 
     public function store(UserRequest $request)
@@ -50,7 +55,9 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
-        return view('backend.pages.users.edit-user', compact('user'));
+        $setting = GeneralSetting::first();
+        
+        return view('backend.pages.users.edit-user', compact('user', 'setting'));
     }
 
     public function update(Request $request, User $user)

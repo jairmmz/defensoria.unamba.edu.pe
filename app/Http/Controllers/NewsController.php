@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\NewsRequest;
+use App\Http\Resources\NewsResource;
+use App\Models\GeneralSetting;
 use App\Models\News;
 use Illuminate\Http\Request;
 
@@ -11,9 +13,10 @@ class NewsController extends Controller
     public function index()
     {
         try {
-            $news = News::all();
+            $news = NewsResource::collection(News::all());
+            $setting = GeneralSetting::first();
 
-            return view('backend.pages.news.index-news', compact('news'));
+            return view('backend.pages.news.index-news', compact('news', 'setting'));
         } catch (\Throwable $th) {
             throw $th;
         }
@@ -21,6 +24,9 @@ class NewsController extends Controller
 
     public function create()
     {
+        $setting = GeneralSetting::first();
+
+        return view('backend.pages.news.add-new', compact('setting'));
     }
 
     public function store(NewsRequest $request)
@@ -50,7 +56,9 @@ class NewsController extends Controller
 
     public function edit(News $new)
     {
-        return view('backend.pages.news.edit-new', compact('new'));
+        $setting = GeneralSetting::first();
+
+        return view('backend.pages.news.edit-new', compact('new', 'setting'));
     }
 
     public function update(Request $request, News $new)

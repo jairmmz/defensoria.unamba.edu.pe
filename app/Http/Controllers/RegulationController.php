@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\RegulationRequest;
+use App\Models\GeneralSetting;
 use App\Models\Regulation;
 use Illuminate\Http\Request;
 
@@ -11,12 +12,16 @@ class RegulationController extends Controller
     public function index()
     {
         $regulations = Regulation::all();
-        return view('backend.pages.regulations.index-regulations', compact('regulations'));
+        $setting = GeneralSetting::first();
+
+        return view('backend.pages.regulations.index-regulations', compact('regulations', 'setting'));
     }
 
     public function create()
     {
-        //
+        $setting = GeneralSetting::first();
+
+        return view('backend.pages.regulations.add-regulation', compact('setting'));
     }
 
     public function store(RegulationRequest $request)

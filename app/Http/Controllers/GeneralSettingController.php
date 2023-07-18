@@ -73,7 +73,7 @@ class GeneralSettingController extends Controller
 
             $setting->update($settingUpdate);
 
-            return to_route('general-settings');
+            return to_route('settings');
 
         } catch (\Throwable $th) {
             throw $th;

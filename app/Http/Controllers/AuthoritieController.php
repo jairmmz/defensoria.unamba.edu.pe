@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AuthoritieRequest;
 use App\Models\Authoritie;
+use App\Models\GeneralSetting;
 use Illuminate\Http\Request;
 
 class AuthoritieController extends Controller
@@ -11,6 +12,7 @@ class AuthoritieController extends Controller
     public function index()
     {
         $authoritie = Authoritie::first();
+        $setting = GeneralSetting::first();
 
         if (!$authoritie) {
             $authoritie = new Authoritie();
@@ -21,7 +23,7 @@ class AuthoritieController extends Controller
             $authoritie->save();
         }
 
-        return view('backend.pages.authorities.index-authoritie', compact('authoritie'));
+        return view('backend.pages.authorities.index-authoritie', compact('authoritie', 'setting'));
     }
 
     public function update(AuthoritieRequest $request)

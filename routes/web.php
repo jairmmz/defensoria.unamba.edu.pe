@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthoritieController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GeneralSettingController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,14 +27,14 @@ Route::post('/login', [LoginController::class, 'login'])->middleware('guest')->n
 Route::redirect('/admin', '/dashboard', 301);
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/dashboard', function () {
-        return view('backend.index');
-    })->name('dashboard');
+    
+    // ------------ Dashboard ----------------
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     // ------------ Noticias ----------------
     Route::prefix('admin')->group(function () {
         Route::get('/noticias', [NewsController::class, 'index'])->name('news');
-        Route::view('/noticias/añadir', 'backend.pages.news.add-new')->name('news.add');
+        Route::get('/noticias/añadir', [NewsController::class, 'create'])->name('news.add');
         Route::post('/noticias/guardar', [NewsController::class, 'store'])->name('news.save');
         Route::get('/noticias/editar/{new}', [NewsController::class, 'edit'])->name('news.edit');
         Route::patch('/noticias/actualizar/{new}', [NewsController::class, 'update'])->name('news.update');
@@ -43,7 +44,7 @@ Route::group(['middleware' => 'auth'], function () {
     // ------------ Reglamentos ----------------
     Route::prefix('admin')->group(function () {
         Route::get('/reglamentos', [RegulationController::class, 'index'])->name('regulations');
-        Route::view('/reglamentos/añadir', 'backend.pages.regulations.add-regulation')->name('regulations.add');
+        Route::get('/reglamentos/añadir', [RegulationController::class, 'create'])->name('regulations.add');
         Route::post('/reglamentos/guardar', [RegulationController::class, 'store'])->name('regulations.save');
         Route::get('/reglamentos/editar/{regulation}', [RegulationController::class, 'edit'])->name('regulations.edit');
         Route::patch('/reglamentos/actualizar/{regulation}', [RegulationController::class, 'update'])->name('regulations.update');
@@ -59,7 +60,7 @@ Route::group(['middleware' => 'auth'], function () {
     // ------------ Usuarios ----------------
     Route::prefix('admin')->group(function () {
         Route::get('/usuarios', [UserController::class, 'index'])->name('users');
-        Route::view('/usuarios/añadir', 'backend.pages.users.add-user')->name('users.add');
+        Route::get('/usuarios/añadir', [UserController::class, 'create'])->name('users.add');
         Route::post('/usuarios/guardar', [UserController::class, 'store'])->name('users.save');
         Route::get('/usuarios/editar/{user}', [UserController::class, 'edit'])->name('users.edit');
         Route::patch('/usuarios/actualizar/{user}', [UserController::class, 'update'])->name('users.update');
@@ -69,7 +70,7 @@ Route::group(['middleware' => 'auth'], function () {
     // ------------ Encuestas ----------------
     Route::prefix('admin')->group(function () {
         Route::get('/encuestas', [SurveyController::class, 'index'])->name('surveys');
-        Route::view('/encuestas/añadir', 'backend.pages.surveys.add-survey')->name('surveys.add');
+        Route::get('/encuestas/añadir', [SurveyController::class, 'create'])->name('surveys.add');
         Route::post('/encuestas/guardar', [SurveyController::class, 'store'])->name('surveys.save');
         Route::get('/encuestas/editar/{survey}', [SurveyController::class, 'edit'])->name('surveys.edit');
         Route::patch('/encuestas/actualizar/{survey}', [SurveyController::class, 'update'])->name('surveys.update');
@@ -95,3 +96,17 @@ Route::group(['middleware' => 'auth'], function () {
 Route::get('/', function () {
     return view('frontend.pages.index');
 })->name('index');
+
+Route::get('/noticias', function () {
+    return view('frontend.pages.news');
+})->name('frontend.news');
+
+Route::get('/reglamentos', function () {
+    return view('frontend.pages.regulations');
+})->name('frontend.regulations');
+
+Route::get('/encuestas', function () {
+    return view('frontend.pages.surveys');
+})->name('frontend.surveys');
+
+
