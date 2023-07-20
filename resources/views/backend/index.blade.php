@@ -26,7 +26,7 @@
                             <label class="badge badge-outline-success badge-pill">2.7% increase</label>
                         </div>
                         <div class="statistics-item">
-                            <a href="{{ route('surveys') }}" class="text-white"><i class="icon-sm fa fa-user mr-2"></i> Encuestas</a>
+                            <a href="{{ route('settings') }}" class="text-white"><i class="icon-sm fa fa-user mr-2"></i>Ajustes generales</a>
                             <h2>54000</h2>
                             <label class="badge badge-outline-success badge-pill">2.7% increase</label>
                         </div>

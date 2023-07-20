@@ -18,7 +18,7 @@ class AuthoritieController extends Controller
             $authoritie = new Authoritie();
             $authoritie->charge_authority = 'Defensor Universitario';
             $authoritie->name = 'Nombre por defecto';
-            $authoritie->image_authority = 'default.png';
+            $authoritie->image_authority = 'users/user-default.png';
             $authoritie->id_user = 1;
             $authoritie->save();
         }

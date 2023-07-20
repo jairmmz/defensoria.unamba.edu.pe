@@ -61,22 +61,6 @@
                 </ul>
             </div>
         </li>
-        <li class="nav-item {{ Route::currentRouteName() == 'surveys' || Route::currentRouteName() == 'surveys.add' ? 'active' : '' }}">
-            <a class="nav-link" data-toggle="collapse" href="#surveys" aria-expanded="false"
-                aria-controls="surveys">
-                <i class="fas fa-file-pdf menu-icon"></i>
-                <span class="menu-title">Encuestas</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse {{ Route::currentRouteName() == 'surveys' || Route::currentRouteName() == 'surveys.add' ? 'show' : '' }}" id="surveys">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link {{ Route::currentRouteName() == 'surveys' ? 'active' : '' }}" href="{{ route('surveys') }}">Lista de encuestas</a></li>
-                </ul>
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link {{ Route::currentRouteName() == 'surveys.add' ? 'active' : '' }}" href="{{ route('surveys.add') }}">Agregar encuesta</a></li>
-                </ul>
-            </div>
-        </li>
         <li class="nav-item {{ Route::currentRouteName() == 'authorities' ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('authorities') }}">
                 <i class="fas fa-user-md menu-icon"></i>

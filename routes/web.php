@@ -9,7 +9,6 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\RegulationController;
-use App\Http\Controllers\SurveyController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -65,16 +64,6 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/usuarios/editar/{user}', [UserController::class, 'edit'])->name('users.edit');
         Route::patch('/usuarios/actualizar/{user}', [UserController::class, 'update'])->name('users.update');
         Route::delete('/usuarios/eliminar/{user}', [UserController::class, 'destroy'])->name('users.destroy');
-    });
-
-    // ------------ Encuestas ----------------
-    Route::prefix('admin')->group(function () {
-        Route::get('/encuestas', [SurveyController::class, 'index'])->name('surveys');
-        Route::get('/encuestas/añadir', [SurveyController::class, 'create'])->name('surveys.add');
-        Route::post('/encuestas/guardar', [SurveyController::class, 'store'])->name('surveys.save');
-        Route::get('/encuestas/editar/{survey}', [SurveyController::class, 'edit'])->name('surveys.edit');
-        Route::patch('/encuestas/actualizar/{survey}', [SurveyController::class, 'update'])->name('surveys.update');
-        Route::delete('/encuestas/eliminar/{survey}', [SurveyController::class, 'destroy'])->name('surveys.destroy');
     });
 
     // ------------ Ajustes generales ----------------

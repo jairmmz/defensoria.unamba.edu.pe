@@ -1,14 +1,41 @@
 <!-- ==========Header Section========== -->
 <header>
+    <div class="header-top d-none d-md-block bg-theme">
+        <div class="container">
+            <div class="header-top-wrapper">
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul>
+                            <li class="mr-3">
+                                <a href="Tel:987654321"><i class="fas fa-phone-square"></i>+51 987-654-321</a>
+                            </li>
+                            <li>
+                                <a href="mailto:defensoriauniversitaria@unamba.edu.pe"><i class="fas fa-envelope"></i>defensoriauniversitaria@unamba.edu.pe</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 d-flex flex-wrap align-items-center justify-content-end">
+                        <ul>
+                            <li>
+                                <a href="#0">
+                                    Horario: Lunes a Viernes de 07:30-13:00 y 14:00-15:30
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="header-bottom">
         <div class="container">
             <div class="header-area">
                 <div class="logo">
-                    <a href="index.html"><img src="{{ asset('assets-front/images/logo/logo01.png') }}" alt="logo"></a>
+                    <a href="{{ route('index') }}"><img src="{{ asset('assets/images/logo-du-unamba.png') }}" alt="logo"></a>
                 </div>
                 <ul class="menu">
                     <li>
-                        <a href="#0">Home</a>
+                        <a href="#0">Inicio</a>
                         <ul class="submenu">
                             <li>
                                 <a href="#0">Home One</a>
@@ -19,7 +46,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#0">company</a>
+                        <a href="#0">Noticias</a>
                         <ul class="submenu">
                             <li>
                                 <a href="about.html">About Us</a>
@@ -58,27 +85,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#0">bulk SMS</a>
-                        <ul class="submenu">
-                            <li>
-                                <a href="masking-sms.html">Masking SMS</a>
-                            </li>
-                            <li>
-                                <a href="non-masking-sms.html">Non-Masking SMS</a>
-                            </li>
-                            <li>
-                                <a href="voice-message.html">Voice Message</a>
-                            </li>
-                            <li>
-                                <a href="promotional-sms.html">Promotional SMS</a>
-                            </li>
-                            <li>
-                                <a href="location-based-sms.html">location based SMS</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#0">service</a>
+                        <a href="#0">Servicios</a>
                         <ul class="submenu">
                             <li>
                                 <a href="service.html">Services</a>
@@ -98,35 +105,47 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#0">blog</a>
+                        <a href="#0">Procedimientos</a>
                         <ul class="submenu">
                             <li>
-                                <a href="blog.html">blog grid</a>
+                                <a href="service.html">Services</a>
                             </li>
                             <li>
-                                <a href="blog-two.html">blog grid sidebar</a>
+                                <a href="reseller.html">Reseller</a>
                             </li>
                             <li>
-                                <a href="blog-three.html">blog classic</a>
+                                <a href="country-coverage.html">Country Coverage</a>
                             </li>
                             <li>
-                                <a href="blog-details.html">blog details</a>
+                                <a href="email-service.html">Email Service</a>
+                            </li>
+                            <li>
+                                <a href="service-promotion.html">Service Promotion</a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#0">account</a>
+                        <a href="#0">Documentos</a>
                         <ul class="submenu">
                             <li>
-                                <a href="sign-in.html">Sign In</a>
+                                <a href="service.html">Services</a>
                             </li>
                             <li>
-                                <a href="sign-up.html">Sign Up</a>
+                                <a href="reseller.html">Reseller</a>
+                            </li>
+                            <li>
+                                <a href="country-coverage.html">Country Coverage</a>
+                            </li>
+                            <li>
+                                <a href="email-service.html">Email Service</a>
+                            </li>
+                            <li>
+                                <a href="service-promotion.html">Service Promotion</a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="contact.html">contact</a>
+                        <a href="contact.html">Contacto</a>
                     </li>
                 </ul>
                 <div class="header-bar d-lg-none">
@@ -134,31 +153,8 @@
                     <span></span>
                     <span></span>
                 </div>
-                <div class="select-bar-bar">
-                    <i class="fas fa-ellipsis-v"></i>
-                </div>
-                <div class="d-flex select-career justify-content-end">
-                    <select class="select-bar d-md-none">
-                        <option value="01">English</option>
-                        <option value="02">Bangla</option>
-                        <option value="03">Hindi</option>
-                        <option value="04">Urdu</option>
-                    </select>
-                    <a href="#0" class="search-bar">
-                        <i class="flaticon-magnifying-glass"></i>
-                    </a>
-                </div>
             </div>
         </div>
     </div>
 </header>
-<div class="search-form-area">
-    <span class="hide-form">
-        <i class="fas fa-times"></i>
-    </span>
-    <form class="search-form">
-        <input type="text" placeholder="Search Here">
-        <button type="submit"><i class="flaticon-search"></i></button>
-    </form>
-</div>
 <!-- ==========Header Section========== -->

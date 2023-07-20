@@ -2,21 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\GeneralSetting;
-use App\Models\Survey;
+use App\Models\AttentionForm;
 use Illuminate\Http\Request;
 
-class SurveyController extends Controller
+class AttentionFormController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $surveys = Survey::all();
-        $setting = GeneralSetting::first();
-
-        return view('backend.pages.surveys.index-surveys', compact('surveys', 'setting'));
+        //
     }
 
     /**
@@ -24,9 +20,7 @@ class SurveyController extends Controller
      */
     public function create()
     {
-        $setting = GeneralSetting::first();
-
-        return view('backend.pages.surveys.add-survey', compact('setting'));
+        //
     }
 
     /**
@@ -40,7 +34,7 @@ class SurveyController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Survey $survey)
+    public function show(AttentionForm $attentionForm)
     {
         //
     }
@@ -48,7 +42,7 @@ class SurveyController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Survey $survey)
+    public function edit(AttentionForm $attentionForm)
     {
         //
     }
@@ -56,7 +50,7 @@ class SurveyController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Survey $survey)
+    public function update(Request $request, AttentionForm $attentionForm)
     {
         //
     }
@@ -64,7 +58,7 @@ class SurveyController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Survey $survey)
+    public function destroy(AttentionForm $attentionForm)
     {
         //
     }

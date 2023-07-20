@@ -5,14 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Survey extends Model
+class AttentionForm extends Model
 {
     use HasFactory;
-
-    protected $fillabe = [
-        'name',
-        'description',
-        'url',
-        'is_active'
-    ];
 }
