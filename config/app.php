@@ -70,7 +70,9 @@ return [
     |
     */
 
-    'timezone' => 'Ameria/Lima',
+    // Poner por defecto la zona horaria de Perú
+    // 'timezone' => 'UTC',
+    'timezone' => 'America/Lima',
 
     /*
     |--------------------------------------------------------------------------

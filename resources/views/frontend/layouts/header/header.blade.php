@@ -35,117 +35,22 @@
                 </div>
                 <ul class="menu">
                     <li>
-                        <a href="#0">Inicio</a>
-                        <ul class="submenu">
-                            <li>
-                                <a href="#0">Home One</a>
-                            </li>
-                            <li>
-                                <a href="index-two.html">Home Two</a>
-                            </li>
-                        </ul>
+                        <a href="{{ route('index') }}">Inicio</a>
                     </li>
                     <li>
-                        <a href="#0">Noticias</a>
-                        <ul class="submenu">
-                            <li>
-                                <a href="about.html">About Us</a>
-                            </li>
-                            <li>
-                                <a href="#0">Case</a>
-                                <ul class="submenu">
-                                    <li>
-                                        <a href="case.html">Recent Case</a>
-                                    </li>
-                                    <li>
-                                        <a href="case-details.html">Case Details</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#0">Pages</a>
-                                <ul class="submenu">
-                                    <li>
-                                        <a href="pricing-plan.html">Price Plan</a>
-                                    </li>
-                                    <li>
-                                        <a href="faq.html">Faq</a>
-                                    </li>
-                                    <li>
-                                        <a href="privacy.html">Privacy</a>
-                                    </li>
-                                    <li>
-                                        <a href="404.html">404</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="operators.html">Operators</a>
-                            </li>
-                        </ul>
+                        <a href="{{ route('frontend.news') }}">Noticias</a>
                     </li>
                     <li>
-                        <a href="#0">Servicios</a>
-                        <ul class="submenu">
-                            <li>
-                                <a href="service.html">Services</a>
-                            </li>
-                            <li>
-                                <a href="reseller.html">Reseller</a>
-                            </li>
-                            <li>
-                                <a href="country-coverage.html">Country Coverage</a>
-                            </li>
-                            <li>
-                                <a href="email-service.html">Email Service</a>
-                            </li>
-                            <li>
-                                <a href="service-promotion.html">Service Promotion</a>
-                            </li>
-                        </ul>
+                        <a href="{{ route('frontend.services') }}">Servicios</a>
                     </li>
                     <li>
-                        <a href="#0">Procedimientos</a>
-                        <ul class="submenu">
-                            <li>
-                                <a href="service.html">Services</a>
-                            </li>
-                            <li>
-                                <a href="reseller.html">Reseller</a>
-                            </li>
-                            <li>
-                                <a href="country-coverage.html">Country Coverage</a>
-                            </li>
-                            <li>
-                                <a href="email-service.html">Email Service</a>
-                            </li>
-                            <li>
-                                <a href="service-promotion.html">Service Promotion</a>
-                            </li>
-                        </ul>
+                        <a href="{{ route('frontend.procedures') }}">Procedimientos</a>
                     </li>
                     <li>
-                        <a href="#0">Documentos</a>
-                        <ul class="submenu">
-                            <li>
-                                <a href="service.html">Services</a>
-                            </li>
-                            <li>
-                                <a href="reseller.html">Reseller</a>
-                            </li>
-                            <li>
-                                <a href="country-coverage.html">Country Coverage</a>
-                            </li>
-                            <li>
-                                <a href="email-service.html">Email Service</a>
-                            </li>
-                            <li>
-                                <a href="service-promotion.html">Service Promotion</a>
-                            </li>
-                        </ul>
+                        <a href="{{ route('frontend.documents') }}">Documentos</a>
                     </li>
                     <li>
-                        <a href="contact.html">Contacto</a>
+                        <a href="{{ route('frontend.attention-form') }}">Módulo de atención</a>
                     </li>
                 </ul>
                 <div class="header-bar d-lg-none">

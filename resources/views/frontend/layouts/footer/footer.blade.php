@@ -3,62 +3,37 @@
     <div class="footer-top padding-top padding-bottom">
         <div class="container">
             <div class="row mb-50-none">
-                <div class="col-sm-6 col-lg-3">
+                <div class="col-sm-6 col-lg-6">
                     <div class="footer-widget footer-link">
                         <h5 class="title">bulk SMS</h5>
                         <ul>
                             <li>
-                                <a href="#0">masking SMS</a>
+                                <span href="#0">Av. Garcilazo de la Vega S/N Tamburco - Abancay - Apurímac</span>
                             </li>
                             <li>
-                                <a href="#0">Non-Masking SMS</a>
-                            </li>
-                            <li>
-                                <a href="#0">location based SMS</a>
-                            </li>
-                            <li>
-                                <a href="#0">Voice message</a>
-                            </li>
-                            <li>
-                                <a href="#0">promo SMS</a>
+                                <span href="#0">Horario de atención: Lunes a Viernes de 07:30-13:00 y 14:00-15:30</span>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3">
                     <div class="footer-widget footer-link">
-                        <h5 class="title">company</h5>
+                        <h5 class="title">Enlaces</h5>
                         <ul>
                             <li>
-                                <a href="#0">about</a>
+                                <a href="{{ route('frontend.news') }}">Noticias</a>
                             </li>
                             <li>
-                                <a href="#0">pricing plan</a>
+                                <a href="{{ route('frontend.procedures') }}">Procedimientos</a>
                             </li>
                             <li>
-                                <a href="#0">faq</a>
+                                <a href="{{ route('frontend.services') }}">Servicios</a>
                             </li>
                             <li>
-                                <a href="#0">testiminial</a>
+                                <a href="{{ route('frontend.documents') }}">Documentos</a>
                             </li>
                             <li>
-                                <a href="#0">promotion</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="footer-widget footer-link">
-                        <h5 class="title">Partners</h5>
-                        <ul>
-                            <li>
-                                <a href="#0">kingstar</a>
-                            </li>
-                            <li>
-                                <a href="#0">laravala click</a>
-                            </li>
-                            <li>
-                                <a href="#0">yago</a>
+                                <a href="{{ route('frontend.attention-form') }}">Módulo de atención</a>
                             </li>
                         </ul>
                     </div>
@@ -88,7 +63,13 @@
     </div>
     <div class="footer-bottom py-3 py-sm-4 text-center">
         <div class="container">
-            <p class="m-0"> <a href="templateshub.net">Templates Hub</a></p>
+            <p class="m-0">
+                Copyright ©
+                <script>
+                var CurrentYear = new Date().getFullYear()
+                document.write(CurrentYear+",");
+            </script>
+            Defensoría Universitaria - UNAMBA</p>
         </div>
     </div>
 </footer>

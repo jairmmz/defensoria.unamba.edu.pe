@@ -61,6 +61,12 @@
                 </ul>
             </div>
         </li>
+        <li class="nav-item {{ Route::currentRouteName() == 'attention-form' ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('attention-form') }}">
+                <i class="fas fa-user-md menu-icon"></i>
+                <span class="menu-title">Atención de casos</span>
+            </a>
+        </li>
         <li class="nav-item {{ Route::currentRouteName() == 'authorities' ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('authorities') }}">
                 <i class="fas fa-user-md menu-icon"></i>

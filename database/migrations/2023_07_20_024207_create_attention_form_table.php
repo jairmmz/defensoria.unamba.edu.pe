@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name_plaintiff');
             $table->string('identity_card_plaintiff');
             $table->string('condition_plaintiff');
+            $table->string('type_request');
             $table->string('issue');
             $table->string('profesional_school_plaintiff');
             $table->string('workplace_office_plaintiff');
@@ -30,7 +31,7 @@ return new class extends Migration
             $table->string('description_facts');
             $table->string('violated_rights');
             $table->string('attached_files');
-            $table->string('signature_plaintiff');
+            $table->string('status')->default('pendiente');
             $table->timestamps();
         });
     }
