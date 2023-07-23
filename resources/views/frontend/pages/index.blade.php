@@ -24,7 +24,7 @@
 <!-- =============Banner Section============= -->
 
 <!--=================Bulk Sms================= -->
-<section class="bulk-sms padding-top">
+<section class="bulk-sms padding-top padding-bottom">
     <div class="container">
         <div class="row flex-wrap-reverse align-items-center">
             <div class="col-lg-6">
@@ -46,14 +46,14 @@
 <!--=================Bulk Sms================= -->
 
 <!--=================Chooose Us================= -->
-<section class="choose-us-section padding-top padding-bottom">
+<section class="choose-us-section bg-ash padding-top padding-bottom">
     <div class="container">
         <div class="section-header wow fadeInUp">
             <h2 class="title">Principios</h2>
         </div>
         <div class="row mb-30-none justify-content-center">
             <div class="col-md-6 col-lg-4">
-                <div class="choose-item text-center wow fadeInUp" data-wow-delay=".3s">
+                <div class="choose-item text-center wow fadeInUp bg-white" data-wow-delay=".3s">
                     <div class="choose-thumb">
                         <i class="flaticon-global"></i>
                     </div>
@@ -64,7 +64,7 @@
                 </div>
             </div>
             <div class="col-md-6 col-lg-4">
-                <div class="choose-item text-center wow fadeInUp" data-wow-delay=".3s">
+                <div class="choose-item text-center wow fadeInUp bg-white" data-wow-delay=".3s">
                     <div class="choose-thumb">
                         <i class="flaticon-ui"></i>
                     </div>
@@ -75,7 +75,7 @@
                 </div>
             </div>
             <div class="col-md-6 col-lg-4">
-                <div class="choose-item text-center wow fadeInUp" data-wow-delay=".3s">
+                <div class="choose-item text-center wow fadeInUp bg-white" data-wow-delay=".3s">
                     <div class="choose-thumb">
                         <i class="flaticon-clock"></i>
                     </div>
@@ -88,13 +88,10 @@
         </div>
     </div>
 </section>
-<div class="container">
-    <div class="bb-dashed"></div>
-</div>
 <!--=================Chooose Us================= -->
 
 <!--=================Our Offer================= -->
-<section class="offer-section bg-ash padding-top padding-bottom">
+<section class="offer-section padding-top padding-bottom">
     <div class="container">
         <div class="section-header wow fadeInUp">
             <h2 class="title">Defensor Universitario</h2>
@@ -111,7 +108,11 @@
             </div>
             <div class="col-lg-6">
                 <div class="right-side-offer wow slideInRight" data-wow-delay=".3s">
-                    <img class="w-65" src="{{ asset('assets/images/teachers/defensor-universitario-unamba.png') }}" alt="offer">
+                    @if (!$authoritie->image_authority)
+                        <img style="w-50" src="{{ asset('assets/images/teachers/defensor-universitario-unamba.png') }}" alt="">
+                    @else
+                        <img style="w-50" src="{{ asset('assets/images/' . $authoritie->image_authority) }}" alt="">
+                    @endif
                 </div>
             </div>
         </div>
@@ -119,139 +120,27 @@
 </section>
 <!--=================Our Offer================= -->
 
-<!--=================Our Service================= -->
-<section class="service-section padding-bottom padding-top">
+<!--=================Bulk Sms================= -->
+<section class="bulk-sms  bg-ash mask-sms padding-top padding-bottom">
     <div class="container">
-        <div class="section-header wow fadeInUp">
-            <span class="cate">our service</span>
-            <h2 class="title">what we do in here</h2>
-        </div>
-        <div class="row justify-content-center mb-30-none">
-            <div class="col-md-6 col-lg-4">
-                <div class="service-item text-center wow fadeInUp" data-wow-delay=".3s">
-                    <div class="service-thumb">
-                        <i class="flaticon-love"></i>
-                    </div>
-                    <div class="service-content">
-                        <h4 class="title"><a href="#0">Mask SMS</a></h4>
-                        <p>Temporibus magnis. Aliquam netus phasellus wisi utacper fusce wold of messgeuing </p>
-                        <a href="#0">Find Out More <i class="fas fa-caret-right"></i></a>
-                    </div>
+        <div class="row align-items-center">
+            <div class="col-lg-4">
+                <div class="bulk-thumb">
+                    <img src="{{ asset('assets-front/images/bulk/bulk02.png') }}" alt="bulk">
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="service-item text-center wow fadeInUp" data-wow-delay=".3s">
-                    <div class="service-thumb">
-                        <i class="flaticon-sms"></i>
-                    </div>
-                    <div class="service-content">
-                        <h4 class="title"><a href="#0">non Masking SMS</a></h4>
-                        <p>Temporibus magnis. Aliquam netus phasellus wisi utacper fusce wold of messgeuing </p>
-                        <a href="#0">Find Out More <i class="fas fa-caret-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="service-item text-center wow fadeInUp" data-wow-delay=".3s">
-                    <div class="service-thumb">
-                        <i class="flaticon-mic"></i>
-                    </div>
-                    <div class="service-content">
-                        <h4 class="title"><a href="#0">voice message</a></h4>
-                        <p>Temporibus magnis. Aliquam netus phasellus wisi utacper fusce wold of messgeuing </p>
-                        <a href="#0">Find Out More <i class="fas fa-caret-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="service-item text-center wow fadeInUp" data-wow-delay=".3s">
-                    <div class="service-thumb">
-                        <i class="flaticon-route"></i>
-                    </div>
-                    <div class="service-content">
-                        <h4 class="title"><a href="#0">location based SMS</a></h4>
-                        <p>Temporibus magnis. Aliquam netus phasellus wisi utacper fusce wold of messgeuing </p>
-                        <a href="#0">Find Out More <i class="fas fa-caret-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="service-item text-center wow fadeInUp" data-wow-delay=".3s">
-                    <div class="service-thumb">
-                        <i class="flaticon-megaphone"></i>
-                    </div>
-                    <div class="service-content">
-                        <h4 class="title"><a href="#0">promo SMS</a></h4>
-                        <p>Temporibus magnis. Aliquam netus phasellus wisi utacper fusce wold of messgeuing </p>
-                        <a href="#0">Find Out More <i class="fas fa-caret-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="service-item text-center wow fadeInUp" data-wow-delay=".3s">
-                    <div class="service-thumb">
-                        <i class="flaticon-paper-plane"></i>
-                    </div>
-                    <div class="service-content">
-                        <h4 class="title"><a href="#0">Email Service</a></h4>
-                        <p>Temporibus magnis. Aliquam netus phasellus wisi utacper fusce wold of messgeuing </p>
-                        <a href="#0">Find Out More <i class="fas fa-caret-right"></i></a>
-                    </div>
+            <div class="col-lg-8">
+                <div class="bulk-content text-center text-sm-left">
+                    <span>Misión y Visión de la Defensoría Universitaria</span>
+                    <h3 class="title">Misión</h3>
+                    <p class="text-justify">Proteger los derechos y el principio de autoridad en la institución, fomentando una cultura de respeto, colaboración y cordialidad. Prevenimos y resolvemos conflictos, emitiendo recomendaciones y promoviendo el cumplimiento de responsabilidades por parte de las autoridades. Mejoramos los procedimientos con enfoque intercultural y de género para garantizar el respeto de los derechos de la comunidad universitaria.</p>
+                    <h3 class="title">Visión</h3>
+                    <p class="text-justify">impulsar que la Universidad sea reconocida como un modelo de excelencia en la formación de ciudadanos comprometidos con el fortalecimiento de la democracia y el Estado de derecho en el país. Valoramos y garantizamos los derechos y obligaciones de todos los miembros de la comunidad universitaria, promoviendo su participación activa y el cumplimiento de los propósitos y metas de la institución.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!--=================Our Service================= -->
+<!--=================Bulk Sms================= -->
 
-<!--=================Sponsor Section================= -->
-<div class="sponsor-section bg-f3 padding-bottom padding-top">
-    <div class="container">
-        <div class="sponsor-slider">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="sponsor-thumb">
-                        <img src="{{ asset('assets-front/images/sponsor/sponsor01.png') }}" alt="sponsor">
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="sponsor-thumb">
-                        <img src="{{ asset('assets-front/images/sponsor/sponsor02.png') }}" alt="sponsor">
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="sponsor-thumb">
-                        <img src="{{ asset('assets-front/images/sponsor/sponsor03.png') }}" alt="sponsor">
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="sponsor-thumb">
-                        <img src="{{ asset('assets-front/images/sponsor/sponsor04.png') }}" alt="sponsor">
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="sponsor-thumb">
-                        <img src="{{ asset('assets-front/images/sponsor/sponsor05.png') }}" alt="sponsor">
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="sponsor-thumb">
-                        <img src="{{ asset('assets-front/images/sponsor/sponsor06.png') }}" alt="sponsor">
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="sponsor-thumb">
-                        <img src="{{ asset('assets-front/images/sponsor/sponsor07.png') }}" alt="sponsor">
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="sponsor-thumb">
-                        <img src="{{ asset('assets-front/images/sponsor/sponsor08.png') }}" alt="sponsor">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!--=================Sponsor Section================= -->
 @endsection

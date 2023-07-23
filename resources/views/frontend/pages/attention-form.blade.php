@@ -173,10 +173,14 @@
                         </div>    
                     </div>
                     <div class="col-lg-6">
-                        <div class="form-group" style="none">
-                            <input type="hidden" name="status" value="pendiente">
+                        <div class="form-group">
+                            <input type="checkbox" id="confir" name="confir" required>
+                            <label for="confir">Acepto los Términos y Condiciones</label>                    
                         </div>    
                     </div>
+                    <div class="form-group" style="none">
+                        <input type="hidden" name="status" value="pendiente">
+                    </div>    
                 </div>
                 <div class="form-group w-100 mt-4">
                     <input type="submit" value="Enviar">

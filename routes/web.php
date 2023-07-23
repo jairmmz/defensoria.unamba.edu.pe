@@ -4,12 +4,15 @@ use App\Http\Controllers\AttentionFormController;
 use App\Http\Controllers\AuthoritieController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GeneralSettingController;
+use App\Http\Controllers\IndexPageController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\ProcedureController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\RegulationController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -69,7 +72,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     // ------------ Formulario de atención de casos ----------------
     Route::prefix('admin')->group(function () {
-        Route::get('/formulario-atencion', [AttentionFormController::class, 'index'])->name('attention-form-view');
+        Route::get('/formulario-atencion', [AttentionFormController::class, 'index'])->name('attention-form-index');
         Route::get('/formulario-atencion/ver/{attention-form}', [AttentionFormController::class, 'show'])->name('attention-form.show');
         Route::get('/formulario-atencion/generar-pdf/{attention-form}', [AttentionFormController::class, 'generatePDF'])->name('attention-form.generatePDF');
         Route::get('/formulario-atencion/generar-excel/{attention-form}', [AttentionFormController::class, 'generateExcel'])->name('attention-form.generateExcel');
@@ -93,39 +96,23 @@ Route::group(['middleware' => 'auth'], function () {
 */
 
 // ------------ Página principal - index ----------------
-Route::get('/', function () {
-    return view('frontend.pages.index');
-})->name('index');
+Route::get('/', [IndexPageController::class, 'index'])->name('index');
 
 // ------------ Página de noticias ----------------
-Route::get('/noticias', function () {
-    return view('frontend.pages.news.index-news');
-})->name('frontend.news');
-
-Route::get('/noticias/detalle', function () {
-    return view('frontend.pages.news.new-detail');
-})->name('frontend.news.detail');
+Route::get('/noticias', [NewsController::class, 'indexFrontend'])->name('frontend.index.news');
+Route::get('/noticias/detalle/{new}', [NewsController::class, 'newsDetail'])->name('frontend.news.detail');
 
 // ------------ Página de servicios ----------------
-Route::get('/servicios', function () {
-    return view('frontend.pages.services.index-services');
-})->name('frontend.services');
+Route::get('/servicios', [ServiceController::class, 'index'])->name('frontend.services');
 
 // ------------ Página de procedimientos ----------------
-Route::get('/procedimientos', function () {
-    return view('frontend.pages.procedures.index-procedures');
-})->name('frontend.procedures');
+Route::get('/procedimientos', [ProcedureController::class, 'index'])->name('frontend.procedures');
 
 // ------------ Página de documentos ----------------
-Route::get('/documentos', function () {
-    return view('frontend.pages.documents.index-documents');
-})->name('frontend.documents');
+Route::get('/documentos', [RegulationController::class, 'indexFrontend'])->name('frontend.documents');
 
 // ------------ Página de formulario de atención----------------
-Route::get('/formulario-atencion', function () {
-    return view('frontend.pages.attention-form');
-})->name('frontend.attention-form');
-
+Route::get('/formulario-atencion', [AttentionFormController::class, 'indexFront'])->name('frontend.attention-form');
 Route::post('/formulario-atencion/guardar', [AttentionFormController::class, 'store'])->name('attention-form.save');
 
 

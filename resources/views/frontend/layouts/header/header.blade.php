@@ -31,14 +31,20 @@
         <div class="container">
             <div class="header-area">
                 <div class="logo">
-                    <a href="{{ route('index') }}"><img src="{{ asset('assets/images/logo-du-unamba.png') }}" alt="logo"></a>
+                    <a href="{{ route('index') }}">
+                        @if (!$setting->logo_website)
+                        <img src="{{ asset('assets/images/logo-du-unamba.png') }}" alt="logo-defensoría-unamba">
+                        @else
+                        <img src="{{ asset('assets/images/' . $setting->logo_website) }}" alt="logo-defensoría-unamba">
+                        @endif
+                    </a>
                 </div>
                 <ul class="menu">
                     <li>
                         <a href="{{ route('index') }}">Inicio</a>
                     </li>
                     <li>
-                        <a href="{{ route('frontend.news') }}">Noticias</a>
+                        <a href="{{ route('frontend.index.news') }}">Noticias</a>
                     </li>
                     <li>
                         <a href="{{ route('frontend.services') }}">Servicios</a>

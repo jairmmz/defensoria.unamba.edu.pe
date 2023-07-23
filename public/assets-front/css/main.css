@@ -446,10 +446,10 @@ input {
 
 @media (min-width: 992px) {
   .padding-top {
-    padding-top: 120px; }
+    padding-top: 60px; }
 
   .padding-bottom {
-    padding-bottom: 120px; } }
+    padding-bottom: 50px; } }
 .preloader {
   position: fixed;
   width: 100%;
@@ -2646,7 +2646,6 @@ ul.filter {
   .hero-area .title {
     font-size: 30px;
     color: #ffffff;
-    text-transform: capitalize;
     margin-top: -3px !important; }
     @media (min-width: 576px) {
       .hero-area .title {

@@ -5,13 +5,19 @@
             <div class="row mb-50-none">
                 <div class="col-sm-6 col-lg-6">
                     <div class="footer-widget footer-link">
-                        <h5 class="title">bulk SMS</h5>
+                        {{-- <h5 class="title">Datos generales</h5> --}}
+                        <div class="logo mb-2">
+                            <a href="{{ route('index') }}"><img src="{{ asset('assets/images/logo-du-unamba.png') }}" alt="logo"></a>
+                        </div>
                         <ul>
                             <li>
-                                <span href="#0">Av. Garcilazo de la Vega S/N Tamburco - Abancay - Apurímac</span>
+                                <span>Av. Garcilazo de la Vega S/N Tamburco - Abancay - Apurímac</span>
                             </li>
                             <li>
-                                <span href="#0">Horario de atención: Lunes a Viernes de 07:30-13:00 y 14:00-15:30</span>
+                                <span>Horario de atención: Lunes a Viernes de 07:30-13:00 y 14:00-15:30</span>
+                            </li>
+                            <li>
+                                <span>defensoriauniversitaria@unamba.edu.pe</span>
                             </li>
                         </ul>
                     </div>
@@ -21,7 +27,7 @@
                         <h5 class="title">Enlaces</h5>
                         <ul>
                             <li>
-                                <a href="{{ route('frontend.news') }}">Noticias</a>
+                                <a href="{{ route('frontend.index.news') }}">Noticias</a>
                             </li>
                             <li>
                                 <a href="{{ route('frontend.procedures') }}">Procedimientos</a>
@@ -40,8 +46,8 @@
                 </div>
                 <div class="col-sm-6 col-lg-3">
                     <div class="footer-widget footer-about">
-                        <h5 class="title">about us</h5>
-                        <p>Tellus fermentum a aenean laoreet libero in, at convallis varius morbi.</p>
+                        <h5 class="title">Defensoría Universitaria</h5>
+                        <p>Velamos por los derechos de la Comunidad Universitaria.</p>
                         <ul class="footer-social">
                             <li>
                                 <a href="#0"><i class="fab fa-facebook-f"></i></a>

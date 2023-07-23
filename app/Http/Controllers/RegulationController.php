@@ -17,6 +17,14 @@ class RegulationController extends Controller
         return view('backend.pages.regulations.index-regulations', compact('regulations', 'setting'));
     }
 
+    public function indexFrontend()
+    {
+        $regulations = Regulation::where('is_active', '1')->get();
+        $setting = GeneralSetting::first();
+
+        return view('frontend.pages.documents.index-documents', compact('regulations', 'setting'));
+    }
+
     public function create()
     {
         $setting = GeneralSetting::first();
@@ -51,7 +59,9 @@ class RegulationController extends Controller
 
     public function edit(Regulation $regulation)
     {
-        return view('backend.pages.regulations.edit-regulation', compact('regulation'));
+        $setting = GeneralSetting::first();
+
+        return view('backend.pages.regulations.edit-regulation', compact('regulation', 'setting'));
     }
 
     public function update(Request $request, Regulation $regulation)

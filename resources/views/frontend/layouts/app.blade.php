@@ -23,7 +23,7 @@
     <title>Defensoría Universitaria - UNAMBA</title>
 </head>
 
-<body>
+<body @hasSection('body_attributes')@yield('body_attributes')@endif>
     <!-- ========== Preloader ========== -->
     <div class="preloader">
         <div class="preloader-wrapper">

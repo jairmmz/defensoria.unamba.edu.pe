@@ -4,13 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AttentionFormRequest;
 use App\Models\AttentionForm;
+use App\Models\GeneralSetting;
 use Illuminate\Http\Request;
 
 class AttentionFormController extends Controller
 {
     public function index()
     {
-        //
+        $setting = GeneralSetting::first();
+
+        return view('backend.pages.attention-form.index-attention-form', compact('setting'));
+    }
+
+    public function indexFront()
+    {
+        $setting = GeneralSetting::first();
+
+        return view('frontend.pages.attention-form', compact('setting'));
     }
 
     public function show(AttentionForm $attentionForm)

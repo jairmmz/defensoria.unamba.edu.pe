@@ -22,6 +22,31 @@ class NewsController extends Controller
         }
     }
 
+    public function indexFrontend()
+    {
+        try {
+            $news = NewsResource::collection(News::all());
+            $setting = GeneralSetting::first();
+
+            return view('frontend.pages.news.index-news', compact('news', 'setting'));
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+    public function newsDetail(News $new)
+    {
+        try {
+            $setting = GeneralSetting::first();
+
+            // Traer todos los registros de la tabla News excepto el que se está mostrando
+            $news = News::where('id', '!=', $new->id)->get();
+
+            return view('frontend.pages.news.new-detail', compact('new', 'setting', 'news'));
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+
     public function create()
     {
         $setting = GeneralSetting::first();
@@ -47,11 +72,6 @@ class NewsController extends Controller
         } catch (\Exception $th) {
             throw $th;
         }
-    }
-
-    public function show(News $new)
-    {
-        //
     }
 
     public function edit(News $new)
