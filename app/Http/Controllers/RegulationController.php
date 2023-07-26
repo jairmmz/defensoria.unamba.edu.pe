@@ -6,6 +6,7 @@ use App\Http\Requests\RegulationRequest;
 use App\Models\GeneralSetting;
 use App\Models\Regulation;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class RegulationController extends Controller
 {
@@ -52,9 +53,17 @@ class RegulationController extends Controller
         }
     }
 
-    public function show(Regulation $regulation)
+    public function pdfRegulation()
     {
-        //
+        $regulations = Regulation::all();
+
+        $imageUNAMBA = '/assets/images/universidad-nacional-micaela-bastidas-logo.jpg';
+        $imageTH = '/assets/images/logo-th.png';
+
+        $pdf = Pdf::loadView('backend.pages.regulations.regulations-pdf', compact('regulations', 'imageUNAMBA', 'imageTH'))->setPaper('a4', 'landscape');
+
+        return $pdf->stream('regulations.pdf');
+        // return view('backend.pages.regulations.regulations-pdf', compact('regulations', 'imageUNAMBA', 'imageTH'));
     }
 
     public function edit(Regulation $regulation)

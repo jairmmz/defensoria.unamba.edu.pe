@@ -5,15 +5,16 @@ namespace App\Http\Controllers;
 use App\Http\Requests\AttentionFormRequest;
 use App\Models\AttentionForm;
 use App\Models\GeneralSetting;
-use Illuminate\Http\Request;
 
 class AttentionFormController extends Controller
 {
     public function index()
     {
+        $attentionForms = AttentionForm::all();
+
         $setting = GeneralSetting::first();
 
-        return view('backend.pages.attention-form.index-attention-form', compact('setting'));
+        return view('backend.pages.attention-form.index-attention-form', compact('setting', 'attentionForms'));
     }
 
     public function indexFront()
@@ -21,11 +22,6 @@ class AttentionFormController extends Controller
         $setting = GeneralSetting::first();
 
         return view('frontend.pages.attention-form', compact('setting'));
-    }
-
-    public function show(AttentionForm $attentionForm)
-    {
-        //
     }
 
     public function store(AttentionFormRequest $request)
@@ -51,12 +47,12 @@ class AttentionFormController extends Controller
     
 
 
-    public function generatePDF(Request $request, AttentionForm $attentionForm)
+    public function generatePDF(AttentionForm $attentionForm)
     {
         //
     }
 
-    public function generateExcel(Request $request, AttentionForm $attentionForm)
+    public function generateExcel(AttentionForm $attentionForm)
     {
         //
     }

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\GeneralSettingsRequest;
 use App\Models\GeneralSetting;
-use Illuminate\Http\Request;
 
 class GeneralSettingController extends Controller
 {
@@ -12,17 +11,6 @@ class GeneralSettingController extends Controller
     {
         $setting = GeneralSetting::first();
         
-        if(!$setting){
-            $setting = new GeneralSetting();
-            $setting->title_website = 'Defensoría Universitaria - UNAMBA';
-            $setting->logo_website = '';
-            $setting->background_website = '';
-            $setting->number_phone = '987654321';
-            $setting->link_facebook = 'www.facebook.com/23123';
-            $setting->id_user = '1';
-            $setting->save();
-        }
-
         return view('backend.pages.settings-general.index-settings-general', compact('setting'));
     }
 

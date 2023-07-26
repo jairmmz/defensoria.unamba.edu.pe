@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('attention_form', function (Blueprint $table) {
+        Schema::create('attention_forms', function (Blueprint $table) {
             $table->id();
             $table->string('name_plaintiff');
             $table->string('identity_card_plaintiff');
