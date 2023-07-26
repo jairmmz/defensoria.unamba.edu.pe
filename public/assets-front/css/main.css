@@ -538,7 +538,7 @@ input {
     .section-header {
       margin-bottom: 50px; } }
   .section-header .title {
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
     margin-bottom: 16px; }
   .section-header .cate {
     display: flex;
@@ -2122,7 +2122,7 @@ i[class*="flaticon"] {
   margin-top: -9px;
   margin-bottom: 16px; }
 .bulk-content .title {
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
   margin-bottom: 25px; }
   @media (min-width: 576px) {
     .bulk-content .title {
@@ -2709,7 +2709,8 @@ ul.filter {
     .feature-item .icon i {
       color: #ffffff; }
   .feature-item .title {
-    text-transform: capitalize; }
+    /* text-transform: capitalize;  */
+  }
   .feature-item .feature-content {
     width: calc(100% - 60px);
     padding-left: 20px; }
@@ -2733,7 +2734,7 @@ ul.filter {
     .feature-area {
       margin-bottom: -100px; }
       .feature-area .feature-item {
-        margin-bottom: 100px; } }
+        margin-bottom: 30px; } }
   .feature-area:nth-of-type(3n + 2) {
     margin-bottom: 0;
     text-align: center; }
@@ -3010,7 +3011,8 @@ ul.filter {
       margin: 0; }
 
 h4.title {
-  text-transform: capitalize; }
+  /* text-transform: capitalize;  */
+}
 
 .cate {
   text-transform: uppercase;
@@ -3634,7 +3636,7 @@ ul.bullet-list {
   position: sticky;
   top: 124px; }
   .privacy-sidebar-content .title {
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
     margin-bottom: 10px; }
     @media (min-width: 992px) {
       .privacy-sidebar-content .title:first-child {

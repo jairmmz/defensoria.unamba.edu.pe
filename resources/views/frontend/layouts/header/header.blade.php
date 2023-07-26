@@ -7,10 +7,11 @@
                     <div class="col-md-6">
                         <ul>
                             <li class="mr-3">
-                                <a href="Tel:987654321"><i class="fas fa-phone-square"></i>+51 987-654-321</a>
+                                <a href="Tel:987654321"><i class="fas fa-phone-square"></i><b>+51 987-654-321</b></a>
                             </li>
                             <li>
-                                <a href="mailto:defensoriauniversitaria@unamba.edu.pe"><i class="fas fa-envelope"></i>defensoriauniversitaria@unamba.edu.pe</a>
+                                <a href="mailto:defensoriauniversitaria@unamba.edu.pe"><i
+                                        class="fas fa-envelope"></i><b>defensoriauniversitaria@unamba.edu.pe</b></a>
                             </li>
                         </ul>
                     </div>
@@ -18,7 +19,9 @@
                         <ul>
                             <li>
                                 <a href="#0">
-                                    Horario: Lunes a Viernes de 07:30-13:00 y 14:00-15:30
+                                    <b>
+                                        Horario: Lunes a Viernes de 07:30-13:00 y 14:00-15:30
+                                    </b>
                                 </a>
                             </li>
                         </ul>
@@ -33,9 +36,10 @@
                 <div class="logo">
                     <a href="{{ route('index') }}">
                         @if (!$setting->logo_website)
-                        <img src="{{ asset('assets/images/logo-du-unamba.png') }}" alt="logo-defensoría-unamba">
+                            <img src="{{ asset('assets/images/logo-du-unamba.png') }}" alt="logo-defensoría-unamba">
                         @else
-                        <img src="{{ asset('assets/images/' . $setting->logo_website) }}" alt="logo-defensoría-unamba">
+                            <img src="{{ asset('assets/images/' . $setting->logo_website) }}"
+                                alt="logo-defensoría-unamba">
                         @endif
                     </a>
                 </div>
@@ -47,7 +51,7 @@
                         <a href="{{ route('frontend.index.news') }}">Noticias</a>
                     </li>
                     <li>
-                        <a href="{{ route('frontend.services') }}">Servicios</a>
+                        <a href="{{ route('frontend.services') }}">Funciones</a>
                     </li>
                     <li>
                         <a href="{{ route('frontend.procedures') }}">Procedimientos</a>

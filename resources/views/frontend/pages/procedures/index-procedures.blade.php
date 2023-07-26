@@ -6,20 +6,17 @@
     <!-- =============Hero Area============= -->
     <section class="hero-area bg_img" data-background="{{ asset('assets-front/images/page-header.jpg') }}">
         <div class="container">
-            <h1 class="title m-0">promotional SMS</h1>
+            <h1 class="title m-0">Procedimientos</h1>
         </div>
     </section>
     <div class="breadcrumb-section">
         <div class="container">
             <ul class="breadcrumb">
                 <li>
-                    <a href="index.html">Home</a>
+                    <a href="index.html">Inicio</a>
                 </li>
                 <li>
-                    <a href="service.html">Service</a>
-                </li>
-                <li>
-                    promotional messages
+                    <a href="service.html">Procedimientos</a>
                 </li>
             </ul>
         </div>
@@ -31,7 +28,7 @@
             <div class="row">
                 <div class="col-md-4 d-md-block d-none">
                     <div class="privacy-sidebar-content">
-                        <h4 class="title">privacy Policy</h4>
+                        <h6 class="title">Presentación de quejas y reclamaciones</h6>
                         <ul>
                             <li>
                                 <a class="nav-link" href="#data-controller">Data Controller</a>
@@ -43,7 +40,43 @@
                                 <a class="nav-link" href="#why-collect">why do we collect this data?</a>
                             </li>
                         </ul>
-                        <h4 class="title">terms of service</h4>
+                        <h6 class="title">Procedimientos disciplinarios:</h6>
+                        <ul>
+                            <li>
+                                <a class="nav-link" href="#data-controller">Data Controller</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="#cookies-data">Cookies Data</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="#why-collect">why do we collect this data?</a>
+                            </li>
+                        </ul>
+                        <h6 class="title">Asesoría legal</h6>
+                        <ul>
+                            <li>
+                                <a class="nav-link" href="#data-controller">Data Controller</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="#cookies-data">Cookies Data</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="#why-collect">why do we collect this data?</a>
+                            </li>
+                        </ul>
+                        <h6 class="title">Derechos y deberes del estudiante</h6>
+                        <ul>
+                            <li>
+                                <a class="nav-link" href="#data-controller">Data Controller</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="#cookies-data">Cookies Data</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="#why-collect">why do we collect this data?</a>
+                            </li>
+                        </ul>
+                        <h5 class="title">Recomendaciones y consejos generales</h5>
                         <ul>
                             <li>
                                 <a class="nav-link" href="#terms-condition">Service terms & condition</a>
