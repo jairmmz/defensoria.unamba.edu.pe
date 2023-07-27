@@ -47,7 +47,7 @@ class RegulationController extends Controller
 
             Regulation::create($regulation);
 
-            return redirect()->route('regulations')->with('success', 'Regulation created successfully');
+            return redirect()->route('regulations')->with('message', 'Operación realizada correctamente');
         } catch (\Throwable $th) {
             throw $th;
         }
@@ -118,7 +118,7 @@ class RegulationController extends Controller
 
             $regulation->delete();
 
-            return redirect()->route('regulations')->with('success', 'Regulation deleted successfully');
+            return redirect()->route('regulations')->with('message', 'Operación realizada correctamente');
         } catch (\Throwable $th) {
             throw $th;
         }

@@ -24,13 +24,6 @@
             </li>
         </ul>
         <ul class="navbar-nav navbar-nav-right">
-            <li class="nav-item dropdown">
-                <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
-                    data-toggle="dropdown">
-                    <i class="fas fa-bell mx-0"></i>
-                    <span class="count">16</span>
-                </a>
-            </li>
             <div class="nav-link">
                 <a class="btn btn-outline-dark" href="{{ route('index') }}" target="_blank">Ir a la web <i class="fas fa-globe mx-0"></i>
                 </a>
