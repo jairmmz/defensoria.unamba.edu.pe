@@ -61,7 +61,7 @@ class GeneralSettingController extends Controller
 
             $setting->update($settingUpdate);
 
-            return to_route('settings');
+            return to_route('settings')->with('message', 'Operación realizada correctamente');
 
         } catch (\Throwable $th) {
             throw $th;

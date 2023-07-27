@@ -49,9 +49,13 @@ class NewsController extends Controller
 
     public function create()
     {
-        $setting = GeneralSetting::first();
+        try {
+            $setting = GeneralSetting::first();
 
-        return view('backend.pages.news.add-new', compact('setting'));
+            return view('backend.pages.news.add-new', compact('setting'));
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     public function store(NewsRequest $request)
@@ -68,7 +72,7 @@ class NewsController extends Controller
 
             News::create($news);
 
-            return to_route('news')->with(['status' => 'success', 'message' => 'Noticia registrada correctamente.']);
+            return to_route('news')->with('message', 'Operación realizada correctamente');
         } catch (\Exception $th) {
             throw $th;
         }
@@ -108,7 +112,7 @@ class NewsController extends Controller
 
             $new->update($newUpdate);
 
-            return to_route('news')->with(['status' => 'success', 'message' => 'Noticia actualizada correctamente.']);
+            return to_route('news')->with('message', 'Operación realizada correctamente');
         } catch (\Throwable $th) {
             throw $th;
         }
@@ -127,7 +131,7 @@ class NewsController extends Controller
 
             $new->delete();
 
-            return to_route('news')->with(['status' => 'success', 'message' => 'Noticia eliminada correctamente.']);
+            return to_route('news')->with('message', 'Operación realizada correctamente');
         } catch (\Exception $th) {
             throw $th;
         }

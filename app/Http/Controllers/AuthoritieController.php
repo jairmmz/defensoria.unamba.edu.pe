@@ -47,11 +47,9 @@ class AuthoritieController extends Controller
     
             $authoritie->update($authoritieUpdate);
     
-            return redirect()->route('authorities')->with(['status' => 'success', 'message' => 'Autoridad actualizada correctamente.']);
+            return redirect()->route('authorities')->with('message', 'Operación realizada correctamente');
         } catch (\Throwable $th) {
-            // Puedes manejar el error de alguna forma específica o simplemente dejarlo sin manejar
-            // throw $th;
-            return redirect()->route('authorities')->with('error', 'Ocurrió un error al actualizar la autoridad');
+            throw $th;
         }
     }
     

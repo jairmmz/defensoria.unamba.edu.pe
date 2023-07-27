@@ -33,9 +33,9 @@
                     <img src="{{ asset('assets/images/' . (Auth::user()->profile_photo != null ? Auth::user()->profile_photo : 'users/user-default.png') ) }}" alt="">
                 </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-                    <a class="dropdown-item" href="#">
-                        <i class="fas fa-cog text-primary"></i>
-                        Ajustes
+                    <a class="dropdown-item" href="{{ route('profile.user', ['user'=>Auth::user()->id]) }}">
+                        <i class="fas fa-user text-primary"></i>
+                        Perfil
                     </a>
                     <div class="dropdown-divider"></div>
                     <form role="form" method="post" action="{{ route('logout') }}" id="logout-form">

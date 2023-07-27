@@ -7,23 +7,32 @@ use App\Models\GeneralSetting;
 use App\Models\Regulation;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Throwable;
 
 class RegulationController extends Controller
 {
     public function index()
     {
-        $regulations = Regulation::all();
-        $setting = GeneralSetting::first();
-
-        return view('backend.pages.regulations.index-regulations', compact('regulations', 'setting'));
+        try {
+            $regulations = Regulation::all();
+            $setting = GeneralSetting::first();
+    
+            return view('backend.pages.regulations.index-regulations', compact('regulations', 'setting'));
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     public function indexFrontend()
     {
-        $regulations = Regulation::where('is_active', '1')->get();
-        $setting = GeneralSetting::first();
-
-        return view('frontend.pages.documents.index-documents', compact('regulations', 'setting'));
+        try {
+            $regulations = Regulation::where('is_active', '1')->get();
+            $setting = GeneralSetting::first();
+    
+            return view('frontend.pages.documents.index-documents', compact('regulations', 'setting'));
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     public function create()
@@ -100,8 +109,9 @@ class RegulationController extends Controller
             $regulation->update($regulationUpdate);
 
             return redirect()->route('regulations')->with('success', 'Regulation updated successfully');
-        } catch (\Throwable $th) {
-            throw $th;
+        } catch (Throwable $e) {
+            report($e);
+            throw $e;
         }
     }
 

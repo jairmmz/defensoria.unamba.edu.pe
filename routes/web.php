@@ -73,6 +73,10 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/ajustes-generales', [GeneralSettingController::class, 'index'])->name('settings');
     Route::patch('/ajustes-generales/actualizar', [GeneralSettingController::class, 'update'])->name('settings.update');
 
+    // ------------ Perfil de usuario ----------------
+    Route::get('/perfil/{user}', [UserController::class, 'profileUser'])->name('profile.user');
+    Route::patch('/perfil/actualizar/{user}', [UserController::class, 'updateProfile'])->name('profile.update');
+    // 
     // ------------ Cerrar sesión ----------------
     Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 });

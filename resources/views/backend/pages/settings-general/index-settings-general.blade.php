@@ -107,4 +107,13 @@
             </div>
         </div>
     </div>
+    @if (Session::has('message'))
+    <script>
+        swal("Mensaje", "{{ Session::get('message') }}", "success", {
+            button: true,
+            button: "Aceptar",
+            timer: 3000,
+        });
+    </script>
+    @endif
 @endsection

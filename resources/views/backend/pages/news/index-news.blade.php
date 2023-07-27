@@ -60,7 +60,8 @@
                                             <form method="POST" action="{{ route('news.destroy', ['new' => $new->id ]) }}" >
                                                 @csrf
                                                 {{ method_field("DELETE") }}
-                                                <a href="{{ route('news.destroy', ['new' => $new->id ]) }}" class="btn btn-outline-danger" onclick="event.preventDefault(); this.closest('form').submit();">Eliminar</a>
+                                                <button type="button" class="btn btn-outline-danger"
+                                                onclick="confirmation(event)">Eliminar</button>
                                             </form>
                                         </td>
                                     </tr>
@@ -72,4 +73,49 @@
             </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+        function confirmation(ev) {
+            ev.preventDefault();
+
+            var form = ev.currentTarget.parentElement;
+            var urlToRedirect = form.getAttribute('action');
+
+            swal({
+                title: "¿Estás seguro?",
+                text: "El registro se eliminará definitivamente!",
+                icon: "warning",
+                buttons: {
+                    cancel: {
+                        text: "Cancelar",
+                        value: null,
+                        visible: true,
+                        className: "",
+                        closeModal: true,
+                    },
+                    confirm: {
+                        text: "Eliminar",
+                        value: true,
+                        visible: true,
+                        className: "btn-danger", // Cambia el color del botón de eliminar
+                        closeModal: true,
+                    },
+                },
+            }).then((willCancel) => {
+                if (willCancel) {
+                    form.submit(); // Envía el formulario manualmente después de la confirmación
+                }
+            });
+        }
+    </script>
+
+    @if (Session::has('message'))
+        <script>
+            swal("Mensaje", "{{ Session::get('message') }}", "success", {
+                button: true,
+                button: "Aceptar",
+                timer: 3000,
+            });
+        </script>
+    @endif
 @endsection

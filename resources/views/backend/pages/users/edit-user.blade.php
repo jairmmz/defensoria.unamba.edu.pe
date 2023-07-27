@@ -45,22 +45,6 @@
                                 </div>
                             </div>
                         </div>
-                        {{-- <div class="row">  
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="password">Contraseña</label>
-                                    <input id="password" class="form-control" name="password" type="password">
-                                    @error('password') <p class='text-danger text-xs'> {{ $message }} </p> @enderror
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="password">Confimar contraseña</label>
-                                    <input id="password" class="form-control" name="confir_password" type="password">
-                                    @error('confir_password') <p class='text-danger text-xs'> {{ $message }} </p> @enderror
-                                </div>
-                            </div>
-                        </div> --}}
                         <div class="row">
                             <div class="col-lg-8">
                                 <div class="form-group">
