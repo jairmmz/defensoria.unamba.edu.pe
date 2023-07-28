@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('logo_website');
             $table->string('title_website');
             $table->string('background_website');
+            $table->string('banner_website');
             $table->string('number_phone');
             $table->string('link_facebook');
             $table->foreignID('id_user')->constrained('users');

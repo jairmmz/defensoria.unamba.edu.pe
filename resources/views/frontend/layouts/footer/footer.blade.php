@@ -5,19 +5,20 @@
             <div class="row mb-50-none">
                 <div class="col-sm-6 col-lg-6">
                     <div class="footer-widget footer-link">
-                        {{-- <h5 class="title">Datos generales</h5> --}}
                         <div class="logo mb-2">
                             <a href="{{ route('index') }}"><img src="{{ asset('assets/images/logo-du-unamba.png') }}" alt="logo"></a>
                         </div>
                         <ul>
                             <li>
-                                <span>Av. Garcilazo de la Vega S/N Tamburco - Abancay - Apurímac</span>
+                                <b>Celular/Teléfono: </b>
+                                <span></span>
                             </li>
                             <li>
-                                <span>Horario de atención: Lunes a Viernes de 07:30-13:00 y 14:00-15:30</span>
+                                <b>Horario de atención:</b>
+                                <span> Lunes a Viernes de 07:30-13:00 y 14:00-15:30</span>
                             </li>
                             <li>
-                                <span>defensoriauniversitaria@unamba.edu.pe</span>
+                                <b>defensoriauniversitaria@unamba.edu.pe</b>
                             </li>
                         </ul>
                     </div>
@@ -47,20 +48,10 @@
                 <div class="col-sm-6 col-lg-3">
                     <div class="footer-widget footer-about">
                         <h5 class="title">Defensoría Universitaria</h5>
-                        <p>Velamos por los derechos de la Comunidad Universitaria.</p>
-                        <ul class="footer-social">
-                            <li>
-                                <a href="#0"><i class="fab fa-facebook-f"></i></a>
-                            </li>
-                            <li>
-                                <a href="#0"><i class="fab fa-twitter"></i></a>
-                            </li>
-                            <li>
-                                <a href="#0"><i class="fab fa-instagram"></i></a>
-                            </li>
-                            <li>
-                                <a href="#0"><i class="fab fa-linkedin-in"></i></a>
-                            </li>
+                        <p>Ubicanos en el primer piso del pabellón de Ing. Informática y Sistemas.</p>
+                            <a href="https://www.unamba.edu.pe">
+                                <img src="{{ asset('assets/images/Logotipo-UNAMBA-página-web.png') }}" width="80%" alt="">
+                            </a>
                         </ul>
                     </div>
                 </div>

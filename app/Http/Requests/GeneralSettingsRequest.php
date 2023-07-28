@@ -25,6 +25,7 @@ class GeneralSettingsRequest extends FormRequest
             'title_website' => 'required|string',
             'logo_website' => 'mimes:jpeg,png,jpg,gif,svg|max:10240',
             'background_website' => 'mimes:jpeg,png,jpg,gif,svg|max:10240',
+            'banner_website' => 'mimes:jpeg,png,jpg,gif,svg|max:10240',
             'number_phone' => 'required',
             'link_facebook' => '',
             'id_user' => 'integer'

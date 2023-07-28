@@ -42,7 +42,7 @@ class GeneralSettingController extends Controller
                 $settingUpdate['logo_website'] = $setting->logo_website;
             }
 
-            // Para el fondo /background de la página web
+            // Para el fondo background de la página web
             if($imageBackground = $request->file('background_website')){
                 if($setting->background_website){
                     $imageBackgroundPath = public_path('assets/images/' . $setting->background_website);
@@ -57,6 +57,23 @@ class GeneralSettingController extends Controller
                 $settingUpdate['background_website'] = $imageBackgroundGet;
             }else{
                 $settingUpdate['background_website'] = $setting->background_website;
+            }
+
+            // Para el banner de bienvenida de la página web
+            if($imageBanner = $request->file('banner_website')){
+                if($setting->banner_website){
+                    $imageBannerPath = public_path('assets/images/' . $setting->banner_website);
+
+                    if(file_exists($imageBannerPath)){
+                        unlink($imageBannerPath);
+                    }
+                }
+                $routeSaveimageBanner = 'assets/images/';
+                $imageBannerGet = date('YmdHis') . "." . $imageBanner->getClientOriginalExtension();
+                $imageBanner->move($routeSaveimageBanner, $imageBannerGet);
+                $settingUpdate['banner_website'] = $imageBannerGet;
+            }else{
+                $settingUpdate['banner_website'] = $setting->banner_website;
             }
 
             $setting->update($settingUpdate);

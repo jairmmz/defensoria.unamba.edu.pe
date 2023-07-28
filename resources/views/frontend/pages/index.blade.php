@@ -32,9 +32,9 @@
                 <div class="col-lg-6">
                     <div class="bulk-content text-center text-sm-left wow fadeIn" data-wow-delay=".3s">
                         <h3 class="title">¿QUÉ ES LA DEFENSORÍA UNIVERSITARIA?</h3>
-                        <p>La Defensoría Universitaria de la UNAMBA, es un órgano autónomo en el ejercicio de sus funciones
+                        <p class="text-justify">La Defensoría Universitaria de la UNAMBA, es un órgano autónomo en el ejercicio de sus funciones
                             e independiente de los órganos de gobierno de la Universidad.</p>
-                        <p>Es la instancia encargada de la tutela de los derechos de los miembros de la comunidad
+                        <p class="text-justify">Es la instancia encargada de la tutela de los derechos de los miembros de la comunidad
                             universitaria y vela por el mantenimiento del principio de autoridad responsable. La defensoría
                             atiende denuncias por infracción a derechos individuales y pueden acudir a ella los estudiantes,
                             docentes, egresados y personal administrativo. El estatuto de la universidad establece los
@@ -46,7 +46,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="bulk-thumb wow slideInRight">
-                        <img src="{{ asset('assets/images/about/Qué-es-la-defensoría.universitaria.png') }}" alt="bulk">
+                        <img src="{{ asset('assets-front/images/Que-es-defensoría-universitaria.jpg') }}" alt="bulk">
                     </div>
                 </div>
             </div>
@@ -154,7 +154,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-4">
                     <div class="bulk-thumb">
-                        <img src="{{ asset('assets-front/images/bulk/bulk02.png') }}" alt="">
+                        <img src="{{ asset('assets-front/images/Defensoria-Universitaria-mision-vision.jpg') }}" alt="">
                     </div>
                 </div>
                 <div class="col-lg-8">
@@ -190,9 +190,9 @@
                     </button>
                 </div>
                 <div>
-                    <a href="{{ asset('assets-front/images/bulk/bulk02.png') }}">
-                    <img src="{{ asset('assets-front/images/bulk/bulk02.png') }}" alt="" class="img-fluid">
-                </a>
+                    <a href="{{ asset('assets/images/'). $setting->banner_website }}" target="_blank">
+                        <img src="{{ asset('assets/images/'). $setting->banner_website }}" alt="" class="img-fluid">
+                    </a>
                 </div>
             </div>
         </div>
