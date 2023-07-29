@@ -43,9 +43,17 @@
                                     <td>{{ $attentionForm->name_defendant }}</td>
                                     <td>{{ Carbon::parse($attentionForm->created_at)->format('d/m/y H:i') }}</td>
                                     <td>
-                                        <label class="badge badge-{{ $attentionForm->status == 'pendiente' ? 'info' : ($attentionForm->status == 'proceso' ? 'sucess' : 'light') }}">
-                                            {{ $attentionForm->status == 'pendiente' ? 'Pendiente' : ($attentionForm->status == 'proceso' ? 'Proceso' : 'Archivado') }}
-                                        </label>
+                                        <form id="formAttentionForm" action="{{ route('attention-form.update', ['attentionForm' => $attentionForm->id]) }}" method="POST">
+                                            @csrf
+                                            {{ method_field("PATCH") }}
+                                            <div class="form-group ">
+                                                <select class="form-control" name="status" id="status" onchange="this.form.submit()">
+                                                    <option value="1" {{ $attentionForm->status == '1' ? 'selected' : '' }}>Pendiente</option>
+                                                    <option value="2" {{ $attentionForm->status == '2' ? 'selected' : '' }}>Proceso</option>
+                                                    <option value="3" {{ $attentionForm->status == '3' ? 'selected' : '' }}>Archivado</option>
+                                                </select>
+                                            </div>
+                                        </form>
                                     </td>
                                     <td>
                                         <a href="{{ route('attention-form.show', ['attentionForm' => $attentionForm->id ]) }}" class="btn btn-outline-primary">Ver</a>
@@ -59,4 +67,15 @@
             </div>
         </div>
     </div>
+
+    @if (Session::has('message'))
+    <script>
+        swal("Mensaje", "{{ Session::get('message') }}", "success", {
+            button: true,
+            button: "Aceptar",
+            timer: 3000,
+        });
+    </script>
+@endif
+
 @endsection

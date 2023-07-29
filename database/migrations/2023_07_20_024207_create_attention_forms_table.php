@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('attention_forms', function (Blueprint $table) {
             $table->id();
             $table->string('name_plaintiff')->nullable();
-            $table->string('identity_card_plaintiff')->nullable();
+            $table->string('identity_code_plaintiff')->nullable();
+            $table->string('identity_dni_plaintiff')->nullable();
             $table->string('condition_plaintiff')->nullable();
             $table->string('type_request')->nullable();
             $table->string('issue')->nullable();
@@ -28,9 +29,9 @@ return new class extends Migration
             $table->string('number_phone_defendant')->nullable();
             $table->string('profesional_school_defendant')->nullable();
             $table->string('workplace_office_defendant')->nullable();
-            $table->string('description_facts')->nullable();
-            $table->string('violated_rights')->nullable();
-            $table->string('description_files')->nullable();
+            $table->text('description_facts')->nullable();
+            $table->text('violated_rights')->nullable();
+            $table->text('description_files')->nullable();
             $table->string('status')->nullable()->default('pendiente');
             $table->timestamps();
         });

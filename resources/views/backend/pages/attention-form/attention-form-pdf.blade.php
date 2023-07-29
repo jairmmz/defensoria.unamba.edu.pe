@@ -118,7 +118,7 @@
                     <span>"Año de la unidad, la paz y el desarrollo"</span>
                     <h4 class="format-request">FORMATO DE SOLICITUD</h4>
                     <div align="left">
-                        <b>Sr. (a): MVZ. Victor Raúl Cano Fuentes</b><br>
+                        <b>Sr. (a): {{ $authoritie->name }}</b><br>
                     </div>
                     <b
                         class="b-autorithie">.............................................................................................</b><br>
@@ -142,22 +142,14 @@
                     <td colspan="10">{{ Carbon::parse($attentionForm->created_at)->format('d/m/y H:i') }}</td>
                 </tr>
                 <tr>
-                    <td colspan="3" class="text-bold">Demandante (Nombres y Apellidos):</td>
-                    <td colspan="8">{{ $attentionForm->name_plaintiff }}</td>
+                    <td colspan="4" class="text-bold">Nombres y Apellidos del demandante:</td>
+                    <td colspan="7">{{ $attentionForm->name_plaintiff }}</td>
                 </tr>
                 <tr>
-                    {{-- Cantidad de caracteres en identity_card_plaintiff --}}
-                    @if (strlen($attentionForm->identity_card_plaintiff) == 8)
-                        <td class="text-bold">DNI:</td>
-                        <td>{{ $attentionForm->identity_card_plaintiff }}</td>
-                        <td class="text-bold">Código:</td>
-                        <td></td>
-                    @elseif (strlen($attentionForm->identity_card_plaintiff) == 6)
-                        <td class="text-bold">DNI:</td>
-                        <td></td>
-                        <td class="text-bold">Código:</td>
-                        <td>{{ $attentionForm->identity_card_plaintiff }}</td>
-                    @endif
+                    <td class="text-bold">DNI:</td>
+                    <td>{{ $attentionForm->identity_dni_plaintiff }}</td>
+                    <td class="text-bold">Código:</td>
+                    <td>{{ $attentionForm->identity_code_plaintiff }}</td>
 
                     {{-- Condición para saber si es estudiante docente o administrativo --}}
                     @if ($attentionForm->condition_plaintiff == 1)
@@ -248,22 +240,22 @@
                     <td colspan="8">{{ $attentionForm->number_phone_defendant }}</td>
                 </tr>
                 <tr>
-                    <td colspan="11" class="text-bold">Descripción de los hechos (Fundamente de forma clara y precisa los hechos ocurridos):</td>
+                    <td colspan="11" class="text-bold">Descripción de los hechos:</td>
                 </tr>
                 <tr>
-                    <td colspan="11">{{ $attentionForm->description_facts }}</td>
+                    <td colspan="11">{{ $attentionForm->description_facts }} <br></td>
                 </tr>
                 <tr>
                     <td colspan="11" class="text-bold">Derechos que estime afectados:</td>
                 </tr>
                 <tr>
-                    <td colspan="11">{{ $attentionForm->violated_rights }}</td>
+                    <td colspan="11">{{ $attentionForm->violated_rights }} <br></td>
                 </tr>
                 <tr>
                     <td colspan="11" class="text-bold">Copias de dicumentos adjuntos</td>
                 </tr>
                 <tr>
-                    <td colspan="11">{{ $attentionForm->description_files }}</td>
+                    <td colspan="11">{{ $attentionForm->description_files }} <br> </td>
                 </tr>
             </tbody>
         </table>

@@ -35,22 +35,28 @@
                     @method('POST')
                     <h3 class="account-title mb-4">Datos del solicitante</h3>
                     <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-lg-5">
                             <div class="form-group">
                                 <input name="name_plaintiff" type="text" value="{{ old('name_plaintiff') }}" placeholder="Nombres y apellidos">
                                 @error('name_plaintiff') <p class='text-danger small'> {{ $message }} </p> @enderror
                             </div>
                         </div>
-                        <div class="col-lg-3">
+                        <div class="col-lg-2">
                             <div class="form-group">
-                                <input name="identity_card_plaintiff" type="number" value="{{ old('identity_card_plaintiff') }}" placeholder="Código/DNI">
-                                @error('identity_card_plaintiff') <p class='text-danger small'> {{ $message }} </p> @enderror
+                                <input name="identity_code_plaintiff" type="number" value="{{ old('identity_code_plaintiff') }}" placeholder="Código">
+                                @error('identity_code_plaintiff') <p class='text-danger small'> {{ $message }} </p> @enderror
+                            </div>
+                        </div>
+                        <div class="col-lg-2">
+                            <div class="form-group">
+                                <input name="identity_dni_plaintiff" type="number" value="{{ old('identity_dni_plaintiff') }}" placeholder="DNI">
+                                @error('identity_dni_plaintiff') <p class='text-danger small'> {{ $message }} </p> @enderror
                             </div>
                         </div>
                         <div class="col-lg-3">
                             <div class="form-group">
                                 <select name="condition_plaintiff" id="condition_plaintiff">
-                                    <option selected disabled>Seleccione el cargo</option>
+                                    <option selected disabled>Selección la ocupación</option>
                                     <option value="1" @if(old('condition_plaintiff') == '1') selected @endif>Estudiante</option>
                                     <option value="2" @if(old('condition_plaintiff') == '2') selected @endif>Docente</option>
                                     <option value="3" @if(old('condition_plaintiff') == '3') selected @endif>Administrativo</option>
@@ -133,7 +139,7 @@
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <select name="charge_defendant" id="charge_defendant">
-                                    <option selected disabled>Seleccione el cargo</option>
+                                    <option selected disabled>Seleccione la ocupación</option>
                                     <option value="1" @if(old('charge_defendant') == '1') selected @endif>Estudiante</option>
                                     <option value="2" @if(old('charge_defendant') == '2') selected @endif>Docente</option>
                                     <option value="3" @if(old('charge_defendant') == '3') selected @endif>Administrativo</option>
@@ -176,7 +182,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <label for="number_phone_defendant">Descripción de los hechos</label>
+                                <label for="number_phone_defendant">Descripción de los hechos: <span>(Fundamente de forma clara y precisa los hechos ocurridos)</span></label>
                                 <textarea name="description_facts" cols="30" rows="10">{{ old('description_facts') }}</textarea>
                                 @error('description_facts') <p class='text-danger small'> {{ $message }} </p> @enderror
                             </div>
@@ -292,7 +298,7 @@
         swal("Mensaje", "{{ Session::get('message') }}", "success", {
             button: true,
             button: "Aceptar",
-            timer: 3000,
+            timer: 5000,
         });
     </script>
     @elseif (Session::has('status') && Session::get('status') == 'error')
@@ -300,7 +306,7 @@
         swal("Mensaje", "{{ Session::get('message') }}", "error", {
             button: true,
             button: "Aceptar",
-            timer: 3000,
+            timer: 5000,
         });
     </script>
     @endif

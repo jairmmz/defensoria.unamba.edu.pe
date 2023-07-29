@@ -66,6 +66,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     // ------------ Formulario de atención de casos ----------------
     Route::get('/formulario-atencion', [AttentionFormController::class, 'index'])->name('attention-form-index');
     Route::get('/formulario-atencion/ver/{attentionForm}', [AttentionFormController::class, 'show'])->name('attention-form.show');
+    Route::patch('/formulario-atencion/actualizar/{attentionForm}', [AttentionFormController::class, 'update'])->name('attention-form.update');
     Route::get('/formulario-atencion/generar-pdf/{attentionForm}', [AttentionFormController::class, 'generatePDF'])->name('attention-form.generatePDF');
     Route::get('/formulario-atencion/generar-excel/{attentionForm}', [AttentionFormController::class, 'generateExcel'])->name('attention-form.generateExcel');
 
