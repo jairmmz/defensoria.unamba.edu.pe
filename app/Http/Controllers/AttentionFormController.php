@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\AttentionForm;
 use App\Models\FileAttentionForm;
 use App\Models\GeneralSetting;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 
 
@@ -92,13 +93,25 @@ class AttentionFormController extends Controller
         }
 
         return to_route('frontend.attention-form')->with(['status' => 'success', 'message' => 'Su formulario de atención ha sido enviado con éxito.']);
+    }
 
+    public function show(AttentionForm $attentionForm)
+    {
+        $setting = GeneralSetting::first();
+
+        return view('backend.pages.attention-form.view-attention-form', compact('attentionForm', 'setting'));
     }
 
 
 
     public function generatePDF(AttentionForm $attentionForm)
     {
-        //
+        $imageUNAMBA = '/assets/images/universidad-nacional-micaela-bastidas-logo.jpg';
+        $imageTH = '/assets/images/logo-th.png';
+
+        $pdf = Pdf::loadView('backend.pages.attention-form.attention-form-pdf', compact('imageUNAMBA', 'imageTH'))->setPaper('a4', 'landscape');
+
+        return $pdf->stream('regulations.pdf');
+        // return view('backend.pages.regulations.regulations-pdf', compact('regulations', 'imageUNAMBA', 'imageTH'));
     }
 }

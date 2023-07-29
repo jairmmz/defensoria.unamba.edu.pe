@@ -1,8 +1,11 @@
 @extends('backend.layouts.app')
 @section('content')
+    @php
+    use Carbon\Carbon;
+    @endphp
     <div class="page-header">
         <h3 class="page-title">
-            Reglamentos y Resoluciones
+            Lista de Quejas y Denuncias
         </h3>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -12,17 +15,7 @@
         </nav>
     </div>
     <div class="card">
-        <div class="card-body">
-            <div class="d-flex justify-content-between mb-3">
-                <h4 class="card-title">LISTA DE REGLAMENTOS</h4>
-                <div>
-                  <a href="{{ route('regulations.add') }}" class="btn btn-primary btn-icon-text">
-                    Añadir reglamento
-                    <i class="btn-icon-append fas fa-plus"></i>
-                  </a>
-                </div>
-            </div>
-              
+        <div class="card-body">   
             <div class="row">
                 <div class="col-12">
                     <div class="table-responsive">
@@ -30,10 +23,11 @@
                             <thead>
                                 <tr>
                                     <th>Orden #</th>
-                                    <th>Título</th>
-                                    <th>Descripción</th>
-                                    <th>Fecha de resolución</th>
-                                    <th>Documento</th>
+                                    <th>Solicitante</th>
+                                    <th>Cargo</th>
+                                    <th>Tipo de Solicitud</th>
+                                    <th>Quejado/Denunciado</th>
+                                    <th>Fecha</th>
                                     <th>Estado</th>
                                     <th>Acción</th>
                                 </tr>
@@ -41,25 +35,21 @@
                             <tbody>
                                 @foreach ($attentionForms as $attentionForm)
                                 <tr>
-                                    <td>{{ $regulation->id }} </td>
-                                    <td>{{ Str::limit($regulation->title, 30) }}</td>
-                                    <td>{{ Str::limit($regulation->description, 40) }}</td>
-                                    <td>{{ $regulation->date_regulation }}</td>
-                                    <td>
-                                        <a href="{{ asset('assets/documents/' . $regulation->document_regulation) }}" target="_blank" class="btn btn-outline-primary">Ver</a>
+                                    <td>{{ $attentionForm->id }}</td>
+                                    <td>{{ $attentionForm->name_plaintiff }}</td>
+                                    <td>{{ $attentionForm->condition_plaintiff == 1 ? 'Estudiante' : ($attentionForm->condition_plaintiff == 2 ? 'Docente' : 'Administrativo') }}
                                     </td>
+                                    <td>{{ $attentionForm->type_request == 1 ? 'Reclamo' : ($attentionForm->type_request == 2 ? 'Queja' : 'Denuncia') }}</td>
+                                    <td>{{ $attentionForm->name_defendant }}</td>
+                                    <td>{{ Carbon::parse($attentionForm->created_at)->format('d/m/y H:i') }}</td>
                                     <td>
-                                        <label class="badge badge-{{ $regulation->is_active == 1 ? 'info' : 'danger'  }}">
-                                            {{ $regulation->is_active == 1 ? 'Activo' : 'Inactivo' }}
+                                        <label class="badge badge-{{ $attentionForm->status == 'pendiente' ? 'info' : ($attentionForm->status == 'proceso' ? 'sucess' : 'light') }}">
+                                            {{ $attentionForm->status == 'pendiente' ? 'Pendiente' : ($attentionForm->status == 'proceso' ? 'Proceso' : 'Archivado') }}
                                         </label>
                                     </td>
                                     <td>
-                                        <a href="{{ route('regulations.edit', ['regulation' => $regulation->id ]) }}" class="btn btn-outline-primary mb-2">Editar</a>
-                                        <form method="POST" action="{{ route('regulations.destroy', ['regulation' => $regulation->id ]) }}" >
-                                            @csrf
-                                            {{ method_field("DELETE") }}
-                                            <a href="{{ route('regulations.destroy', ['regulation' => $regulation->id ]) }}" class="btn btn-outline-danger" onclick="event.preventDefault(); this.closest('form').submit();">Eliminar</a>
-                                        </form>
+                                        <a href="{{ route('attention-form.show', ['attentionForm' => $attentionForm->id ]) }}" class="btn btn-outline-primary">Ver</a>
+                                        <a href="{{ route('attention-form.generatePDF', ['attentionForm' => $attentionForm->id ]) }}" target="_blank" class="btn btn-outline-danger">PDF</a>
                                     </td>
                                 @endforeach
                             </tbody>

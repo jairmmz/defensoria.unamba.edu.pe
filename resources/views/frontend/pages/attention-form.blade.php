@@ -64,6 +64,7 @@
                                     <option selected="true" disabled="disabled">Seleccione el tipo de solicitud</option>
                                     <option value="1" @if(old('type_request') == '1') selected @endif>Queja</option>
                                     <option value="2" @if(old('type_request') == '2') selected @endif>Reclamo</option>
+                                    <option value="3" @if(old('type_request') == '3') selected @endif>Denuncia</option>
                                 </select>
                                 @error('type_request') <p class='text-danger small'> {{ $message }} </p> @enderror
                             </div>

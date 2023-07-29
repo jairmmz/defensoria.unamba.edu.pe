@@ -65,9 +65,9 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
     // ------------ Formulario de atención de casos ----------------
     Route::get('/formulario-atencion', [AttentionFormController::class, 'index'])->name('attention-form-index');
-    Route::get('/formulario-atencion/ver/{attention-form}', [AttentionFormController::class, 'show'])->name('attention-form.show');
-    Route::get('/formulario-atencion/generar-pdf/{attention-form}', [AttentionFormController::class, 'generatePDF'])->name('attention-form.generatePDF');
-    Route::get('/formulario-atencion/generar-excel/{attention-form}', [AttentionFormController::class, 'generateExcel'])->name('attention-form.generateExcel');
+    Route::get('/formulario-atencion/ver/{attentionForm}', [AttentionFormController::class, 'show'])->name('attention-form.show');
+    Route::get('/formulario-atencion/generar-pdf/{attentionForm}', [AttentionFormController::class, 'generatePDF'])->name('attention-form.generatePDF');
+    Route::get('/formulario-atencion/generar-excel/{attentionForm}', [AttentionFormController::class, 'generateExcel'])->name('attention-form.generateExcel');
 
     // ------------ Ajustes generales ----------------
     Route::get('/ajustes-generales', [GeneralSettingController::class, 'index'])->name('settings');
