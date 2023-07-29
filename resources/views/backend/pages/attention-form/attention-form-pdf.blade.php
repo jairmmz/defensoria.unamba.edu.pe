@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>FORMATO DE SOLICITUD ID</title>
+    <title>SOLICITUD-{{ $identityPlaintiff }}</title>
 
     <style type="text/css">
         @page {
@@ -88,11 +88,19 @@
         .b-autorithie {
             margin-top: -4px;
         }
+
+        .text-bold{
+            font-weight: bold;
+        }
     </style>
 
 </head>
 
 <body>
+
+    @php
+    use Carbon\Carbon;
+    @endphp
 
     <div class="information">
         <table width="100%">
@@ -130,90 +138,132 @@
         <table class="table-document" width="100%">
             <tbody>
                 <tr>
-                    <td colspan="1">Fecha:</td>
-                    <td colspan="10"></td>
+                    <td colspan="1" class="text-bold">Fecha:</td>
+                    <td colspan="10">{{ Carbon::parse($attentionForm->created_at)->format('d/m/y H:i') }}</td>
                 </tr>
                 <tr>
-                    <td colspan="3">Demandante: Nombres y Apellidos:</td>
-                    <td colspan="8"></td>
+                    <td colspan="3" class="text-bold">Demandante (Nombres y Apellidos):</td>
+                    <td colspan="8">{{ $attentionForm->name_plaintiff }}</td>
                 </tr>
                 <tr>
-                    <td>DNI:</td>
-                    <td></td>
-                    <td>Código:</td>
-                    <td></td>
-                    <td>Estudiante:</td>
-                    <td></td>
-                    <td>Docente:</td>
-                    <td></td>
-                    <td colspan="2">Administrativo:</td>
-                    <td></td>
+                    {{-- Cantidad de caracteres en identity_card_plaintiff --}}
+                    @if (strlen($attentionForm->identity_card_plaintiff) == 8)
+                        <td class="text-bold">DNI:</td>
+                        <td>{{ $attentionForm->identity_card_plaintiff }}</td>
+                        <td class="text-bold">Código:</td>
+                        <td></td>
+                    @elseif (strlen($attentionForm->identity_card_plaintiff) == 6)
+                        <td class="text-bold">DNI:</td>
+                        <td></td>
+                        <td class="text-bold">Código:</td>
+                        <td>{{ $attentionForm->identity_card_plaintiff }}</td>
+                    @endif
+
+                    {{-- Condición para saber si es estudiante docente o administrativo --}}
+                    @if ($attentionForm->condition_plaintiff == 1)
+                        <td class="text-bold">Estudiante:</td>
+                        <td> X </td>
+                        <td class="text-bold">Docente:</td>
+                        <td></td>
+                        <td colspan="2" class="text-bold">Administrativo:</td>
+                        <td></td>
+                    @elseif ($attentionForm->condition_plaintiff == 2)
+                        <td class="text-bold">Estudiante:</td>
+                        <td></td>
+                        <td class="text-bold">Docente:</td>
+                        <td> X </td>
+                        <td colspan="2" class="text-bold">Administrativo:</td>
+                        <td></td>
+                    @elseif ($attentionForm->condition_plaintiff == 3)  
+                        <td class="text-bold">Estudiante:</td>
+                        <td></td>
+                        <td class="text-bold">Docente:</td>
+                        <td></td>
+                        <td colspan="2" class="text-bold">Administrativo:</td>
+                        <td> X </td>
+                    @endif
                 </tr>
                 <tr>
-                    <td colspan="1">Facultad:</td>
-                    <td colspan="10"></td>
+                    <td colspan="1" class="text-bold">Facultad:</td>
+                    @if(isset($attentionForm_profesional_faculty_plaintiff))
+                        <td colspan="10">{{ $attentionForm_profesional_faculty_plaintiff }}</td>
+                    @else
+                        <td colspan="10"></td>
+                    @endif
                 </tr>
                 <tr>
-                    <td colspan="2">Escuela Profesional:</td>
+                    <td colspan="2" class="text-bold">Escuela Profesional:</td>
+                    @if(isset($attentionForm_profesional_school_plaintiff))
+                        <td colspan="9">{{ $attentionForm_profesional_school_plaintiff }}</td>
+                    @else
+                        <td colspan="9"></td>
+                    @endif
+                </tr>
+                <tr>
+                    <td colspan="3" class="text-bold">Centro de trabajo / oficina</td>
+                    <td colspan="8">{{ $attentionForm->workplace_office_plaintiff }}</td>
+                </tr>
+                <tr>
+                    <td colspan="1" class="text-bold">Domicilio:</td>
+                    <td colspan="10">{{ $attentionForm->home_address_plaintiff }}</td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="text-bold">Número de teléfono / celular:</td>
+                    <td colspan="8">{{ $attentionForm->number_phone_plaintiff }}</td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="text-bold">Correo electrónico:</td>
+                    <td colspan="9">{{ $attentionForm->email_plaintiff }}</td>
+                </tr>
+                <tr>
+                    <td colspan="11" class="text-bold">Quejado o denunciado (Identificación plena):</td>
+                    {{-- <td colspan="7"></td> --}}
+                </tr>
+                <tr>
+                    <td colspan="2" class="text-bold">Nombres y Apellidos:</td>
+                    <td colspan="9">{{ $attentionForm->name_defendant }}</td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="text-bold">Escuela Profesional:</td>
                     <td colspan="9"></td>
                 </tr>
                 <tr>
-                    <td colspan="3">Centro de trabajo / oficina</td>
+                    <td colspan="3" class="text-bold">Centro de trabajo / oficina</td>
                     <td colspan="8"></td>
                 </tr>
                 <tr>
-                    <td colspan="1">Domicilio:</td>
-                    <td colspan="10"></td>
+                    <td colspan="1" class="text-bold">Cargo:</td>
+                    @if ($attentionForm->charge_defendant == 1)
+                        <td  colspan="10">Estudiante</td>
+                    @elseif ($attentionForm->charge_defendant == 2)
+                        <td  colspan="10">Docente</td>
+                    @elseif ($attentionForm->charge_defendant == 3)  
+                        <td  colspan="10">Administrativo</td>
+                    @else
+                        <td colspan="10"></td>
+                    @endif
                 </tr>
                 <tr>
-                    <td colspan="3">Número de teléfono / celular:</td>
-                    <td colspan="8"></td>
+                    <td colspan="3" class="text-bold">Número de teléfono / celular:</td>
+                    <td colspan="8">{{ $attentionForm->number_phone_defendant }}</td>
                 </tr>
                 <tr>
-                    <td colspan="2">Correo electrónico:</td>
-                    <td colspan="9"></td>
+                    <td colspan="11" class="text-bold">Descripción de los hechos (Fundamente de forma clara y precisa los hechos ocurridos):</td>
                 </tr>
                 <tr>
-                    <td colspan="4">Quejado o denunciado (Identifiación plena):</td>
-                    <td colspan="7"></td>
+                    <td colspan="11">{{ $attentionForm->description_facts }}</td>
                 </tr>
                 <tr>
-                    <td colspan="2">Nombres y Apellidos:</td>
-                    <td colspan="9"></td>
+                    <td colspan="11" class="text-bold">Derechos que estime afectados:</td>
                 </tr>
                 <tr>
-                    <td colspan="1">Facultad:</td>
-                    <td colspan="10"></td>
+                    <td colspan="11">{{ $attentionForm->violated_rights }}</td>
                 </tr>
                 <tr>
-                    <td colspan="3">Centro de trabajo / oficina</td>
-                    <td colspan="8"></td>
+                    <td colspan="11" class="text-bold">Copias de dicumentos adjuntos</td>
                 </tr>
                 <tr>
-                    <td colspan="1">Cargo:</td>
-                    <td colspan="10"></td>
-                </tr>
-                <tr>
-                    <td colspan="3">Número de teléfono / celular:</td>
-                    <td colspan="8"></td>
-                </tr>
-                <tr>
-                    <td colspan="11">Descripción de los hechos (Fundamente de forma clara y precisa los sucesos ocurridos):</td>
-                </tr>
-                <tr>
-                    <td colspan="11"></td>
-                </tr>
-                <tr>
-                    <td colspan="11">Derechos que estime afectados:</td>
-                </tr>
-                <tr>
-                    <td colspan="11"></td>
-                </tr>
-                <tr>
-                    <td colspan="11"> Copias de dicumentos adjuntos</td>
-                </tr>
-                <tr>
-                    <td colspan="11"></td>
+                    <td colspan="11">{{ $attentionForm->description_files }}</td>
                 </tr>
             </tbody>
         </table>

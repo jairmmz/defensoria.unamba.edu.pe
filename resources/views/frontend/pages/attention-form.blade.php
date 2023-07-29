@@ -176,7 +176,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <label for="number_phone_defendant">Descripcion de los hechos</label>
+                                <label for="number_phone_defendant">Descripción de los hechos</label>
                                 <textarea name="description_facts" cols="30" rows="10">{{ old('description_facts') }}</textarea>
                                 @error('description_facts') <p class='text-danger small'> {{ $message }} </p> @enderror
                             </div>
