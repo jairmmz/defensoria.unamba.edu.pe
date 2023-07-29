@@ -17,7 +17,8 @@ class GeneralSettingSeeder extends Seeder
             'title_website' => 'Defensoría Universitaria - UNAMBA',
             'logo_website' =>  'logo-du-unamba.png',
             'background_website' => 'banner-bg01.png',
-            'banner_website' => 'bulk02.png',
+            'banner_website' => null,
+            'is_active_banner' => true,
             'number_phone' => '987654321',
             'link_facebook' =>  'www.facebook.com',
             'id_user' => '1'

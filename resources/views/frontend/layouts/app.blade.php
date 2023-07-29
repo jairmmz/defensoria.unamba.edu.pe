@@ -36,7 +36,7 @@
 
     <!-- ========== Scrolltotop ========== -->
     <a href="#0" class="scrollToTop">
-        <img src="{{ asset('assets-front/images/rocket.png') }}" alt="rocket">
+        <img src="{{ asset('assets-front/images/du-up.png') }}" alt="rocket">
     </a>
 
 

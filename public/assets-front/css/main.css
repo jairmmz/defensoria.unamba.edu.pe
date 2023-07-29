@@ -1072,7 +1072,7 @@ header .list {
           .header-bottom .header-area .menu li a {
             font-size: 14px;
             font-weight: 600;
-            text-transform: capitalize;
+            /* text-transform: capitalize; */
             color: #565b73;
             padding: 10px; } }
       @media (min-width: 992px) and (min-width: 1200px) {

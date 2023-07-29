@@ -58,7 +58,7 @@
                     </div>
                 </div>
                 <div class="feature-area">
-                    <img src="{{ asset('assets-front/images/feature/feature01.png') }}" alt="feature">
+                    <img src="{{ asset('assets-front/images/du-mision-vision.jpg') }}" alt="feature">
                 </div>
                 <div class="feature-area">
                     <div class="feature-item">

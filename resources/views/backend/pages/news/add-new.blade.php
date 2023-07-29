@@ -50,7 +50,7 @@
                             <div class="col-lg-3">
                                 <div class="form-group">
                                     <label for="is_active">Estado</label>
-                                    <select class="form-control" name="is_active" id="">
+                                    <select class="form-control" name="is_active">
                                         <option value="1">Activo</option>
                                         <option value="0">Inactivo</option>
                                     </select>

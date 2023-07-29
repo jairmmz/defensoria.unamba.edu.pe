@@ -32,9 +32,11 @@
                 <div class="col-lg-6">
                     <div class="bulk-content text-center text-sm-left wow fadeIn" data-wow-delay=".3s">
                         <h3 class="title">¿QUÉ ES LA DEFENSORÍA UNIVERSITARIA?</h3>
-                        <p class="text-justify">La Defensoría Universitaria de la UNAMBA, es un órgano autónomo en el ejercicio de sus funciones
+                        <p class="text-justify">La Defensoría Universitaria de la UNAMBA, es un órgano autónomo en el
+                            ejercicio de sus funciones
                             e independiente de los órganos de gobierno de la Universidad.</p>
-                        <p class="text-justify">Es la instancia encargada de la tutela de los derechos de los miembros de la comunidad
+                        <p class="text-justify">Es la instancia encargada de la tutela de los derechos de los miembros de la
+                            comunidad
                             universitaria y vela por el mantenimiento del principio de autoridad responsable. La defensoría
                             atiende denuncias por infracción a derechos individuales y pueden acudir a ella los estudiantes,
                             docentes, egresados y personal administrativo. El estatuto de la universidad establece los
@@ -46,7 +48,8 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="bulk-thumb wow slideInRight">
-                        <img src="{{ asset('assets-front/images/Que-es-defensoría-universitaria.jpg') }}" alt="bulk">
+                        <img src="{{ asset('assets-front/images/Que-es-defensoría-universitaria.jpg') }}"
+                            alt="¿QUÉ ES LA DEFENSORÍA UNIVERSITARIA?">
                     </div>
                 </div>
             </div>
@@ -64,7 +67,7 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="choose-item text-center wow fadeInUp bg-white" data-wow-delay=".3s">
                         <div class="choose-thumb">
-                            <i class="flaticon-global"></i>
+                            <i class="fas fa-gavel"></i>
                         </div>
                         <div class="choose-content">
                             <h5 class="title">Independencia</h5>
@@ -72,13 +75,13 @@
                                 resolución de conflictos y protección de derechos. Como ente autónomo, toma decisiones sin
                                 influencias externas, beneficiando a la comunidad universitaria con transparencia y respeto
                                 a los derechos fundamentales.</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="choose-item text-center wow fadeInUp bg-white" data-wow-delay=".3s">
-                        <div class="choose-thumb">
-                            <i class="flaticon-ui"></i>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="choose-item text-center wow fadeInUp bg-white" data-wow-delay=".3s">
+                            <div class="choose-thumb">
+                            <i class="fas fa-users"></i>
                         </div>
                         <div class="choose-content">
                             <h5 class="title">Respeto</h5>
@@ -86,13 +89,13 @@
                                 comunidad universitaria, evitando cualquier tipo de maltrato y garantizando el pleno respeto
                                 de sus derechos y libertades fundamentales, especialmente cuando se encuentren en
                                 situaciones de vulnerabilidad.</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="choose-item text-center wow fadeInUp bg-white" data-wow-delay=".3s">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="choose-item text-center wow fadeInUp bg-white" data-wow-delay=".3s">
                         <div class="choose-thumb">
-                            <i class="flaticon-clock"></i>
+                            <i class="fas fa-search"></i>
                         </div>
                         <div class="choose-content">
                             <h5 class="title">Verdad Material</h5>
@@ -136,7 +139,7 @@
                         @if (!$authoritie->image_authority)
                             <img style="w-50"
                                 src="{{ asset('assets/images/teachers/defensor-universitario-unamba.png') }}"
-                                alt="">
+                                alt="Defensor Universitario">
                         @else
                             <img style="w-50" src="{{ asset('assets/images/' . $authoritie->image_authority) }}"
                                 alt="">
@@ -152,14 +155,14 @@
     <section class="bulk-sms  bg-ash mask-sms padding-top padding-bottom">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-4">
+                <div class="col-lg-6">
                     <div class="bulk-thumb">
-                        <img src="{{ asset('assets-front/images/Defensoria-Universitaria-mision-vision.jpg') }}" alt="">
+                        <img src="{{ asset('assets-front/images/du-mision-vision.png') }}"
+                            alt="">
                     </div>
                 </div>
-                <div class="col-lg-8">
+                <div class="col-lg-6">
                     <div class="bulk-content text-center text-sm-left">
-                        <span>Misión y Visión de la Defensoría Universitaria</span>
                         <h3 class="title">Misión</h3>
                         <p class="text-justify">Proteger los derechos y el principio de autoridad en la institución,
                             fomentando una cultura de respeto, colaboración y cordialidad. Prevenimos y resolvemos
@@ -180,32 +183,38 @@
     <!--=================Bulk Sms================= -->
 
     {{-- Modal --}}
-    <div class="modal" id="exampleModal-2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel-2"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header mb-2" style="text-align-last:right;">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div>
-                    <a href="{{ asset('assets/images/'). $setting->banner_website }}" target="_blank">
-                        <img src="{{ asset('assets/images/'). $setting->banner_website }}" alt="" class="img-fluid">
+    @if ($setting->banner_website and $setting->is_active_banner == '1')
+        <style>
+            .modal-dialog {
+                max-width: 800px !important;
+            }
+        </style>
+        <div class="modal" id="exampleModal-2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel-2"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content text-center">
+                    <div class="modal-header mb-2" style="text-align-last:right;">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <a href="{{ asset('assets/images/' . $setting->banner_website) }}" target="_blank">
+                        <img src="{{ asset('assets/images/' . $setting->banner_website) }}" alt=""
+                            class="img_fluid w-100">
                     </a>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Modal Ends -->
+        <!-- Modal Ends -->
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Selecciona el modal por su ID
-            var myModal = new bootstrap.Modal(document.getElementById('exampleModal-2'));
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                // Selecciona el modal por su ID
+                var myModal = new bootstrap.Modal(document.getElementById('exampleModal-2'));
 
-            // Abre el modal automáticamente
-            myModal.show();
-        });
-    </script>
+                // Abre el modal automáticamente
+                myModal.show();
+            });
+        </script>
+    @endif
 @endsection

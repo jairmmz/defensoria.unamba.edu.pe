@@ -13,6 +13,8 @@ class GeneralSetting extends Model
         'title_website',
         'logo_website',
         'background_website',
+        'banner_website',
+        'is_active_banner',
         'number_phone',
         'link_facebook',
         'id_user',

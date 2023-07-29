@@ -31,12 +31,31 @@
                                     <input id="logo_website" class="form-control" name="logo_website" type="file">
                                     @error('logo_website') <p class='text-danger text-xs'> {{ $message }} </p> @enderror
                                 </div>
-
                                 <div class="form-group">
                                     <label for="background_website">Imagen de fondo</label>
                                     <div class="card">
                                         <input id="background_website" class="form-control" name="background_website" type="file">
                                         @error('background_website') <p class='text-danger text-xs'> {{ $message }} </p> @enderror
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <div class="form-group">
+                                            <label for="banner_website">Banner de página principal</label>
+                                            <div class="card">
+                                                <input id="banner_website" class="form-control" name="banner_website" type="file">
+                                                @error('banner_website') <p class='text-danger text-xs'> {{ $message }} </p> @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label for="is_active_banner">Estado</label>
+                                            <select class="form-control" name="is_active_banner">
+                                                <option value="1" {{ $setting->is_active_banner == '1' ? 'selected' : '' }}>Activo</option>
+                                                <option value="0" {{ $setting->is_active_banner == '0' ? 'selected' : '' }}>Inactivo</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -56,35 +75,9 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="border-bottom text-center pb-2">
-                                    <b>Información de la autoridad</b>
+                                    <b>Información actual</b>
                                 </div>
-                                <div class="py-4">
-                                    <p class="clearfix">
-                                        <b class="float-left">
-                                            Título de la página web:
-                                        </b>
-                                        <span class="float-right">
-                                            {{ $setting->title_website }}
-                                        </span>
-                                    </p>
-                                    <p class="clearfix">
-                                        <b class="float-left">
-                                            Numero de celular/teléfono:
-                                        </b>
-                                        <span class="float-right">
-                                            {{ $setting->number_phone }}
-                                        </span>
-                                    </p>
-                                    <p class="clearfix">
-                                        <b class="float-left">
-                                            Link de facebook:
-                                        </b>
-                                        <span class="float-right">
-                                            {{ $setting->link_facebook }}
-                                        </span>
-                                    </p>
-                                </div>
-                                <div class="text-center">
+                                <div class="border-bottom text-center pb-2">
                                     <b>Logo de la página web</b><br>
                                     @if (!$setting->logo_website)
                                     <img style="width: 150px" src="{{ asset('assets/images/users/user-default.png') }}" alt="">
@@ -92,12 +85,20 @@
                                     <img style="width: 150px" src="{{ asset('assets/images/' . $setting->logo_website) }}" alt="">
                                     @endif
                                 </div>
-                                <div class="text-center">
+                                <div class="border-bottom text-center pb-2">
+                                    <b class="pb-2">Banner de la página de inicio</b><br>
+                                    @if (!$setting->banner_website)
+                                        <span>Sin banner que mostrar.</span>
+                                    @else
+                                        <img src="{{ asset('assets/images/' . $setting->banner_website) }}" class="w-50" alt="">
+                                    @endif
+                                </div>
+                                <div class="border-bottom text-center">
                                     <b>Fondo de pantalla de la página web</b><br>
                                     @if (!$setting->background_website)
-                                    <img style="width: 450px" src="{{ asset('assets/images/users/user-default.png') }}" alt="">
+                                        <img src="{{ asset('assets/images/users/user-default.png') }}" class="w-50" alt="">
                                     @else
-                                    <img style="width: 450px" src="{{ asset('assets/images/' . $setting->background_website) }}" alt="">
+                                        <img src="{{ asset('assets/images/' . $setting->background_website) }}" class="w-75" alt="">
                                     @endif
                                 </div>
                             </div>
