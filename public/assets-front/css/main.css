@@ -2657,7 +2657,8 @@ ul.filter {
   .hero-area::before {
     width: 100%;
     height: 100%;
-    background: rgba(83, 80, 255, 0.949); }
+    background: rgba(83, 80, 255, 0.6); 
+  }
 
 .breadcrumb-section {
   background-color: #f2f7fd; }
@@ -3615,7 +3616,7 @@ ul.bullet-list {
 /*privacy-section*/
 .privacy-content .title {
   margin-bottom: 29px;
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
   margin-top: 26px; }
   .privacy-content .title:first-child {
     margin-top: -10px; }
@@ -3646,7 +3647,8 @@ ul.bullet-list {
     .privacy-sidebar-content ul li a {
       padding: 0;
       color: #565b73;
-      text-transform: capitalize; }
+      /* text-transform: capitalize;  */
+    }
       .privacy-sidebar-content ul li a:hover {
         color: #5350ff;
         padding-left: 3px; }

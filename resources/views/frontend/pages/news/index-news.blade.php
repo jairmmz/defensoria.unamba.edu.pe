@@ -1,7 +1,7 @@
 @extends('frontend.layouts.app')
 @section('content')
    <!-- =============Hero Area============= -->
-   <section class="hero-area bg_img" data-background="{{ asset('assets-front/images/page-header.jpg') }}">
+   <section class="hero-area bg_img" data-background="{{ asset('assets-front/images/banner/fondo-du-unamba.jpg') }}">
     <div class="container">
         <h1 class="title m-0">Noticias</h1>
     </div>
