@@ -34,11 +34,6 @@
                         <div class="case-analysis">
                             <img src="{{ asset('assets/images/' . $new->image) }}" alt="case">
                         </div>
-                        <p>Hendrerit id sit, nulla libero sed, odio feugiat dolor vehicula donec nisl justo, niquam
-                        velit. Ac neque imperdiet porttitor rutrum sagittis, erat est ante quis dis, adipiscing
-                        ctumst condimentum odio lacus, fermentum semper tellsspendisse eu ante, viverra habitant
-                        vitae sed. Feugiat risus, nonummy qui nam ut lacinia velit. Cras quisque eu felis consequat
-                        amet libero, in velit placerat </p>
                     </div>
                 </div>
                 <div class="col-lg-4">

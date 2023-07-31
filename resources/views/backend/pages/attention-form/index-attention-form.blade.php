@@ -9,8 +9,7 @@
         </h3>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Tables</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Data table</li>
+                <li class="breadcrumb-item"><a href="#">Lista de quejas y denuncias</a></li>
             </ol>
         </nav>
     </div>
@@ -47,7 +46,7 @@
                                             @csrf
                                             {{ method_field("PATCH") }}
                                             <div class="form-group ">
-                                                <select class="form-control" name="status" id="status" onchange="this.form.submit()">
+                                                <select class="form-control bg-secondary" name="status" id="status" onchange="this.form.submit()">
                                                     <option value="1" {{ $attentionForm->status == '1' ? 'selected' : '' }}>Pendiente</option>
                                                     <option value="2" {{ $attentionForm->status == '2' ? 'selected' : '' }}>Proceso</option>
                                                     <option value="3" {{ $attentionForm->status == '3' ? 'selected' : '' }}>Archivado</option>

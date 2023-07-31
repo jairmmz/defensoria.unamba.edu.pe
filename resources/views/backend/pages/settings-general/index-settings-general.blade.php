@@ -6,8 +6,7 @@
         </h3>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('news') }}">Noticias</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Añadir</li>
+                <li class="breadcrumb-item"><a href="{{ route('settings') }}">Ajustes generales</a></li>
             </ol>
         </nav>
     </div>

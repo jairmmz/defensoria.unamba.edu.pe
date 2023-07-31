@@ -2,12 +2,12 @@
 @section('content')
     <div class="page-header">
         <h3 class="page-title">
-            Añadir noticia
+            Editar noticia
         </h3>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('news') }}">Noticias</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Añadir</li>
+                <li class="breadcrumb-item active" aria-current="page">Editar</li>
             </ol>
         </nav>
     </div>
@@ -15,7 +15,6 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">FORMULARIO DE REGISTRO</h4>
                     <form action="{{ route('news.update', ['new' => $new->id]) }}" enctype="multipart/form-data" autocomplete="off" method="POST">
                         @csrf
                         {{ method_field("PATCH") }}

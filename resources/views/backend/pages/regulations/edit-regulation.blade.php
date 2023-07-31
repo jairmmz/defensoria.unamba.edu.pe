@@ -2,12 +2,12 @@
 @section('content')
     <div class="page-header">
         <h3 class="page-title">
-            Añadir reglamento
+            Editar reglamento
         </h3>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('regulations') }}">Reglamentos</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Añadir</li>
+                <li class="breadcrumb-item active" aria-current="page">Editar</li>
             </ol>
         </nav>
     </div>
@@ -15,7 +15,6 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">FORMULARIO DE REGISTRO</h4>
                     <form action="{{ route('regulations.update', ['regulation' => $regulation->id]) }}" enctype="multipart/form-data" autocomplete="off" method="POST">
                         @csrf
                         {{ method_field("PATCH") }}
@@ -47,18 +46,34 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="document_regulation">Documento</label>
-                            <div class="card">
-                                <div class="card-body">
-                                    <input type="file" class="dropify" name="document_regulation" />
+                        <div class="row">
+                            <div class="col-lg-7">
+                                <div class="form-group">
+                                    <label for="document_regulation">Documento</label>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <input type="file" class="dropify" name="document_regulation" />
+                                        </div>
+                                    </div>
+                                    @error('document_regulation') <p class='text-danger text-xs'> {{ $message }} </p> @enderror
                                 </div>
                             </div>
-                            @error('document_regulation') <p class='text-danger text-xs'> {{ $message }} </p> @enderror
+                            <div class="col-lg-5">
+                                <label for="document_regulation">Documento actual:</label><br>
+                                <a href="{{ asset('assets/documents/' . $regulation->document_regulation) }}" target="_blank">{{ $regulation->document_regulation }}</a>
+                            </div>
                         </div>
                         <input class="form-control" name="id_user" type="hidden" value="{{ Auth::user()->id }}">
 
-                        <input class="btn btn-primary" type="submit" value="Guardar">
+                        {{-- <input class="btn btn-primary" type="submit" value="Guardar"> --}}
+                        <div class="d-flex justify-content-between mb-3">
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                            <div>
+                                <a href="{{ route('regulations') }}" class="btn btn-danger btn-icon-text">
+                                    Cancelar
+                                </a>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>

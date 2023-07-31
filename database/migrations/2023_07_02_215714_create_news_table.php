@@ -13,7 +13,7 @@ return new class extends Migration
             $table->string('title')->nullable();
             $table->longText('description')->nullable();
             $table->string('image', 2048)->nullable();
-            $table->string('link_to_news')->default('#');
+            $table->string('link_to_news')->nullable();
             $table->boolean('is_active')->default(true);
             $table->foreignID('id_user')->constrained('users');
             $table->timestamps();

@@ -15,10 +15,14 @@
                 </div>
             </div>
         </div>
-        <div class="maps-shape bg_img bg-contain"
-            data-background="{{ asset('assets-front/images/banner/banner-bg01.png') }}"></div>
+        <div class="maps-shape bg_img bg-contain" 
+        @if($setting->background_website)
+            data-background="{{ asset('assets/images/' . $setting->background_website) }}">
+        @else
+            data-background="{{ asset('assets-front/images/banner/banner-bg01.png') }}">
+        @endif
+        </div>
         <div class="shape-thumb">
-            {{-- <img class="wow slideInUp" data-wow-delay=".7s" src="{{ asset('assets-front/images/banner/banner-shape01.png') }}" alt="banner"> --}}
             <img class="wow slideInUp" data-wow-delay=".7s" src="{{ asset('assets-front/images/micaela-bastidas-wh.png') }}"
                 alt="banner">
         </div>

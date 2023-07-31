@@ -58,7 +58,15 @@
                             </div>
                             <input class="form-control" name="id_user" type="hidden" value="{{ Auth::user()->id }}">
                         </div>
-                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        {{-- <button type="submit" class="btn btn-primary">Guardar</button> --}}
+                        <div class="d-flex justify-content-between mb-3">
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                            <div>
+                                <a href="{{ route('news') }}" class="btn btn-danger btn-icon-text">
+                                    Cancelar
+                                </a>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>

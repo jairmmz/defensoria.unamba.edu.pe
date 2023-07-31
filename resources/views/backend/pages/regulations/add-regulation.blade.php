@@ -58,7 +58,15 @@
                         </div>
                         <input class="form-control" name="id_user" type="hidden" value="{{ Auth::user()->id }}">
 
-                        <input class="btn btn-primary" type="submit" value="Añadir">
+                        {{-- <input class="btn btn-primary" type="submit" value="Añadir"> --}}
+                        <div class="d-flex justify-content-between mb-3">
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                            <div>
+                                <a href="{{ route('regulations') }}" class="btn btn-danger btn-icon-text">
+                                    Cancelar
+                                </a>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>

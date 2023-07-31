@@ -49,7 +49,6 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/reglamentos/editar/{regulation}', [RegulationController::class, 'edit'])->name('regulations.edit');
     Route::patch('/reglamentos/actualizar/{regulation}', [RegulationController::class, 'update'])->name('regulations.update');
     Route::delete('/reglamentos/eliminar/{regulation}', [RegulationController::class, 'destroy'])->name('regulations.destroy');
-    Route::get('/reglamentos/pdf', [RegulationController::class, 'pdfRegulation'])->name('pdf.regulation');
 
     // ------------ Autoridades ----------------
     Route::get('/autoridad', [AuthoritieController::class, 'index'])->name('authorities');

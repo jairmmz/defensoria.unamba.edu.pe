@@ -16,7 +16,7 @@ class GeneralSettingSeeder extends Seeder
         DB::table('general_settings')->insert([
             'title_website' => 'Defensoría Universitaria - UNAMBA',
             'logo_website' =>  'logo-du-unamba.png',
-            'background_website' => 'banner-bg01.png',
+            'background_website' => null,
             'banner_website' => null,
             'is_active_banner' => true,
             'number_phone' => '987654321',

@@ -6,8 +6,7 @@
         </h3>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Tables</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Data table</li>
+                <li class="breadcrumb-item"><a href="{{ route('news') }}">Noticias</a></li>
             </ol>
         </nav>
     </div>
@@ -49,7 +48,7 @@
                                             <img src="{{ asset('assets/images/' . $new->image) }}" alt="">
                                             @endif
                                         </td>
-                                        <td><a href="{{ $new->link_to_news }}" target="_blank">Ir a la noticia</a></td>
+                                        <td><a href="{{ route('frontend.news.detail', ['new' => $new->id]) }}" target="_blank">Ir a la noticia</a></td>
                                         <td>
                                             <label class="badge badge-{{ $new->is_active == 1 ? 'info' : 'danger'  }}">
                                                 {{ $new->is_active == 1 ? 'Activo' : 'Inactivo' }}

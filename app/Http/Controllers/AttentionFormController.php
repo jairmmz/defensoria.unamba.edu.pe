@@ -107,9 +107,83 @@ class AttentionFormController extends Controller
 
     public function show(AttentionForm $attentionForm)
     {
+        $filesPlaintiff = FileAttentionForm::where('attention_form_id', $attentionForm->id)->get();
+
+        $identityPlaintiff = str_replace(' ', '-', $attentionForm->name_plaintiff) . '_' . $attentionForm->id;
+        $authoritie = Authoritie::first();
         $setting = GeneralSetting::first();
 
-        return view('backend.pages.attention-form.view-attention-form', compact('attentionForm', 'setting'));
+        // Mapear attentionForm->profesional_school_plaintiff por el nombre de la facultad
+        $arrayProfesionalFaculty = [
+            1 => 'Administración',
+            2 => 'Educación y Ciencias Sociales',
+            3 => 'Educación y Ciencias Sociales',
+            4 => 'Ingeniería',
+            5 => 'Ingeniería',
+            6 => 'Ingeniería',
+            7 => 'Ingeniería',
+            8 => 'Ingeniería',
+            9 => 'Medicina Veterinaria',
+        ];
+
+        // Mapear el attentionForm->profesional_school_plaintiff por el nombre de la escuela profesional
+        $arrayProfesionalSchools = [
+            1 => 'Administración',
+            2 => 'Educación Inicial Intercultural Bilingüe: Primera y Segunda Infancia',
+            3 => 'Ciencia Política y Gobernabilidad',
+            4 => 'Ingeniería Agroindustrial',
+            5 => 'Ingeniería de Minas',
+            6 => 'Ingeniería Informática y Sistemas',
+            7 => 'Ingeniería Civil',
+            8 => 'Ingeniería Agroecológica y Desarrollo Rural',
+            9 => 'Medicina Veterinaria y Zootécnia',
+        ];
+
+        if ((!$attentionForm->workplace_office_plaintiff and !$attentionForm->workplace_office_defendant) and ($attentionForm->profesional_school_plaintiff and $attentionForm->profesional_school_defendant)) {
+
+            $attentionForm_profesional_faculty_plaintiff = $arrayProfesionalFaculty[$attentionForm->profesional_school_plaintiff];
+            $attentionForm_profesional_school_plaintiff = $arrayProfesionalSchools[$attentionForm->profesional_school_plaintiff];
+
+            $attentionForm_profesional_faculty_defendant = $arrayProfesionalFaculty[$attentionForm->profesional_school_defendant];
+            $attentionForm_profesional_school_defendant = $arrayProfesionalSchools[$attentionForm->profesional_school_defendant];
+
+            return view(
+                'backend.pages.attention-form.view-attention-form',
+                compact('setting','filesPlaintiff', 'authoritie', 'attentionForm', 'identityPlaintiff', 'attentionForm_profesional_faculty_plaintiff', 'attentionForm_profesional_school_plaintiff', 'attentionForm_profesional_faculty_defendant', 'attentionForm_profesional_school_defendant'), 
+            );
+        }
+
+        if ((!$attentionForm->workplace_office_plaintiff and $attentionForm->workplace_office_defendant) and ($attentionForm->profesional_school_plaintiff)) {
+            $attentionForm_profesional_faculty_plaintiff = $arrayProfesionalFaculty[$attentionForm->profesional_school_plaintiff];
+            $attentionForm_profesional_school_plaintiff = $arrayProfesionalSchools[$attentionForm->profesional_school_plaintiff];
+
+            return view(
+                'backend.pages.attention-form.view-attention-form',
+                compact('setting','filesPlaintiff', 'authoritie', 'attentionForm', 'identityPlaintiff', 'attentionForm_profesional_faculty_plaintiff', 'attentionForm_profesional_school_plaintiff')
+            );
+        }
+
+        if (($attentionForm->workplace_office_plaintiff and !$attentionForm->workplace_office_defendant) and ($attentionForm->profesional_school_defendant)) {
+
+            $attentionForm_profesional_faculty_defendant = $arrayProfesionalFaculty[$attentionForm->profesional_school_defendant];
+            $attentionForm_profesional_school_defendant = $arrayProfesionalSchools[$attentionForm->profesional_school_defendant];
+
+            return view(
+                'backend.pages.attention-form.view-attention-form',
+                compact('setting','filesPlaintiff', 'authoritie', 'attentionForm', 'identityPlaintiff', 'attentionForm_profesional_faculty_defendant', 'attentionForm_profesional_school_defendant')
+            );
+        }
+
+        if (($attentionForm->workplace_office_plaintiff and !$attentionForm->workplace_office_defendant or
+                !$attentionForm->workplace_office_plaintiff and $attentionForm->workplace_office_defendant)
+            and (!$attentionForm->profesional_school_plaintiff and !$attentionForm->profesional_school_defendant)
+        ) {
+
+            return view(
+                'backend.pages.attention-form.view-attention-form',
+                compact('setting','filesPlaintiff', 'authoritie', 'attentionForm', 'identityPlaintiff')
+            );
+        }
     }
 
     public function update(AttentionFormRequest $request, AttentionForm $attentionForm)
@@ -124,7 +198,7 @@ class AttentionFormController extends Controller
     {
         $identityPlaintiff = str_replace(' ', '-', $attentionForm->name_plaintiff) . '_' . $attentionForm->id;
         $authoritie = Authoritie::first();
-        
+
         // Ruta del logo UNAMBA Y TH
         $imageUNAMBA = '/assets/images/universidad-nacional-micaela-bastidas-logo.jpg';
         $imageTH = '/assets/images/logo-th.png';

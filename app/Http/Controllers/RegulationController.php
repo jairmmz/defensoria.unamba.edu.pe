@@ -62,19 +62,6 @@ class RegulationController extends Controller
         }
     }
 
-    public function pdfRegulation()
-    {
-        $regulations = Regulation::all();
-
-        $imageUNAMBA = '/assets/images/universidad-nacional-micaela-bastidas-logo.jpg';
-        $imageTH = '/assets/images/logo-th.png';
-
-        $pdf = Pdf::loadView('backend.pages.regulations.regulations-pdf', compact('regulations', 'imageUNAMBA', 'imageTH'))->setPaper('a4', 'landscape');
-
-        return $pdf->stream('regulations.pdf');
-        // return view('backend.pages.regulations.regulations-pdf', compact('regulations', 'imageUNAMBA', 'imageTH'));
-    }
-
     public function edit(Regulation $regulation)
     {
         $setting = GeneralSetting::first();
@@ -108,7 +95,7 @@ class RegulationController extends Controller
 
             $regulation->update($regulationUpdate);
 
-            return redirect()->route('regulations')->with('success', 'Regulation updated successfully');
+            return redirect()->route('regulations')->with('message', 'Operación realizada correctamente');
         } catch (Throwable $e) {
             report($e);
             throw $e;
