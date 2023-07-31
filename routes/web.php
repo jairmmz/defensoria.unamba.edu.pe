@@ -20,8 +20,8 @@ use App\Http\Controllers\UserController;
 | Web Routes Backend
 |--------------------------------------------------------------------------*/
 
-Route::get('/register', [RegisterController::class, 'create'])->middleware('guest')->name('register');
-Route::post('/register', [RegisterController::class, 'store'])->middleware('guest')->name('register.perform');
+// Route::get('/register', [RegisterController::class, 'create'])->middleware('guest')->name('register');
+// Route::post('/register', [RegisterController::class, 'store'])->middleware('guest')->name('register.perform');
 
 
 Route::get('/login', [LoginController::class, 'show'])->middleware('guest')->name('login');
@@ -55,12 +55,12 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::patch('/autoridad/actualizar', [AuthoritieController::class, 'update'])->name('authorities.update');
 
     // ------------ Usuarios ----------------
-    Route::get('/usuarios', [UserController::class, 'index'])->name('users');
-    Route::get('/usuarios/añadir', [UserController::class, 'create'])->name('users.add');
-    Route::post('/usuarios/guardar', [UserController::class, 'store'])->name('users.save');
-    Route::get('/usuarios/editar/{user}', [UserController::class, 'edit'])->name('users.edit');
-    Route::patch('/usuarios/actualizar/{user}', [UserController::class, 'update'])->name('users.update');
-    Route::delete('/usuarios/eliminar/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+    Route::get('/usuarios', [UserController::class, 'index'])->name('users')->middleware('superadmin');
+    Route::get('/usuarios/añadir', [UserController::class, 'create'])->name('users.add')->middleware('superadmin');
+    Route::post('/usuarios/guardar', [UserController::class, 'store'])->name('users.save')->middleware('superadmin');
+    Route::get('/usuarios/editar/{user}', [UserController::class, 'edit'])->name('users.edit')->middleware('superadmin');
+    Route::patch('/usuarios/actualizar/{user}', [UserController::class, 'update'])->name('users.update')->middleware('superadmin');
+    Route::delete('/usuarios/eliminar/{user}', [UserController::class, 'destroy'])->name('users.destroy')->middleware('superadmin');
 
     // ------------ Formulario de atención de casos ----------------
     Route::get('/formulario-atencion', [AttentionFormController::class, 'index'])->name('attention-form-index');

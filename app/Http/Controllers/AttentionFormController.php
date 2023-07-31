@@ -7,9 +7,10 @@ use App\Models\AttentionForm;
 use App\Models\Authoritie;
 use App\Models\FileAttentionForm;
 use App\Models\GeneralSetting;
+use App\Notifications\FormNotification;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Notification;
 
 class AttentionFormController extends Controller
 {
@@ -101,6 +102,9 @@ class AttentionFormController extends Controller
                 ]);
             }
         }
+
+        $email = $request->email_plaintiff;
+        Notification::route('mail', $email)->notify(new FormNotification());
 
         return to_route('frontend.attention-form')->with(['status' => 'success', 'message' => 'El formulario ha sido enviado con éxito para su atención']);
     }

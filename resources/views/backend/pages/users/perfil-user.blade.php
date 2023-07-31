@@ -36,19 +36,20 @@
                             </div>
                             <div class="col-lg-3">
                                 <div class="form-group">
-                                    <label for="role">Rol</label>
-                                    <select class="form-control" name="role">
-                                        <option value="superadmin" {{ $user->role == 'superadmin' ? 'selected' : '' }} @disabled(true)>Super admin</option>
-                                        <option value="admin" {{ $user->role == 'admin' ? 'selected' : '' }} @disabled(true)>admin</option>
-                                    </select>
-                                    @error('role') <p class='text-danger text-xs'> {{ $message }} </p> @enderror
+                                    <label for="role">Rol</label><br>
+                                    <input class="form-control" type="text" 
+                                    value="@if ($user->role == 'superadmin')
+                                            Super Admin
+                                        @else
+                                            Admin
+                                        @endif" readonly>
                                 </div>
                             </div>
                         </div>
                         <div class="row">  
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label for="password">Contraseña</label>
+                                    <label for="password">Cambiar contraseña</label>
                                     <input id="password" class="form-control" name="password" type="password">
                                     @error('password') <p class='text-danger text-xs'> {{ $message }} </p> @enderror
                                 </div>

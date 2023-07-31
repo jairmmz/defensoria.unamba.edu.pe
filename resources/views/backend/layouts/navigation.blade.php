@@ -18,19 +18,21 @@
                 <span class="menu-title">Dashboard</span>
             </a>
         </li>
-        <li class="nav-item {{ Route::currentRouteName() == 'users' || Route::currentRouteName() == 'users.add' ? 'active' : '' }}">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                <i class="far fa-user menu-icon"></i>
-                <span class="menu-title">Usuarios</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse {{ Route::currentRouteName() == 'users' || Route::currentRouteName() == 'users.add' ? 'show' : '' }}" id="ui-basic">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link {{ Route::currentRouteName() == 'users' ? 'active' : '' }}" href="{{ route('users') }}">Lista de usuarios</a></li>
-                    <li class="nav-item"> <a class="nav-link {{ Route::currentRouteName() == 'users.add' ? 'active' : '' }}" href="{{ route('users.add') }}">Añadir usuario</a></li>
-                </ul>
-            </div>
-        </li>
+        @if (Auth::user()->role == 'superadmin')
+            <li class="nav-item {{ Route::currentRouteName() == 'users' || Route::currentRouteName() == 'users.add' ? 'active' : '' }}">
+                <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                    <i class="far fa-user menu-icon"></i>
+                    <span class="menu-title">Usuarios</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse {{ Route::currentRouteName() == 'users' || Route::currentRouteName() == 'users.add' ? 'show' : '' }}" id="ui-basic">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item"> <a class="nav-link {{ Route::currentRouteName() == 'users' ? 'active' : '' }}" href="{{ route('users') }}">Lista de usuarios</a></li>
+                        <li class="nav-item"> <a class="nav-link {{ Route::currentRouteName() == 'users.add' ? 'active' : '' }}" href="{{ route('users.add') }}">Añadir usuario</a></li>
+                    </ul>
+                </div>
+            </li>
+        @endif
         <li class="nav-item {{ Route::currentRouteName() == 'news' || Route::currentRouteName() == 'news.add' ? 'active' : '' }}">
             <a class="nav-link" data-toggle="collapse" href="#ui-advanced" aria-expanded="false"
                 aria-controls="ui-advanced">

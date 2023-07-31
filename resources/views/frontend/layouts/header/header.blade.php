@@ -7,7 +7,7 @@
                     <div class="col-md-6">
                         <ul>
                             <li class="mr-3">
-                                <a href="Tel:987654321"><i class="fas fa-phone-square"></i><b>+51 987-654-321</b></a>
+                                <a href="Tel:{{$setting->number_phone}}"><i class="fas fa-phone-square"></i><b>+51 {{ $setting->number_phone }}</b></a>
                             </li>
                             <li>
                                 <a href="mailto:defensoriauniversitaria@unamba.edu.pe"><i
