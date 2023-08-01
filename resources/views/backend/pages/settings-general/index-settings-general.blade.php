@@ -20,7 +20,7 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label for="title_website">Título de la página web</label>
+                                    <label for="title_website">Nombre oficial del año</label>
                                     <input id="title_website" class="form-control" name="title_website" type="text" value="{{ $setting->title_website }}">
                                     @error('title_website') <p class='text-danger text-xs'> {{ $message }} </p> @enderror
                                 </div>

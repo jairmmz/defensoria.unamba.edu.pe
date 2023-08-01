@@ -87,15 +87,15 @@
                             <div class="form-group">
                                 <select name="profesional_school_plaintiff" {{ old('profesional_school_plaintiff') == null ? 'readonly' : '' }} id="profesional_school_plaintiff">
                                     <option selected="true" disabled="disabled">Seleccione la escuela profesional</option>
-                                    <option value="1" @if(old('profesional_school_plaintiff') == '1') selected @endif>Administración</option>
-                                    <option value="2" @if(old('profesional_school_plaintiff') == '2') selected @endif>Educación Inicial Intercultural Bilingüe: Primera y Segunda Infancia</option>
-                                    <option value="3" @if(old('profesional_school_plaintiff') == '3') selected @endif>Ciencia Política y Gobernabilidad</option>
-                                    <option value="4" @if(old('profesional_school_plaintiff') == '4') selected @endif>Ingeniería Agroindustrial</option>
-                                    <option value="5" @if(old('profesional_school_plaintiff') == '5') selected @endif>Ingeniería de Minas</option>
-                                    <option value="6" @if(old('profesional_school_plaintiff') == '6') selected @endif>Ingeniería Informática y Sistemas</option>
-                                    <option value="7" @if(old('profesional_school_plaintiff') == '7') selected @endif>Ingeniería Civil</option>
-                                    <option value="8" @if(old('profesional_school_plaintiff') == '8') selected @endif>Ingeniería Agroecológica y Desarrollo Rural</option>
-                                    <option value="9" @if(old('profesional_school_plaintiff') == '9') selected @endif>Medicina Veterinaria y Zootécnia</option>
+                                    <option value="Administración" @if(old('profesional_school_plaintiff') == 'Administración') selected @endif>Administración</option>
+                                    <option value="Educación Inicial Intercultural Bilingüe: Primera y Segunda Infancia" @if(old('profesional_school_plaintiff') == 'Educación Inicial Intercultural Bilingüe: Primera y Segunda Infancia') selected @endif>Educación Inicial Intercultural Bilingüe: Primera y Segunda Infancia</option>
+                                    <option value="Ciencia Política y Gobernabilidad" @if(old('profesional_school_plaintiff') == 'Ciencia Política y Gobernabilidad') selected @endif>Ciencia Política y Gobernabilidad</option>
+                                    <option value="Ingeniería Agroindustrial" @if(old('profesional_school_plaintiff') == 'Ingeniería Agroindustrial') selected @endif>Ingeniería Agroindustrial</option>
+                                    <option value="Ingeniería de Minas" @if(old('profesional_school_plaintiff') == 'Ingeniería de Minas') selected @endif>Ingeniería de Minas</option>
+                                    <option value="Ingeniería Informática y Sistemas" @if(old('profesional_school_plaintiff') == 'Ingeniería Informática y Sistemas') selected @endif>Ingeniería Informática y Sistemas</option>
+                                    <option value="Ingeniería Civil" @if(old('profesional_school_plaintiff') == 'Ingeniería Civil') selected @endif>Ingeniería Civil</option>
+                                    <option value="Ingeniería Agroecológica y Desarrollo Rural" @if(old('profesional_school_plaintiff') == 'Ingeniería Agroecológica y Desarrollo Rural') selected @endif>Ingeniería Agroecológica y Desarrollo Rural</option>
+                                    <option value="Medicina Veterinaria y Zootécnia" @if(old('profesional_school_plaintiff') == 'Medicina Veterinaria y Zootécnia') selected @endif>Medicina Veterinaria y Zootécnia</option>
                                 </select>
                                 @error('profesional_school_plaintiff') <p class='text-danger small'> {{ $message }} </p> @enderror
                             </div>
@@ -159,15 +159,15 @@
                             <div class="form-group">
                                 <select name="profesional_school_defendant" {{ old('profesional_school_defendant') == null ? 'readonly' : '' }} id="profesional_school_defendant">
                                     <option selected="true" disabled="disabled">Seleccione la escuela profesional</option>
-                                    <option value="1" @if(old('profesional_school_defendant') == '1') selected @endif>Administración</option>
-                                    <option value="2" @if(old('profesional_school_defendant') == '2') selected @endif>Educación Inicial Intercultural Bilingüe: Primera y Segunda Infancia</option>
-                                    <option value="3" @if(old('profesional_school_defendant') == '3') selected @endif>Ciencia Política y Gobernabilidad</option>
-                                    <option value="4" @if(old('profesional_school_defendant') == '4') selected @endif>Ingeniería Agroindustrial</option>
-                                    <option value="5" @if(old('profesional_school_defendant') == '5') selected @endif>Ingeniería de Minas</option>
-                                    <option value="6" @if(old('profesional_school_defendant') == '6') selected @endif>Ingeniería Informática y Sistemas</option>
-                                    <option value="7" @if(old('profesional_school_defendant') == '7') selected @endif>Ingeniería Civil</option>
-                                    <option value="8" @if(old('profesional_school_defendant') == '8') selected @endif>Ingeniería Agroecológica y Desarrollo Rural</option>
-                                    <option value="9" @if(old('profesional_school_defendant') == '9') selected @endif>Medicina Veterinaria y Zootécnia</option>
+                                    <option value="Administración" @if(old('profesional_school_defendant') == 'Administración') selected @endif>Administración</option>
+                                    <option value="Educación Inicial Intercultural Bilingüe: Primera y Segunda Infancia" @if(old('profesional_school_defendant') == 'Educación Inicial Intercultural Bilingüe: Primera y Segunda Infancia') selected @endif>Educación Inicial Intercultural Bilingüe: Primera y Segunda Infancia</option>
+                                    <option value="Ciencia Política y Gobernabilidad" @if(old('profesional_school_defendant') == 'Ciencia Política y Gobernabilidad') selected @endif>Ciencia Política y Gobernabilidad</option>
+                                    <option value="Ingeniería Agroindustrial" @if(old('profesional_school_defendant') == 'Ingeniería Agroindustrial') selected @endif>Ingeniería Agroindustrial</option>
+                                    <option value="Ingeniería de Minas" @if(old('profesional_school_defendant') == 'Ingeniería de Minas') selected @endif>Ingeniería de Minas</option>
+                                    <option value="Ingeniería Informática y Sistemas" @if(old('profesional_school_defendant') == 'Ingeniería Informática y Sistemas') selected @endif>Ingeniería Informática y Sistemas</option>
+                                    <option value="Ingeniería Civil" @if(old('profesional_school_defendant') == 'Ingeniería Civil') selected @endif>Ingeniería Civil</option>
+                                    <option value="Ingeniería Agroecológica y Desarrollo Rural" @if(old('profesional_school_defendant') == 'Ingeniería Agroecológica y Desarrollo Rural') selected @endif>Ingeniería Agroecológica y Desarrollo Rural</option>
+                                    <option value="Medicina Veterinaria y Zootécnia" @if(old('profesional_school_defendant') == 'Medicina Veterinaria y Zootécnia') selected @endif>Medicina Veterinaria y Zootécnia</option>
                                 </select>
                                 @error('profesional_school_defendant') <p class='text-danger small'> {{ $message }} </p> @enderror
                             </div>
@@ -213,6 +213,15 @@
                                 <label for="file_attention_form">Documentos adjuntos (máximo 10mb)</label>
                                 <input type="file" name="file_attention_form[]" multiple>
                                 @error('file_attention_form') <p class='text-danger small'> {{ $message }} </p> @enderror
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label for="signature_plaintiff">Firma digital (firma escaneada en formato imagen)</label>
+                                <input type="file" name="signature_plaintiff">
+                                @error('signature_plaintiff') <p class='text-danger small'> {{ $message }} </p> @enderror
                             </div>
                         </div>
                     </div>

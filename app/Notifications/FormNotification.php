@@ -11,12 +11,14 @@ class FormNotification extends Notification
 {
     use Queueable;
 
+    public $name_plaintiff;
+
     /**
      * Create a new notification instance.
      */
-    public function __construct()
+    public function __construct(string $name_plaintiff)
     {
-        //
+        $this->name_plaintiff = $name_plaintiff;
     }
 
     /**
@@ -37,7 +39,7 @@ class FormNotification extends Notification
         return (new MailMessage)
             ->from('defensoriauniversitaria@unamba.edu.pe', 'Defensoría Universitaria')
             ->subject('Notificación de envio del formulario de defensoría universitaria')
-            ->line('Gracias por enviar el formulario. Tu solicitud será atendido a la brevedad posible.')
+            ->line($this->name_plaintiff . ' .Gracias por enviar el formulario. Tu solicitud será atendido a la brevedad posible.')
             ->line('Si tienes alguna duda, no dudes en contactarnos.')
             ->line('Att. Defensoría Universitaria - UNAMBA');
     }

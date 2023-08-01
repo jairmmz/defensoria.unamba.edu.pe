@@ -271,6 +271,7 @@
             </table>
         </div>
     </div>
+    
     <div class="row mt-4 mb-4 ml-4">
         <div class="col-lg-3">
             <a href="{{ route('attention-form-index') }}"  class="btn btn-outline-primary">Atrás</a>

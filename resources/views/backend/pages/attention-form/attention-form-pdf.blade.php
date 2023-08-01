@@ -8,7 +8,7 @@
     <style type="text/css">
         @page {
             size: 21cm 29.7cm;
-            margin: 0;
+            margin: 20px;
         }
 
         body {
@@ -92,6 +92,16 @@
         .text-bold{
             font-weight: bold;
         }
+
+        .text-semi-bold{
+            /* Texto normal */
+            font-weight: normal
+        }
+
+        .max-width{
+            max-width: 105;
+            max-height: 105px;
+        }
     </style>
 
 </head>
@@ -115,7 +125,7 @@
                     <span>Formando líderes postmodernos</span>
                     <h5>DEFENSORÍA UNIVERSITARIA</h5>
                     <hr>
-                    <span>"Año de la unidad, la paz y el desarrollo"</span>
+                    <span>"{{ $setting->title_website }}"</span>
                     <h4 class="format-request">FORMATO DE SOLICITUD</h4>
                     <div align="left">
                         <b>Sr. (a): {{ $authoritie->name }}</b><br>
@@ -139,11 +149,10 @@
             <tbody>
                 <tr>
                     <td colspan="1" class="text-bold">Fecha:</td>
-                    <td colspan="10">{{ Carbon::parse($attentionForm->created_at)->format('d/m/y H:i') }}</td>
+                    <td colspan="11">{{ Carbon::parse($attentionForm->created_at)->format('d/m/y H:i') }}</td>
                 </tr>
                 <tr>
-                    <td colspan="4" class="text-bold">Nombres y Apellidos del demandante:</td>
-                    <td colspan="7">{{ $attentionForm->name_plaintiff }}</td>
+                    <td colspan="12" class="text-bold">Nombres y Apellidos del demandante: <span class="text-semi-bold">{{ $attentionForm->name_plaintiff }}</span></td>
                 </tr>
                 <tr>
                     <td class="text-bold">DNI:</td>
@@ -153,21 +162,21 @@
 
                     {{-- Condición para saber si es estudiante docente o administrativo --}}
                     @if ($attentionForm->condition_plaintiff == 1)
-                        <td class="text-bold">Estudiante:</td>
+                        <td colspan="2" class="text-bold">Estudiante:</td>
                         <td> X </td>
                         <td class="text-bold">Docente:</td>
                         <td></td>
                         <td colspan="2" class="text-bold">Administrativo:</td>
                         <td></td>
                     @elseif ($attentionForm->condition_plaintiff == 2)
-                        <td class="text-bold">Estudiante:</td>
+                        <td colspan="2" class="text-bold">Estudiante:</td>
                         <td></td>
                         <td class="text-bold">Docente:</td>
                         <td> X </td>
                         <td colspan="2" class="text-bold">Administrativo:</td>
                         <td></td>
                     @elseif ($attentionForm->condition_plaintiff == 3)  
-                        <td class="text-bold">Estudiante:</td>
+                        <td colspan="2" class="text-bold">Estudiante:</td>
                         <td></td>
                         <td class="text-bold">Docente:</td>
                         <td></td>
@@ -176,88 +185,80 @@
                     @endif
                 </tr>
                 <tr>
-                    <td colspan="1" class="text-bold">Facultad:</td>
-                    @if(isset($attentionForm_profesional_faculty_plaintiff))
-                        <td colspan="10">{{ $attentionForm_profesional_faculty_plaintiff }}</td>
-                    @else
-                        <td colspan="10"></td>
-                    @endif
+                    <td colspan="12" class="text-bold">Asunto: <span class="text-semi-bold">{{ $attentionForm->issue }}</span></td>
                 </tr>
                 <tr>
-                    <td colspan="2" class="text-bold">Escuela Profesional:</td>
-                    @if(isset($attentionForm_profesional_school_plaintiff))
-                        <td colspan="9">{{ $attentionForm_profesional_school_plaintiff }}</td>
-                    @else
-                        <td colspan="9"></td>
-                    @endif
+                    <td colspan="12" class="text-bold">Escuela Profesional: <span class="text-semi-bold">{{ $attentionForm->profesional_school_plaintiff }}</span></td>
                 </tr>
                 <tr>
-                    <td colspan="3" class="text-bold">Centro de trabajo / oficina</td>
-                    <td colspan="8">{{ $attentionForm->workplace_office_plaintiff }}</td>
+                    <td colspan="12" class="text-bold">Centro de trabajo / oficina: <span class="text-semi-bold">{{ $attentionForm->workplace_office_plaintiff }}</span></td>
                 </tr>
                 <tr>
-                    <td colspan="1" class="text-bold">Domicilio:</td>
-                    <td colspan="10">{{ $attentionForm->home_address_plaintiff }}</td>
+                    <td colspan="12" class="text-bold">Domicilio: <span class="text-semi-bold">{{ $attentionForm->home_address_plaintiff }}</span></td>
                 </tr>
                 <tr>
-                    <td colspan="3" class="text-bold">Número de teléfono / celular:</td>
-                    <td colspan="8">{{ $attentionForm->number_phone_plaintiff }}</td>
+                    <td colspan="12" class="text-bold">Número de teléfono / celular: <span class="text-semi-bold">{{ $attentionForm->number_phone_plaintiff }}</span></td>
                 </tr>
                 <tr>
-                    <td colspan="2" class="text-bold">Correo electrónico:</td>
-                    <td colspan="9">{{ $attentionForm->email_plaintiff }}</td>
+                    <td colspan="12" class="text-bold">Correo electrónico: <span class="text-semi-bold">{{ $attentionForm->email_plaintiff }}</span></td>
                 </tr>
                 <tr>
-                    <td colspan="11" class="text-bold">Quejado o denunciado (Identificación plena):</td>
-                    {{-- <td colspan="7"></td> --}}
+                    <td colspan="12" class="text-bold">Quejado o denunciado (Identificación plena):</td>
                 </tr>
                 <tr>
-                    <td colspan="2" class="text-bold">Nombres y Apellidos:</td>
-                    <td colspan="9">{{ $attentionForm->name_defendant }}</td>
+                    <td colspan="12" class="text-bold">Nombres y Apellidos: <span class="text-semi-bold">{{ $attentionForm->name_defendant }}</span></td>
                 </tr>
                 <tr>
-                    <td colspan="2" class="text-bold">Escuela Profesional:</td>
-                    <td colspan="9"></td>
+                    <td colspan="12" class="text-bold">Escuela Profesional: <span class="text-semi-bold">{{ $attentionForm->profesional_school_defendant }}</span></td>
                 </tr>
                 <tr>
-                    <td colspan="3" class="text-bold">Centro de trabajo / oficina</td>
-                    <td colspan="8"></td>
+                    <td colspan="12" class="text-bold">Centro de trabajo / oficina <span class="text-semi-bold">{{ $attentionForm->workplace_office_defendant }}</span></td>
                 </tr>
                 <tr>
-                    <td colspan="1" class="text-bold">Cargo:</td>
-                    @if ($attentionForm->charge_defendant == 1)
-                        <td  colspan="10">Estudiante</td>
-                    @elseif ($attentionForm->charge_defendant == 2)
-                        <td  colspan="10">Docente</td>
-                    @elseif ($attentionForm->charge_defendant == 3)  
-                        <td  colspan="10">Administrativo</td>
-                    @else
-                        <td colspan="10"></td>
-                    @endif
+                    <td colspan="12" class="text-bold">Cargo: <span class="text-semi-bold">
+                        @if ($attentionForm->charge_defendant == 1)
+                            Estudiante
+                        @elseif ($attentionForm->charge_defendant == 2)
+                            Docente
+                        @elseif ($attentionForm->charge_defendant == 3)  
+                            Administrativo
+                        @endif
+                </span></td>
                 </tr>
                 <tr>
-                    <td colspan="3" class="text-bold">Número de teléfono / celular:</td>
-                    <td colspan="8">{{ $attentionForm->number_phone_defendant }}</td>
+                    <td colspan="12" class="text-bold">Número de teléfono / celular: <span class="text-semi-bold">{{ $attentionForm->number_phone_defendant }}</span></td>
                 </tr>
                 <tr>
-                    <td colspan="11" class="text-bold">Descripción de los hechos:</td>
+                    <td colspan="12" class="text-bold">Descripción de los hechos: <span class="text-semi-bold">{{ $attentionForm->description_facts }}</span></td>
                 </tr>
                 <tr>
-                    <td colspan="11">{{ $attentionForm->description_facts }} <br></td>
+                    <td colspan="12" class="text-bold">Derechos que estime afectados: <span class="text-semi-bold">{{ $attentionForm->violated_rights }}</span></td>
                 </tr>
                 <tr>
-                    <td colspan="11" class="text-bold">Derechos que estime afectados:</td>
-                </tr>
-                <tr>
-                    <td colspan="11">{{ $attentionForm->violated_rights }} <br></td>
-                </tr>
-                <tr>
-                    <td colspan="11" class="text-bold">Copias de dicumentos adjuntos</td>
-                </tr>
-                <tr>
-                    <td colspan="11">{{ $attentionForm->description_files }} <br> </td>
+                    <td colspan="12" class="text-bold">Copias de dicumentos adjuntos <span class="text-semi-bold">{{ $attentionForm->description_files }}</span></td>
                 </tr>
             </tbody>
+        </table>
+    </div>
+
+    <div class="information mt-4">
+        <table width="100%">
+            <tr>
+                <td align="left" style="width: 20%;">
+                </td>
+                <td align="center" style="width: 80%;">
+                    <div class="container">
+                        <img class="max-width" src="{{ $signature_plaintiff }}">
+                    </div>
+                    <b class="b-autorithie">...............................................................................</b><br>
+                    <div align="center">
+                        <b>Sr. (a): {{ $attentionForm->name_plaintiff }}</b><br>
+                    </div>
+                </td>
+                <td align="right" style="width: 20%;">
+                </td>
+            </tr>
+
         </table>
     </div>
 
