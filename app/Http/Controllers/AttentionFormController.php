@@ -107,11 +107,13 @@ class AttentionFormController extends Controller
                 }
             }
 
-            if ($image = $request->file('signature_plaintiff')) {
-                $routeSaveImage = 'assets/attention-form';
-                $imageSignature = date('YmdHis') . "." . $image->getClientOriginalExtension();
-                $image->move($routeSaveImage, $imageSignature);
-                $user['signature_plaintiff'] = "$imageSignature";
+            // Guardar la imagen signature_plaintiff
+            if ($request->has('signature_plaintiff')) {
+                $signaturePlaintiff = $newAttentionForm->id . $request->signature_plaintiff->getClientOriginalName();
+                $request->signature_plaintiff->move(public_path('assets/attention-form'), $signaturePlaintiff);
+
+                $newAttentionForm->signature_plaintiff = $signaturePlaintiff;
+                $newAttentionForm->save();
             }
 
             $email = $request->email_plaintiff;
@@ -165,9 +167,8 @@ class AttentionFormController extends Controller
             // Ruta del logo UNAMBA Y TH
             $imageUNAMBA = '/assets/images/universidad-nacional-micaela-bastidas-logo.jpg';
             $imageTH = '/assets/images/logo-th.png';
-            // $signature_plaintiff = '/assets/attention-form/20230731190141.png';
-            $signature_plaintiff = url('assets/attention-form/' . $attentionForm->signature_plaintiff);
-            
+            $signature_plaintiff = '/assets/attention-form/' . $attentionForm->signature_plaintiff;
+
             $pdf = Pdf::loadView(
                 'backend.pages.attention-form.attention-form-pdf',
                 compact(

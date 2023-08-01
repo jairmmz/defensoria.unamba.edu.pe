@@ -248,7 +248,7 @@
                 </td>
                 <td align="center" style="width: 80%;">
                     <div class="container">
-                        <img class="max-width" src="{{ $signature_plaintiff }}">
+                        <img class="max-width" src="{{  public_path() . $signature_plaintiff }}">
                     </div>
                     <b class="b-autorithie">...............................................................................</b><br>
                     <div align="center">

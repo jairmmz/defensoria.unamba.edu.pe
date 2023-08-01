@@ -32,7 +32,7 @@ return new class extends Migration
             $table->text('description_facts')->nullable();
             $table->text('violated_rights')->nullable();
             $table->text('description_files')->nullable();
-            $table->text('signature_plaintiff')->nullable();
+            $table->string('signature_plaintiff')->nullable();
             $table->string('status')->nullable()->default('pendiente');
             $table->timestamps();
         });
