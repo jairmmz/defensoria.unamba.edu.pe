@@ -3,7 +3,7 @@
     <!-- =============Hero Area============= -->
     <section class="hero-area bg_img" data-background="{{ asset('assets-front/images/banner/fondo-du-unamba.jpg') }}">
         <div class="container">
-            <h1 class="title m-0">Reglamentos y Resoluciones</h1>
+            <h1 class="title m-0">Documentos</h1>
         </div>
     </section>
     <div class="breadcrumb-section">
@@ -13,7 +13,7 @@
                     <a href="{{ route('index') }}">Inicio</a>
                 </li>
                 <li>
-                    Reglamentos y Resoluciones
+                    Documentos
                 </li>
             </ul>
         </div>

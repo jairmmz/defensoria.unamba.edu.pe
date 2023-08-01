@@ -34,6 +34,9 @@
                         <div class="case-analysis">
                             <img src="{{ asset('assets/images/' . $new->image) }}" alt="case">
                         </div>
+                        @if (isset($new->link_to_news))
+                                <a href="{{ $new->link_to_news }}" target="_blank">Seguir enlace</a>
+                        @endif
                     </div>
                 </div>
                 <div class="col-lg-4">

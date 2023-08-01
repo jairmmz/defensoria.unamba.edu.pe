@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('regulations', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->date('date_regulation')->nullable();
             $table->boolean('is_active')->default(true);
             $table->string('document_regulation')->nullable();

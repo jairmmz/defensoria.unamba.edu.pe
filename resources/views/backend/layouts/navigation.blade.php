@@ -51,15 +51,15 @@
             <a class="nav-link" data-toggle="collapse" href="#editors" aria-expanded="false"
                 aria-controls="editors">
                 <i class="fas fa-file-pdf menu-icon"></i>
-                <span class="menu-title">Reglamentos</span>
+                <span class="menu-title">Documentos</span>
                 <i class="menu-arrow"></i>
             </a>
             <div class="collapse {{ Route::currentRouteName() == 'regulations' || Route::currentRouteName() == 'regulations.add' ? 'show' : '' }}" id="editors">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link {{ Route::currentRouteName() == 'regulations' ? 'active' : '' }}" href="{{ route('regulations') }}">Lista de reglamentos</a></li>
+                    <li class="nav-item"><a class="nav-link {{ Route::currentRouteName() == 'regulations' ? 'active' : '' }}" href="{{ route('regulations') }}">Lista de documentos</a></li>
                 </ul>
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link {{ Route::currentRouteName() == 'regulations.add' ? 'active' : '' }}" href="{{ route('regulations.add') }}">Agregar reglamento</a></li>
+                    <li class="nav-item"><a class="nav-link {{ Route::currentRouteName() == 'regulations.add' ? 'active' : '' }}" href="{{ route('regulations.add') }}">Agregar documento</a></li>
                 </ul>
             </div>
         </li>

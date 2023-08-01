@@ -1,7 +1,14 @@
 @extends('frontend.layouts.app')
 @section('content')
     <!-- =============Banner Section============= -->
-    <section class="banner-section">
+    <section class="banner-section" 
+        @if($setting->background_website)
+            style="background-image: url('{{ asset('assets/images/' . $setting->background_website) }}');"
+        @else
+            style="background-image: url('{{ asset('assets-front/images/banner/bg-white.png') }}');
+        @endif
+        background-repeat: no-repeat;
+        background-size: cover;">
         <div class="container">
             <div class="banner-content  wow fadeInUp" data-wow-delay=".3s">
                 <b class="category">
@@ -15,13 +22,7 @@
                 </div>
             </div>
         </div>
-        <div class="maps-shape bg_img bg-contain" 
-        @if($setting->background_website)
-            data-background="{{ asset('assets/images/' . $setting->background_website) }}">
-        @else
-            data-background="{{ asset('assets-front/images/banner/banner-bg01.png') }}">
-        @endif
-        </div>
+
         <div class="shape-thumb">
             <img class="wow slideInUp" data-wow-delay=".7s" src="{{ asset('assets-front/images/micaela-bastidas-wh.png') }}"
                 alt="banner">

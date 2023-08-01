@@ -22,7 +22,7 @@
                         </div>
                         <div class="statistics-item">
                             <a href="{{ route('regulations') }}" class="text-white"><i
-                                    class="icon-sm fa fa-file-pdf mr-2"></i> Reglamentos</a>
+                                    class="icon-sm fa fa-file-pdf mr-2"></i> Documentos</a>
                             <h2>{{ $regulations }}</h2>
                         </div>
                         <div class="statistics-item">
@@ -39,25 +39,4 @@
             </div>
         </div>
     </div>
-
-    <div class="row">
-        <div class="col-md-5 grid-margin stretch-card">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">
-                        <i class="fas fa-calendar-alt"></i>
-                        Calendario
-                    </h4>
-                    <div id="inline-datepicker-example" class="datepicker"></div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-7 grid-margin stretch-card">
-            <div class="card">
-                <div class="card-body">
-                </div>
-            </div>
-        </div>
-    </div>
-
 @endsection

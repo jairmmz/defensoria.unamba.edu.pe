@@ -79,9 +79,9 @@
                                 <div class="border-bottom text-center pb-2">
                                     <b>Logo de la página web</b><br>
                                     @if (!$setting->logo_website)
-                                    <img style="width: 150px" src="{{ asset('assets/images/users/user-default.png') }}" alt="">
+                                        <img style="width: 150px" src="{{ asset('assets/images/users/logo-du-unamba.png') }}" alt="">
                                     @else
-                                    <img style="width: 150px" src="{{ asset('assets/images/' . $setting->logo_website) }}" alt="">
+                                        <img style="width: 150px" src="{{ asset('assets/images/' . $setting->logo_website) }}" alt="">
                                     @endif
                                 </div>
                                 <div class="border-bottom text-center pb-2">
@@ -95,7 +95,7 @@
                                 <div class="border-bottom text-center">
                                     <b>Fondo de pantalla de la página web</b><br>
                                     @if (!$setting->background_website)
-                                        <img src="{{ asset('assets/images/users/user-default.png') }}" class="w-50" alt="">
+                                        <img src="{{ asset('assets-front/images/banner/bg-white.png') }}" class="w-50" alt="">
                                     @else
                                         <img src="{{ asset('assets/images/' . $setting->background_website) }}" class="w-75" alt="">
                                     @endif

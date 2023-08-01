@@ -2,22 +2,21 @@
 @section('content')
     <div class="page-header">
         <h3 class="page-title">
-            Reglamentos y Resoluciones
+            Lisda de documentos
         </h3>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Tables</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Data table</li>
+                <li class="breadcrumb-item"><a href="{{ route('regulations') }}">Documentos</a></li>
             </ol>
         </nav>
     </div>
     <div class="card">
         <div class="card-body">
             <div class="d-flex justify-content-between mb-3">
-                <h4 class="card-title">LISTA DE REGLAMENTOS</h4>
+                <h4 class="card-title">LISTA DE DOCUMENTOS</h4>
                 <div>
                     <a href="{{ route('regulations.add') }}" class="btn btn-primary btn-icon-text">
-                        Añadir reglamento
+                        Añadir documento
                         <i class="btn-icon-append fas fa-plus"></i>
                     </a>
                 </div>
