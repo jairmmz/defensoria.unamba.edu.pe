@@ -27,7 +27,7 @@ use App\Http\Controllers\UserController;
 Route::get('/login', [LoginController::class, 'show'])->middleware('guest')->name('login');
 Route::post('/login', [LoginController::class, 'login'])->middleware('guest')->name('login.perform');
 
-Route::redirect('/admin', 'admin/dashboard', 301);
+Route::redirect('/admin', '/dashboard', 301);
 
 
 // ------------ Dashboard ----------------
@@ -63,11 +63,11 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::delete('/usuarios/eliminar/{user}', [UserController::class, 'destroy'])->name('users.destroy')->middleware('superadmin');
 
     // ------------ Formulario de atención de casos ----------------
-    Route::get('/formulario-atencion', [AttentionFormController::class, 'index'])->name('attention-form-index');
-    Route::get('/formulario-atencion/ver/{attentionForm}', [AttentionFormController::class, 'show'])->name('attention-form.show');
-    Route::patch('/formulario-atencion/actualizar/{attentionForm}', [AttentionFormController::class, 'update'])->name('attention-form.update');
-    Route::get('/formulario-atencion/generar-pdf/{attentionForm}', [AttentionFormController::class, 'generatePDF'])->name('attention-form.generatePDF');
-    Route::get('/formulario-atencion/generar-excel/{attentionForm}', [AttentionFormController::class, 'generateExcel'])->name('attention-form.generateExcel');
+    Route::get('/formulario-atencion', [AttentionFormController::class, 'index'])->name('attention-form-index')->middleware('superadmin');
+    Route::get('/formulario-atencion/ver/{attentionForm}', [AttentionFormController::class, 'show'])->name('attention-form.show')->middleware('superadmin');
+    Route::patch('/formulario-atencion/actualizar/{attentionForm}', [AttentionFormController::class, 'update'])->name('attention-form.update')->middleware('superadmin');
+    Route::get('/formulario-atencion/generar-pdf/{attentionForm}', [AttentionFormController::class, 'generatePDF'])->name('attention-form.generatePDF')->middleware('superadmin');
+    Route::get('/formulario-atencion/generar-excel/{attentionForm}', [AttentionFormController::class, 'generateExcel'])->name('attention-form.generateExcel')->middleware('superadmin');
 
     // ------------ Ajustes generales ----------------
     Route::get('/ajustes-generales', [GeneralSettingController::class, 'index'])->name('settings');
