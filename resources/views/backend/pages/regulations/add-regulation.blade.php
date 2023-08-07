@@ -21,12 +21,12 @@
                         {{ method_field("POST") }}
                         <div class="form-group">
                             <label for="title">Título</label>
-                            <input id="title" class="form-control" name="title" type="text">
+                            <input id="title" class="form-control" name="title" type="text" value="{{ old('title') }}">
                             @error('title') <p class='text-danger text-xs'> {{ $message }} </p> @enderror
                         </div>
                         <div class="form-group">
                             <label for="description">Descripción</label>
-                            <textarea class="form-control" id="desciption" name="description" rows="4"></textarea>
+                            <textarea class="form-control" id="desciption" name="description" rows="4">{{ old('description') }}"</textarea>
                             @error('description') <p class='text-danger text-xs'> {{ $message }} </p> @enderror
                         </div>
                         <div class="row">

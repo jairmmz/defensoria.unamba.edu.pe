@@ -11,7 +11,7 @@
                         <ul>
                             <li>
                                 <b>Celular/Teléfono: </b>
-                                <span></span>
+                                <span>{{ $setting->number_phone }}</span>
                             </li>
                             <li>
                                 <b>Horario de atención:</b>

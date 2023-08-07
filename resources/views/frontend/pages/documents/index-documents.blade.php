@@ -39,7 +39,7 @@
                     </div>
                     <div class="col-lg-7 d-flex ">
                         <div class="mr-md-4">
-                            <a href="{{ asset('assets/documents/' . $regulation->document_regulation) }}" target="_blank" class="h4 mb-3 d-block">{{ Str::limit($regulation->title, 30) }}</a>
+                            <a href="{{ asset('assets/documents/' . $regulation->document_regulation) }}" target="_blank" class="h5 mb-3 d-block">{{ Str::limit($regulation->title, 30) }}</a>
                             <p class="mb-0">{{ Str::limit($regulation->description, 130) }}</p>
                         </div>
                     </div>                                     
