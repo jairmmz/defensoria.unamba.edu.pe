@@ -16,7 +16,8 @@
                 </b>
                 <h1 class="title">Defensoría Universitaria UNAMBA</h1>
                 <div class="video-button-group">
-                    <a href="mailto:defensoriauniversitaria@unamba.edu.pe" class="custom-button active">Contacto</a>
+                    <a href="mailto:defensoriauniversitaria@unamba.edu.pe" class="custom-button">Contacto</a>
+                    <a href="{{ asset('assets-front/fut/FORMATO DE SOLICITUD DE DEFENSORIA UNIVERSITARIA 2023.docx') }}" class="custom-button active"><b>Formato de Defensoría Universitaria</b></a>
                 </div>
                 <div class="round-shape">
                 </div>

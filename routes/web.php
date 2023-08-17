@@ -63,11 +63,12 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::delete('/usuarios/eliminar/{user}', [UserController::class, 'destroy'])->name('users.destroy')->middleware('superadmin');
 
     // ------------ Formulario de atención de casos ----------------
-    Route::get('/formulario-atencion', [AttentionFormController::class, 'index'])->name('attention-form-index')->middleware('superadmin');
-    Route::get('/formulario-atencion/ver/{attentionForm}', [AttentionFormController::class, 'show'])->name('attention-form.show')->middleware('superadmin');
-    Route::patch('/formulario-atencion/actualizar/{attentionForm}', [AttentionFormController::class, 'update'])->name('attention-form.update')->middleware('superadmin');
-    Route::get('/formulario-atencion/generar-pdf/{attentionForm}', [AttentionFormController::class, 'generatePDF'])->name('attention-form.generatePDF')->middleware('superadmin');
-    Route::get('/formulario-atencion/generar-excel/{attentionForm}', [AttentionFormController::class, 'generateExcel'])->name('attention-form.generateExcel')->middleware('superadmin');
+    // Route::get('/formulario-atencion', [AttentionFormController::class, 'index'])->name('attention-form-index')->middleware('superadmin');
+    // Route::get('/formulario-atencion/ver/{attentionForm}', [AttentionFormController::class, 'show'])->name('attention-form.show')->middleware('superadmin');
+    // Route::patch('/formulario-atencion/actualizar/{attentionForm}', [AttentionFormController::class, 'update'])->name('attention-form.update')->middleware('superadmin');
+    // Route::patch('/formulario-enviar-correo/{attentionForm}', [AttentionFormController::class, 'sendEmail'])->name('attention-form.email')->middleware('superadmin');
+    // Route::get('/formulario-atencion/generar-pdf/{attentionForm}', [AttentionFormController::class, 'generatePDF'])->name('attention-form.generatePDF')->middleware('superadmin');
+    // Route::get('/formulario-atencion/generar-excel/{attentionForm}', [AttentionFormController::class, 'generateExcel'])->name('attention-form.generateExcel')->middleware('superadmin');
 
     // ------------ Ajustes generales ----------------
     Route::get('/ajustes-generales', [GeneralSettingController::class, 'index'])->name('settings');
@@ -103,7 +104,7 @@ Route::get('/procedimientos', [ProcedureController::class, 'index'])->name('fron
 Route::get('/documentos', [RegulationController::class, 'indexFrontend'])->name('frontend.documents');
 
 // ------------ Página de formulario de atención----------------
-Route::get('/formulario-atencion', [AttentionFormController::class, 'indexFront'])->name('frontend.attention-form');
-Route::post('/formulario-atencion/guardar', [AttentionFormController::class, 'store'])->name('attention-form.save');
+// Route::get('/formulario-atencion', [AttentionFormController::class, 'indexFront'])->name('frontend.attention-form');
+// Route::post('/formulario-atencion/guardar', [AttentionFormController::class, 'store'])->name('attention-form.save');
 
 

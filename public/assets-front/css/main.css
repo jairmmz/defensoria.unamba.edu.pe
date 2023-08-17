@@ -1382,7 +1382,8 @@ header.style-two {
       .banner-section .banner-content .video-button-group > * {
         margin: 5px;
         margin-bottom: 15px;
-        text-transform: capitalize; }
+        /* text-transform: capitalize;  */
+      }
     @media (max-width: 767px) {
       .banner-section .banner-content .title {
         font-size: 30px;
@@ -3119,7 +3120,8 @@ h4.title {
           display: none; } }
   .service-pro-item .service-pro-content {
     text-align: center;
-    text-transform: capitalize; }
+    /* text-transform: capitalize;  */
+  }
     .service-pro-item .service-pro-content .title {
       margin-bottom: 0; }
   @media (max-width: 575px) {
@@ -3167,8 +3169,8 @@ ul.bullet-list {
     max-width: 100%; }
 
 .voice-content .title {
-  text-transform: capitalize;
-  text-transform: capitalize;
+  /* text-transform: capitalize;
+  text-transform: capitalize; */
   margin-bottom: 25px; }
   @media (min-width: 576px) {
     .voice-content .title {
@@ -3229,7 +3231,8 @@ ul.bullet-list {
     margin-bottom: 30px;
     display: block; }
   .feature-item-three .title {
-    text-transform: capitalize; }
+    text-transform: capitalize; 
+  }
 
 .overview-thumb {
   margin-bottom: 36px; }
@@ -4695,7 +4698,8 @@ div[class*="position"] .details .area {
   color: #5350ff;
   overflow: hidden;
   position: relative;
-  text-transform: capitalize;
+  /* text-transform: capitalize */
+  ;
   line-height: 35px;
   padding: 11px 30px;
   background: transparent;

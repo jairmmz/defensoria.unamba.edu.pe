@@ -92,8 +92,9 @@
                         <ul class="bullet-list">
                             <li><b>De manera presencial:</b> de acuerdo al horario de atención definido y publicado.</li>
                             <p>Toda consulta, denuncia y/o reclamación se deberá presentar por escrito debidamente suscrito por el denunciante y/o reclamante, dirigido al defensor universitario.</p>
-                            <li><b>De manera virtual:</b> a través del <a href="{{ route('frontend.attention-form') }}">Formulario de atención online.</a></li>
-                            <p>En caso la denuncia y/o reclamación sea presentado en <a href="{{ route('frontend.attention-form') }}">Formulario de atención online</a>, se deberá enviar toda la documentación oportuna.</p>
+                            <li><b>De manera virtual:</b> a través del <a href="mailto:defensoriauniversitaria@unamba.edu.pe">defensoriauniversitaria@unamba.edu.pe.</a>
+                                Llenando el <a href="{{ asset('assets-front/fut/FORMATO DE SOLICITUD DE DEFENSORIA UNIVERSITARIA 2023.docx') }}">Formato de solicitud</a> dirigido al Defensor Universitario: {{ $authoritie->name }}.
+                            </li>
                         </ul>
                         <p>Es indispensable consignar una dirección electrónica para el envío de la respuesta.</p>
                     </section>

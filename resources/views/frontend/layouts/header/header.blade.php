@@ -59,9 +59,9 @@
                     <li>
                         <a href="{{ route('frontend.documents') }}">Documentos</a>
                     </li>
-                    <li>
+                    {{-- <li>
                         <a href="{{ route('frontend.attention-form') }}">Módulo de atención</a>
-                    </li>
+                    </li> --}}
                 </ul>
                 <div class="header-bar d-lg-none">
                     <span></span>

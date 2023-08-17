@@ -124,7 +124,17 @@
                             <option value="3" {{ $attentionForm->status == '3' ? 'selected' : '' }}>Archivado</option>
                         </select>
                     </div>
+
                 </form>
+                {{-- <form id="formAttentionForm" action="{{ route('attention-form.email', ['attentionForm' => $attentionForm->id]) }}" method="POST">
+                    @csrf
+                    {{ method_field("PATCH") }}
+                    <div class="form-group ">
+                        <label for="whatch">Observación:</label>
+                        <textarea name="whatch" id="" cols="30" rows="10"></textarea>
+                        <input type="submit">
+                    </div>
+                </form> --}}
             </div>
             <div class="col-lg-6">
                 <a href="{{ route('attention-form.generatePDF', ['attentionForm' => $attentionForm->id ]) }}" target="_blank" class="btn btn-outline-danger">Generar PDF   <i class="fas fa-file-pdf"></i></a>

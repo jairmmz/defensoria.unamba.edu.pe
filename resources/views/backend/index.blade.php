@@ -25,11 +25,11 @@
                                     class="icon-sm fa fa-file-pdf mr-2"></i> Documentos</a>
                             <h2>{{ $regulations }}</h2>
                         </div>
-                        <div class="statistics-item">
+                        {{-- <div class="statistics-item">
                             <a href="{{ route('attention-form-index') }}" class="text-white"><i
                                     class="icon-sm fa fa-gavel mr-2"></i> Atención de casos</a>
                             <h2>{{ $attention }}</h2>
-                        </div>
+                        </div> --}}
                         <div class="statistics-item">
                             <a href="{{ route('settings') }}" class="text-white"><i
                                     class="icon-sm fa fa-cog mr-2"></i>Ajustes generales</a>
