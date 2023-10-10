@@ -63,7 +63,7 @@
                       Recordar contraseña
                     </label>
                   </div>
-                  <a href="#" class="auth-link text-black">¿Has olvidado tu contraseña?</a>
+                  <a href="{{ route('login.forgot-password') }}" class="auth-link text-black">¿Has olvidado tu contraseña?</a>
                 </div>
                 <div class="my-3">
                   <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium">Ingresar</button>

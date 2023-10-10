@@ -2,18 +2,22 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class News extends Model
 {
-    use HasFactory;
+    use HasFactory, HasUuids;
+
+    protected $keyType = 'string';
+    protected $primaryKey = 'id';
 
     protected $fillable = [
         'title',
         'description',
+        'slug',
         'image',
-        'link_to_news',
         'is_active',
         'id_user',
     ];

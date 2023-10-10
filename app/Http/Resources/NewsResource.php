@@ -21,6 +21,7 @@ class NewsResource extends JsonResource
             'link_to_news' => $this->link_to_news,
             'is_active' => $this->is_active,
             'id_user' => $this->id_user,
+            'slug' => $this->slug,
         ];
     }
 }

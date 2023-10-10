@@ -26,6 +26,8 @@ use App\Http\Controllers\UserController;
 
 Route::get('/login', [LoginController::class, 'show'])->middleware('guest')->name('login');
 Route::post('/login', [LoginController::class, 'login'])->middleware('guest')->name('login.perform');
+Route::get('/login/olvide-contraseña', [LoginController::class, 'forgotPassword'])->middleware('guest')->name('login.forgot-password');
+Route::post('/login/olvide-contraseña', [LoginController::class, 'forgotPasswordSend'])->middleware('guest')->name('login.forgot-password.perform');
 
 Route::redirect('/admin', '/dashboard', 301);
 
@@ -92,7 +94,7 @@ Route::get('/', [IndexPageController::class, 'index'])->name('index');
 
 // ------------ Página de noticias ----------------
 Route::get('/noticias', [NewsController::class, 'indexFrontend'])->name('frontend.index.news');
-Route::get('/noticias/detalle/{new}', [NewsController::class, 'newsDetail'])->name('frontend.news.detail');
+Route::get('/noticias/{slug}', [NewsController::class, 'newsDetail'])->name('frontend.news.detail');
 
 // ------------ Página de servicios ----------------
 Route::get('/servicios', [ServiceController::class, 'index'])->name('frontend.services');

@@ -42,7 +42,7 @@
                             <a href="{{ asset('assets/documents/' . $regulation->document_regulation) }}" target="_blank" class="h5 mb-3 d-block">{{ Str::limit($regulation->title, 30) }}</a>
                             <p class="mb-0">{{ Str::limit($regulation->description, 130) }}</p>
                         </div>
-                    </div>                                     
+                    </div>
                     <div class="col-lg-2">
                         <div class="text-center">
                             <a href="{{ asset('assets/documents/' . $regulation->document_regulation) }}" target="_blank" class="btn btn-primary">Leer más</a>

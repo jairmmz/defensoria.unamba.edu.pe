@@ -23,6 +23,10 @@
                 </div>
             </div>
 
+            @php
+                $index = 1;
+            @endphp
+
             <div class="row">
                 <div class="col-12">
                     <div class="table-responsive">
@@ -40,7 +44,7 @@
                             <tbody>
                                 @foreach ($users as $user)
                                     <tr>
-                                        <td>{{ $user->id }}</td>
+                                        <td>{{ $index++ }}</td>
                                         <td>{{ $user->username }}</td>
                                         <td>{{ $user->email }}</td>
                                         <td>

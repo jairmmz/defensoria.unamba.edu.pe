@@ -14,10 +14,11 @@ class AuthoritieSeeder extends Seeder
     public function run(): void
     {
         DB::table('authorities')->insert([
-            'charge_authority' => 'Defensor Universitario',
-            'name' => 'MVZ. Víctor Raúl Cano Fuentes',
-            'image_authority' => 'users/user-default.png',
-            'id_user' => '1'
+            'id' => 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a32',
+            'charge_authority' => 'Defensor(a) Universitario',
+            'name' => 'Nombre del Defensor(a) Universitario',
+            'image_authority' => null,
+            'id_user' => 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11',
         ]);
     }
 }

@@ -1,9 +1,13 @@
 <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row default-layout-navbar">
     <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo" href="{{ route('dashboard') }}"><img src="{{ asset('assets/images/' . $setting->logo_website) }}"
-                alt="logo" /></a>
-        <a class="navbar-brand brand-logo-mini" href="{{ route('dashboard') }}"><img src="{{ asset('assets/images/logo-du-unamba-min.png') }}"
-                alt="logo" /></a>
+        <a class="navbar-brand brand-logo" href="{{ route('dashboard') }}">
+            @if($setting->logo_website)
+                <img src="{{ asset('assets/images/' . $setting->logo_website) }}" alt="logos" /></a>
+            @else
+                <img src="{{ asset('assets/images/logo-du-unamba.png') }}" alt="logos" /></a>
+            @endif
+        <a class="navbar-brand brand-logo-mini" href="{{ route('dashboard') }}">
+            <img src="{{ asset('assets/images/logo-du-unamba-min.png') }}" alt="logos" /></a>
     </div>
     <div class="navbar-menu-wrapper d-flex align-items-stretch">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -25,22 +29,25 @@
         </ul>
         <ul class="navbar-nav navbar-nav-right">
             <div class="nav-link">
-                <a class="btn btn-outline-dark" href="{{ route('index') }}" target="_blank">Ir a la web <i class="fas fa-globe mx-0"></i>
+                <a class="btn btn-outline-dark" href="{{ route('index') }}" target="_blank">Ir a la web <i
+                        class="fas fa-globe mx-0"></i>
                 </a>
             </div>
             <li class="nav-item nav-profile dropdown">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-                    <img src="{{ asset('assets/images/' . (Auth::user()->profile_photo != null ? Auth::user()->profile_photo : 'users/user-default.png') ) }}" alt="">
+                    <img src="{{ asset('assets/images/' . (Auth::user()->profile_photo != null ? Auth::user()->profile_photo : 'users/user-default.png')) }}"
+                        alt="">
                 </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-                    <a class="dropdown-item" href="{{ route('profile.user', ['user'=>Auth::user()->id]) }}">
+                    <a class="dropdown-item" href="{{ route('profile.user', ['user' => Auth::user()->id]) }}">
                         <i class="fas fa-user text-primary"></i>
                         Perfil
                     </a>
                     <div class="dropdown-divider"></div>
                     <form role="form" method="post" action="{{ route('logout') }}" id="logout-form">
                         @csrf
-                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <i class="fas fa-power-off text-primary"></i>
                             Salir
                         </a>

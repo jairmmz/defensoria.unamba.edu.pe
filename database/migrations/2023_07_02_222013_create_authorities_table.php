@@ -6,24 +6,18 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('authorities', function (Blueprint $table) {
-            $table->id();
-            $table->string('charge_authority')->nullable();
-            $table->string('name')->nullable();
-            $table->string('image_authority');
-            $table->foreignID('id_user')->constrained('users');
+            $table->uuid('id')->primary();
+            $table->string('name');
+            $table->string('charge_authority');
+            $table->string('image_authority')->nullable();
+            $table->foreignUuid('id_user')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('authorities');

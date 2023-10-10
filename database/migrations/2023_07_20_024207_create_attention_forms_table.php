@@ -6,19 +6,16 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('attention_forms', function (Blueprint $table) {
-            $table->id();
-            $table->string('name_plaintiff')->nullable();
+            $table->uuid('id')->primary();
+            $table->string('name_plaintiff');
             $table->string('identity_code_plaintiff')->nullable();
             $table->string('identity_dni_plaintiff')->nullable();
             $table->string('condition_plaintiff')->nullable();
-            $table->string('type_request')->nullable();
-            $table->string('issue')->nullable();
+            $table->string('type_request');
+            $table->string('issue');
             $table->string('profesional_school_plaintiff')->nullable();
             $table->string('workplace_office_plaintiff')->nullable();
             $table->string('home_address_plaintiff')->nullable();
@@ -29,18 +26,15 @@ return new class extends Migration
             $table->string('number_phone_defendant')->nullable();
             $table->string('profesional_school_defendant')->nullable();
             $table->string('workplace_office_defendant')->nullable();
-            $table->text('description_facts')->nullable();
+            $table->text('description_facts');
             $table->text('violated_rights')->nullable();
             $table->text('description_files')->nullable();
             $table->string('signature_plaintiff')->nullable();
-            $table->string('status')->nullable()->default('pendiente');
+            $table->string('status');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('attention_form');

@@ -58,14 +58,16 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <label for="url_banner">Url del banner</label>
+                                    <div class="card">
+                                        <input type="text" id="url_banner" class="form-control" name="url_banner" value="{{ $setting->url_banner }}">
+                                        @error('url_banner') <p class='text-danger text-xs'> {{ $message }} </p> @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <label for="number_phone">Número de teléfono/celular</label>
                                     <input id="number_phone" class="form-control" name="number_phone" type="text" value="{{ $setting->number_phone }}">
                                     @error('number_phone') <p class='text-danger text-xs'> {{ $message }} </p> @enderror
-                                </div>
-                                <div class="form-group">
-                                    <label for="link_facebook">Facebook</label>
-                                    <input id="link_facebook" class="form-control" name="link_facebook" type="text" value="{{ $setting->link_facebook }}">
-                                    @error('link_facebook') <p class='text-danger text-xs'> {{ $message }} </p> @enderror
                                 </div>
 
                                 <input class="form-control" name="id_user" type="hidden" value="{{ Auth::user()->id }}">

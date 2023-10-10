@@ -6,26 +6,20 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('regulations', function (Blueprint $table) {
-            $table->id();
-            $table->string('title')->nullable();
-            $table->text('description')->nullable();
-            $table->date('date_regulation')->nullable();
-            $table->boolean('is_active')->default(true);
-            $table->string('document_regulation')->nullable();
-            $table->foreignID('id_user')->constrained('users');
+            $table->uuid('id')->primary();
+            $table->string('title');
+            $table->text('description');
+            $table->date('date_regulation');
+            $table->boolean('is_active');
+            $table->string('document_regulation');
+            $table->foreignUuid('id_user')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('regulations');

@@ -47,7 +47,7 @@
                             </div>
                             <ul>
                                 @foreach ($news as $other_new)
-                                    <li><a href="{{ route('frontend.news.detail', ['new' => $other_new->id]) }}">{{ $other_new->title }}</a></li>
+                                    <li><a href="{{ route('frontend.news.detail', ['slug' => $other_new->slug]) }}">{{ $other_new->title }}</a></li>
                                 @endforeach
                             </ul>
                         </div>

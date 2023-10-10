@@ -9,13 +9,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('news', function (Blueprint $table) {
-            $table->id();
-            $table->string('title')->nullable();
-            $table->longText('description')->nullable();
-            $table->string('image', 2048)->nullable();
-            $table->string('link_to_news')->nullable();
-            $table->boolean('is_active')->default(true);
-            $table->foreignID('id_user')->constrained('users');
+            $table->uuid('id')->primary();
+            $table->string('title');
+            $table->string('slug');
+            $table->longText('description');
+            $table->string('image')->nullable();
+            $table->boolean('is_active');
+            $table->foreignUuid('id_user')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

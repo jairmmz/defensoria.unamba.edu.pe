@@ -13,13 +13,17 @@
     <div class="card">
         <div class="card-body">
             <div class="d-flex justify-content-between mb-3">
-                <h4 class="card-title">LISTA DE NOTICIAS</h4>                
-                  <a href="{{ route('news.add') }}" class="btn btn-primary btn-icon-text">
+                <h4 class="card-title">LISTA DE NOTICIAS</h4>
+                <a href="{{ route('news.add') }}" class="btn btn-primary btn-icon-text">
                     Añadir noticia
                     <i class="btn-icon-append fas fa-plus"></i>
-                  </a>
+                </a>
             </div>
-              
+
+            @php
+                $index = 1;
+            @endphp
+
             <div class="row">
                 <div class="col-12">
                     <div class="table-responsive">
@@ -38,29 +42,33 @@
                             <tbody>
                                 @foreach ($news as $new)
                                     <tr>
-                                        <td>{{ $new->id }}</td>
+                                        <td>{{ $index++ }}</td>
                                         <td>{{ $new->title }}</td>
                                         <td>{{ Str::limit($new->description, 50) }}</td>
                                         <td>
                                             @if (!$new->image)
-                                                <img src="{{ asset('assets/images/logo-du-unamba-min.png') }}" alt="">
+                                                <img src="{{ asset('assets/images/logo-du-unamba-min.png') }}"
+                                                    alt="">
                                             @else
-                                            <img src="{{ asset('assets/images/' . $new->image) }}" alt="">
+                                                <img src="{{ asset('assets/images/' . $new->image) }}" alt="">
                                             @endif
                                         </td>
-                                        <td><a href="{{ route('frontend.news.detail', ['new' => $new->id]) }}" target="_blank">Ir a la noticia</a></td>
+                                        <td><a href="{{ route('frontend.news.detail', ['slug' => $new->slug]) }}"
+                                                target="_blank">Ir a la noticia</a></td>
                                         <td>
-                                            <label class="badge badge-{{ $new->is_active == 1 ? 'info' : 'danger'  }}">
+                                            <label class="badge badge-{{ $new->is_active == 1 ? 'info' : 'danger' }}">
                                                 {{ $new->is_active == 1 ? 'Activo' : 'Inactivo' }}
                                             </label>
                                         </td>
                                         <td>
-                                            <a href="{{ route('news.edit', ['new' => $new->id ]) }}" class="btn btn-outline-primary mb-2">Editar</a>
-                                            <form method="POST" action="{{ route('news.destroy', ['new' => $new->id ]) }}" >
+                                            <a href="{{ route('news.edit', ['new' => $new->id]) }}"
+                                                class="btn btn-outline-primary mb-2">Editar</a>
+                                            <form method="POST"
+                                                action="{{ route('news.destroy', ['new' => $new->id]) }}">
                                                 @csrf
-                                                {{ method_field("DELETE") }}
+                                                {{ method_field('DELETE') }}
                                                 <button type="button" class="btn btn-outline-danger"
-                                                onclick="confirmation(event)">Eliminar</button>
+                                                    onclick="confirmation(event)">Eliminar</button>
                                             </form>
                                         </td>
                                     </tr>

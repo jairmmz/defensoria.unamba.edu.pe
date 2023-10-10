@@ -22,6 +22,10 @@
                 </div>
             </div>
 
+            @php
+                $index = 1;
+            @endphp
+
             <div class="row">
                 <div class="col-12">
                     <div class="table-responsive">
@@ -40,7 +44,7 @@
                             <tbody>
                                 @foreach ($regulations as $regulation)
                                     <tr>
-                                        <td>{{ $regulation->id }} </td>
+                                        <td>{{ $index++ }} </td>
                                         <td>{{ Str::limit($regulation->title, 30) }}</td>
                                         <td>{{ Str::limit($regulation->description, 40) }}</td>
                                         <td>{{ $regulation->date_regulation }}</td>

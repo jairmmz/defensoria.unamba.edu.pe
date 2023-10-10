@@ -6,28 +6,22 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('general_settings', function (Blueprint $table) {
-            $table->id();
-            $table->string('logo_website');
-            $table->string('title_website');
+            $table->uuid('id')->primary();
+            $table->string('logo_website')->nullable();
+            $table->string('title_website')->nullable();
             $table->string('background_website')->nullable();
-            $table->string('banner_website')->nullable();
-            $table->boolean('is_active_banner')->default(true);
+            $table->string('banner_website', 250)->nullable();
+            $table->string('url_banner', 250)->nullable();
+            $table->boolean('is_active_banner');
             $table->string('number_phone')->nullable();
-            $table->string('link_facebook')->nullable();
-            $table->foreignID('id_user')->constrained('users');
+            $table->foreignUuid('id_user')->constrained('users');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('general_settings');

@@ -1,14 +1,11 @@
 @extends('frontend.layouts.app')
 @section('content')
     <!-- =============Banner Section============= -->
-    <section class="banner-section" 
-        @if($setting->background_website)
-            style="background-image: url('{{ asset('assets/images/' . $setting->background_website) }}');"
+    <section class="banner-section"
+        @if ($setting->background_website) style="background-image: url('{{ asset('assets/images/' . $setting->background_website) }}');"
         @else
-            style="background-image: url('{{ asset('assets-front/images/banner/bg-white.png') }}');
-        @endif
-        background-repeat: no-repeat;
-        background-size: cover;">
+            style="background-image: url('{{ asset('assets-front/images/banner/bg-white.png') }}'); @endif
+        background-repeat: no-repeat; background-size: cover;">
         <div class="container">
             <div class="banner-content  wow fadeInUp" data-wow-delay=".3s">
                 <b class="category">
@@ -17,7 +14,8 @@
                 <h1 class="title">Defensoría Universitaria UNAMBA</h1>
                 <div class="video-button-group">
                     <a href="mailto:defensoriauniversitaria@unamba.edu.pe" class="custom-button">Contacto</a>
-                    <a href="{{ asset('assets-front/fut/FORMATO DE SOLICITUD DE DEFENSORIA UNIVERSITARIA 2023.docx') }}" class="custom-button active"><b>Formato de Defensoría Universitaria</b></a>
+                    <a href="{{ asset('assets-front/fut/FORMATO DE SOLICITUD DE DEFENSORIA UNIVERSITARIA 2023.docx') }}"
+                        class="custom-button active"><b>Formato de Defensoría Universitaria</b></a>
                 </div>
                 <div class="round-shape">
                 </div>
@@ -81,12 +79,12 @@
                                 resolución de conflictos y protección de derechos. Como ente autónomo, toma decisiones sin
                                 influencias externas, beneficiando a la comunidad universitaria con transparencia y respeto
                                 a los derechos fundamentales.</p>
-                            </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="choose-item text-center wow fadeInUp bg-white" data-wow-delay=".3s">
-                            <div class="choose-thumb">
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="choose-item text-center wow fadeInUp bg-white" data-wow-delay=".3s">
+                        <div class="choose-thumb">
                             <i class="fas fa-users"></i>
                         </div>
                         <div class="choose-content">
@@ -95,11 +93,11 @@
                                 comunidad universitaria, evitando cualquier tipo de maltrato y garantizando el pleno respeto
                                 de sus derechos y libertades fundamentales, especialmente cuando se encuentren en
                                 situaciones de vulnerabilidad.</p>
-                            </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="choose-item text-center wow fadeInUp bg-white" data-wow-delay=".3s">
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="choose-item text-center wow fadeInUp bg-white" data-wow-delay=".3s">
                         <div class="choose-thumb">
                             <i class="fas fa-search"></i>
                         </div>
@@ -121,14 +119,14 @@
     <section class="offer-section padding-top padding-bottom">
         <div class="container">
             <div class="section-header wow fadeInUp">
-                <h2 class="title">Defensor Universitario</h2>
+                <h2 class="title">{{ $authoritie->charge_authority }}</h2>
             </div>
         </div>
         <div class="container mw-lg-100">
             <div class="row align-items-center flex-wrap-reverse">
                 <div class="col-lg-6">
                     <div class="left-side-offer wow fadeInUp text-justify" data-wow-delay=".3s">
-                        <h4 class="title">MVZ. Victor Raúl Cano Fuentes</h4>
+                        <h4 class="title">{{ $authoritie->name }}</h4>
                         <p>El Defensor Universitario es la figura presente en la universidad que tiene la responsabilidad de
                             velar por los derechos y garantías de los miembros de la comunidad universitaria, incluyendo
                             estudiantes, profesores y personal administrativo. Su función principal es la defensa de los
@@ -163,8 +161,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <div class="bulk-thumb">
-                        <img src="{{ asset('assets-front/images/du-mision-vision.png') }}"
-                            alt="">
+                        <img src="{{ asset('assets-front/images/du-mision-vision.png') }}" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -204,7 +201,8 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <a href="{{ asset('assets/images/' . $setting->banner_website) }}" target="_blank">
+                    <a href="{{ $setting->url_banner ? $setting->url_banner : asset('assets/images/' . $setting->banner_website) }}"
+                        target="_blank">
                         <img src="{{ asset('assets/images/' . $setting->banner_website) }}" alt=""
                             class="img_fluid w-100">
                     </a>

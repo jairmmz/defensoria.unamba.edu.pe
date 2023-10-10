@@ -30,7 +30,7 @@
                     <div class="col-md-6 col-lg-4">
                         <div class="post-item">
                             <div class="post-thumb">
-                                <a href="{{ route('frontend.news.detail', ['new' => $new->id]) }}">
+                                <a href="{{ route('frontend.news.detail', ['slug' => $new->slug]) }}">
                                     <img src="{{ asset('assets/images/' . $new->image) }}" alt="blog">
                                 </a>
                                 <div class="post-date">
@@ -39,10 +39,10 @@
                             </div>
                             <div class="post-content">
                                 <h4 class="title">
-                                    <a href="{{ route('frontend.news.detail', ['new' => $new->id]) }}">{{ $new->title }}</a>
+                                    <a href="{{ route('frontend.news.detail', ['slug' => $new->slug]) }}">{{ $new->title }}</a>
                                 </h4>
                                 <p>{{ Str::limit($new->description, 70) }}</p>
-                                <a class="read-more" href="{{ route('frontend.news.detail', ['new' => $new->id]) }}">Leer más... <i
+                                <a class="read-more" href="{{ route('frontend.news.detail', ['slug' => $new->slug]) }}">Leer más... <i
                                         class="fas fa-caret-right"></i></a>
                             </div>
                         </div>

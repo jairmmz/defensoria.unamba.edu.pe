@@ -26,7 +26,7 @@
                         </div>
                         <div class="form-group">
                             <label for="description">Descripción</label>
-                            <textarea class="form-control" id="desciption" name="description" rows="10">{{ old('description') }}</textarea>
+                            <textarea id="description" class="form-control" name="description" rows="5">{{ old('description') }}</textarea>
                             @error('description') <p class='text-danger text-xs'> {{ $message }} </p> @enderror
                         </div>
                         <div class="form-group">
@@ -39,15 +39,7 @@
                             @error('image') <p class='text-danger text-xs'> {{ $message }} </p> @enderror
                         </div>
                         <div class="row">
-                            <div class="col-lg-9">
-                                <div class="form-group">
-                                    <label for="link_to_news">Enlace de la noticia</label>
-                                    <input id="link_to_news" class="form-control" name="link_to_news" type="text" value="{{ old('link_to_news') }}">
-                                    @error('link_to_news') <p class='text-danger text-xs'> {{ $message }} </p> @enderror
-                                </div>
-                            </div>
-                            
-                            <div class="col-lg-3">
+                            <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for="is_active">Estado</label>
                                     <select class="form-control" name="is_active">

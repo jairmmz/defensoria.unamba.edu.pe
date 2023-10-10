@@ -33,9 +33,11 @@ class NewsController extends Controller
             throw $th;
         }
     }
-    public function newsDetail(News $new)
+    public function newsDetail(string $slug)
     {
         try {
+            $new = News::where('slug', $slug)->first();
+
             $setting = GeneralSetting::first();
 
             // Traer todos los registros de la tabla News excepto el que se está mostrando
@@ -61,7 +63,11 @@ class NewsController extends Controller
     public function store(NewsRequest $request)
     {
         try {
-            $news = $request->all();
+            $news = $request->validated();
+
+            $title = $request->title;
+            $slug = strtolower(str_replace(' ', '-', $title));
+            $news['slug'] = $slug;
 
             if ($image = $request->file('image')) {
                 $routeSaveImage = 'assets/images/';

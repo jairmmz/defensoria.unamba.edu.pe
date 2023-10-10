@@ -10,16 +10,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('file_attention_forms', function (Blueprint $table) {
-            $table->id();
-            $table->foreignIdFor(AttentionForm::class);
-            $table->string('file_attention_form')->nullable();
+            $table->uuid('id')->primary();
+            $table->foreignUuid('id_attention_form')->constrained('attention_forms');
+            $table->string('file_attention_form');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('file_attention_forms');

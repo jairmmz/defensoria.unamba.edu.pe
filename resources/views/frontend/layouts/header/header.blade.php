@@ -7,7 +7,11 @@
                     <div class="col-md-6">
                         <ul>
                             <li class="mr-3">
-                                <a href="Tel:{{$setting->number_phone}}"><i class="fas fa-phone-square"></i><b>+51 {{ $setting->number_phone }}</b></a>
+                                @if ($setting->number_phone)
+                                    <a href="Tel:{{$setting->number_phone}}"><i class="fas fa-phone-square"></i><b>+51 {{ $setting->number_phone }} </b></a>
+                                @else
+                                    <a href="Tel:987654321"><i class="fas fa-phone-square"></i><b>+51 987654321</b></a>
+                                @endif
                             </li>
                             <li>
                                 <a href="mailto:defensoriauniversitaria@unamba.edu.pe"><i
@@ -48,6 +52,9 @@
                         <a href="{{ route('index') }}">Inicio</a>
                     </li>
                     <li>
+                        <a href="{{ route('frontend.documents') }}">Documentos</a>
+                    </li>
+                    <li>
                         <a href="{{ route('frontend.index.news') }}">Noticias</a>
                     </li>
                     <li>
@@ -55,9 +62,6 @@
                     </li>
                     <li>
                         <a href="{{ route('frontend.procedures') }}">Procedimientos</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('frontend.documents') }}">Documentos</a>
                     </li>
                     {{-- <li>
                         <a href="{{ route('frontend.attention-form') }}">Módulo de atención</a>
